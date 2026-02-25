@@ -1194,6 +1194,72 @@ export const waterfalls: Waterfall[] = [
     trail_files: [],
     hydrology: null,
   },
+  {
+    id: "w27",
+    name_en: "Tar Te Saitar 1 & 2",
+    name_bn: "তার তে সাইতার ১ ও ২",
+    slug: "tar-te-saitar",
+    lat: 21.908669,
+    lng: 92.562249,
+    region: "Bandarban",
+    region_tag: "CHT",
+    description:
+      "Tar Te Saitar 1 & 2 are twin waterfalls located near Thingdawlte Tlang area at an elevation of approximately 408 metres in Bandarban district.",
+    how_to_go:
+      "Located in the Thingdawlte Tlang area of Bandarban. Requires trekking with a local guide through dense hill terrain.",
+    tips:
+      "Best visited during or just after monsoon for maximum water flow. Carry sufficient water and supplies.",
+    contributor: "",
+    coordinates_pending: false,
+    nearby_peak_slugs: ["thingdawlte-tlang"],
+    images: [],
+    trail_files: [],
+    hydrology: null,
+  },
+  {
+    id: "w28",
+    name_en: "Tar Pi Saitar",
+    name_bn: "তার পি সাইতার",
+    slug: "tar-pi-saitar",
+    lat: 21.879339,
+    lng: 92.578655,
+    region: "Bandarban",
+    region_tag: "CHT",
+    description:
+      "Tar Pi Saitar is a waterfall situated at an elevation of approximately 533 metres in the hills of Bandarban district, one of the higher-altitude waterfalls in the region.",
+    how_to_go:
+      "Located in the highland area of Bandarban. Requires trekking with a local guide. The trail passes through steep terrain.",
+    tips:
+      "Higher elevation means cooler temperatures. Prepare for a challenging trek. Best visited November-March for drier trails or monsoon for best flow.",
+    contributor: "",
+    coordinates_pending: false,
+    nearby_peak_slugs: ["thingdawlte-tlang"],
+    images: [],
+    trail_files: [],
+    hydrology: null,
+  },
+  {
+    id: "w29",
+    name_en: "Lung Pher Va Saitar",
+    name_bn: "লুং ফের ভা সাইতার",
+    slug: "lung-pher-va-saitar",
+    lat: 21.900691,
+    lng: 92.558319,
+    region: "Bandarban",
+    region_tag: "CHT",
+    description:
+      "Lung Pher Va Saitar is a waterfall at approximately 364 metres elevation in the Bandarban hills, near the Thingdawlte Tlang area.",
+    how_to_go:
+      "Located near Thingdawlte Tlang in Bandarban. Accessible via trekking trails with a local guide.",
+    tips:
+      "Remote location — ensure you have a local guide. Carry your own food and water.",
+    contributor: "",
+    coordinates_pending: false,
+    nearby_peak_slugs: ["thingdawlte-tlang"],
+    images: [],
+    trail_files: [],
+    hydrology: null,
+  },
 ];
 
 export interface StreamEntry {
