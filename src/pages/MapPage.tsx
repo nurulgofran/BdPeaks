@@ -44,7 +44,7 @@ const MapPage = () => {
     // Add peak markers (green) — minimal dot style
     mountains.forEach((peak) => {
       const popup = new mapboxgl.Popup({ offset: 12, className: "peak-popup" }).setHTML(
-        `<div style="color:#111827;padding:4px"><strong>${peak.name_en}</strong><br/><span style="font-size:11px">${peak.altitude_ft.toLocaleString()} ft · ${peak.region}</span></div>`
+        `<div style="color:#111827;padding:4px"><a href="/peak/${peak.slug}" style="text-decoration:none;color:inherit"><strong>${peak.name_en}</strong><br/><span style="font-size:11px">${peak.altitude_ft.toLocaleString()} ft · ${peak.region}</span><br/><span style="font-size:10px;color:#10B981">View details →</span></a></div>`
       );
 
       const el = document.createElement("div");
@@ -63,7 +63,7 @@ const MapPage = () => {
       if (wf.coordinates_pending || !wf.lat || !wf.lng) return;
 
       const popup = new mapboxgl.Popup({ offset: 12, className: "peak-popup" }).setHTML(
-        `<div style="color:#111827;padding:4px"><strong>${wf.name_en}</strong><br/><span style="font-size:11px">${wf.region}</span></div>`
+        `<div style="color:#111827;padding:4px"><a href="/waterfall/${wf.slug}" style="text-decoration:none;color:inherit"><strong>${wf.name_en}</strong><br/><span style="font-size:11px">${wf.region}</span><br/><span style="font-size:10px;color:#3B82F6">View details →</span></a></div>`
       );
 
       const el = document.createElement("div");
