@@ -9,6 +9,7 @@ import Explore from "./pages/Explore";
 import PeakDetail from "./pages/PeakDetail";
 import WaterfallDetail from "./pages/WaterfallDetail";
 import MapPage from "./pages/MapPage";
+import RegionDetail from "./pages/RegionDetail";
 import Contribute from "./pages/Contribute";
 import NotFound from "./pages/NotFound";
 
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/peak/:slug" element={<PeakDetail />} />
           <Route path="/waterfall/:slug" element={<WaterfallDetail />} />
           <Route path="/map" element={<MapPage />} />
+          <Route path="/region/:slug" element={<RegionDetail />} />
           <Route path="/contribute" element={<Contribute />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

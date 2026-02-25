@@ -601,3 +601,97 @@ export const waterfalls: Waterfall[] = [
     trail_files: [],
   },
 ];
+
+export interface StreamEntry {
+  local_name: string;
+  alt_name: string;
+}
+
+export interface ForestRegion {
+  id: string;
+  name: string;
+  slug: string;
+  political_name: string;
+  total_area_km2: number;
+  max_elevation_ft: number;
+  min_elevation_ft: number;
+  avg_rainfall_mm: number;
+  stream_basin: string;
+  streams: StreamEntry[];
+  natural_waterbodies: number;
+  forest_density_pct: number;
+  max_canopy_height_ft: number;
+  avg_canopy_height_ft: number;
+  leaf_area_index: string;
+  foliage_height_diversity: number;
+  vertical_canopy_index: number;
+  estimated_biomass_tonnes_per_ha: string;
+  above_ground_biomass_tonnes: string;
+  below_ground_biomass_tonnes: string;
+  total_carbon_tonnes: string;
+  canopy_timber_species: string[];
+  bamboo_species: string[];
+  understory_flora: string;
+  notable_mammals: string[];
+  birds_description: string;
+  reptiles_amphibians_description: string;
+}
+
+export const forestRegions: ForestRegion[] = [
+  {
+    id: "fr1",
+    name: "Sangu Upper Basin Tropical Semi Evergreen Rainforest",
+    slug: "sangu-upper-basin",
+    political_name: "Sangu Reserve Forest",
+    total_area_km2: 320,
+    max_elevation_ft: 2985,
+    min_elevation_ft: 160,
+    avg_rainfall_mm: 3000,
+    stream_basin: "Sangu/Sangkho",
+    streams: [
+      { local_name: "Boro Mowdok", alt_name: "Madhugree Khiyang" },
+      { local_name: "Boro Saipu", alt_name: "Hombung Khiyang" },
+      { local_name: "Otto Khiyang", alt_name: "Tawa Chara" },
+      { local_name: "Tomo aw", alt_name: "Tomoto Chara" },
+      { local_name: "Wangring aw", alt_name: "Wangnyo Chara" },
+      { local_name: "Fa wayne saw", alt_name: "Tao Chara" },
+      { local_name: "Panjhiri", alt_name: "Marang Chara" },
+      { local_name: "Sapachara", alt_name: "Sangkha Jhiri" },
+      { local_name: "Lagpai jhiri", alt_name: "Sapang Chara" },
+      { local_name: "Braw khiyang", alt_name: "Malak Chara" },
+      { local_name: "Likri aw", alt_name: "Saingpho Chara" },
+      { local_name: "Saikhiang chara", alt_name: "" },
+      { local_name: "Tuiwang", alt_name: "" },
+      { local_name: "Narissha Khiyang", alt_name: "" },
+      { local_name: "Nablain Khiyang", alt_name: "" },
+    ],
+    natural_waterbodies: 1,
+    forest_density_pct: 70,
+    max_canopy_height_ft: 140,
+    avg_canopy_height_ft: 67,
+    leaf_area_index: "6-7",
+    foliage_height_diversity: 0.9,
+    vertical_canopy_index: 0.7,
+    estimated_biomass_tonnes_per_ha: "150-200",
+    above_ground_biomass_tonnes: "3.36 million",
+    below_ground_biomass_tonnes: "1.15 million",
+    total_carbon_tonnes: "4.3 million",
+    canopy_timber_species: [
+      "Jarul", "Karai", "Gamar", "Chapalish", "Toon", "Civit", "Chandul", "Shimul", "Champa",
+    ],
+    bamboo_species: [
+      "Melocanna baccifera", "Bambusa burmanica", "B. polymorpha", "Dendrocalamus spp.", "Gigantochloa spp.",
+    ],
+    understory_flora: "Mainly Ferns, Mushrooms, Herbs",
+    notable_mammals: [
+      "Asian Elephant", "Indochinese Leopard", "Sambar Deer", "Barking Deer", "Binturong",
+      "Clouded Leopard", "Asian Black Bear", "Sun Bear", "Capped Langur",
+      "Western Hoolock Gibbon", "Crab-Eating Macaques", "Gray Slow Loris",
+      "Indian Civet", "Wild Boar",
+    ],
+    birds_description:
+      "More than 280 species of birds including Great Hornbill, Spotted Owlet, Hill Myna, House Swift, and Greater Painted-snipe. Almost all birds live in the canopy layer.",
+    reptiles_amphibians_description:
+      "49 species of reptiles and 20 species of amphibians including Asian Forest Turtle, Reticulated Python, and various kinds of lizards and tree toads.",
+  },
+];

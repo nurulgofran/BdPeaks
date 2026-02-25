@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Grid3x3, List, SlidersHorizontal, X } from "lucide-react";
+import { Grid3x3, List, SlidersHorizontal, X, TreePine } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
@@ -8,7 +8,7 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/s
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 import { PeakCard } from "@/components/PeakCard";
 import { WaterfallCard } from "@/components/WaterfallCard";
-import { mountains, waterfalls, regions, waterfallRegionTags, type Mountain, type Waterfall } from "@/data/mockData";
+import { mountains, waterfalls, forestRegions, regions, waterfallRegionTags, type Mountain, type Waterfall } from "@/data/mockData";
 import { Link } from "react-router-dom";
 
 type ViewMode = "grid" | "list";
@@ -306,6 +306,36 @@ const Explore = () => {
           )}
         </div>
       </div>
+
+      {/* Forest Regions Section */}
+      {forestRegions.length > 0 && (
+        <div className="mt-12">
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
+            <TreePine className="h-5 w-5 text-primary" /> Forest Regions & Basins
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {forestRegions.map((fr) => (
+              <Link
+                key={fr.id}
+                to={`/region/${fr.slug}`}
+                className="group rounded-xl border border-border bg-card hover:border-primary/40 p-5 transition-all duration-300"
+              >
+                <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">{fr.name}</h3>
+                <p className="text-sm text-muted-foreground mt-1">{fr.political_name}</p>
+                <div className="flex flex-wrap gap-3 mt-3 text-xs text-muted-foreground">
+                  <span>{fr.total_area_km2} km²</span>
+                  <span>·</span>
+                  <span>{fr.forest_density_pct}% density</span>
+                  <span>·</span>
+                  <span>{fr.streams.length} streams</span>
+                  <span>·</span>
+                  <span>{fr.notable_mammals.length}+ mammal species</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </main>
   );
 };
