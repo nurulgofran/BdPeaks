@@ -19,6 +19,12 @@ export interface Mountain {
   category: "peak" | "waterfall";
 }
 
+export interface TrailFile {
+  name: string;
+  type: "gpx" | "kmz";
+  contributor: string;
+}
+
 export interface Waterfall {
   id: string;
   name_en: string;
@@ -26,7 +32,8 @@ export interface Waterfall {
   slug: string;
   lat: number | null;
   lng: number | null;
-  region: "Bandarban" | "Rangamati" | "Khagrachari" | "Chittagong";
+  region: "Bandarban" | "Rangamati" | "Khagrachari" | "Chittagong" | "Sylhet";
+  region_tag: "CHT" | "Sylhet" | "Chittagong";
   description: string;
   how_to_go: string;
   tips: string;
@@ -34,6 +41,7 @@ export interface Waterfall {
   coordinates_pending: boolean;
   nearby_peak_slugs: string[];
   images: string[];
+  trail_files: TrailFile[];
 }
 
 export const mountains: Mountain[] = [
@@ -417,7 +425,8 @@ export const mountains: Mountain[] = [
   },
 ];
 
-export const regions = ["Bandarban", "Rangamati", "Khagrachari", "Chittagong"] as const;
+export const regions = ["Bandarban", "Rangamati", "Khagrachari", "Chittagong", "Sylhet"] as const;
+export const waterfallRegionTags = ["CHT", "Chittagong", "Sylhet"] as const;
 
 export const waterfalls: Waterfall[] = [
   {
@@ -428,6 +437,7 @@ export const waterfalls: Waterfall[] = [
     lat: 21.92217,
     lng: 92.54852,
     region: "Bandarban",
+    region_tag: "CHT",
     description:
       "Formed by the Prangsha and Pangkhiang streams, Tlubong is the starting point of the Remakri canal and one of the rare double waterfalls in the Chittagong Hill Tracts.",
     how_to_go:
@@ -438,6 +448,7 @@ export const waterfalls: Waterfall[] = [
     coordinates_pending: false,
     nearby_peak_slugs: ["keokradong", "capital"],
     images: [],
+    trail_files: [],
   },
   {
     id: "w2",
@@ -447,6 +458,7 @@ export const waterfalls: Waterfall[] = [
     lat: 22.77014,
     lng: 91.61256,
     region: "Chittagong",
+    region_tag: "Chittagong",
     description:
       "Khoiya Chora is one of the most accessible and popular waterfalls near Chittagong, featuring multiple cascading tiers through lush green hills.",
     how_to_go:
@@ -457,6 +469,10 @@ export const waterfalls: Waterfall[] = [
     coordinates_pending: false,
     nearby_peak_slugs: [],
     images: [],
+    trail_files: [
+      { name: "Khoiya Chora Trail", type: "kmz", contributor: "Sajal" },
+      { name: "Khoiya Chora GPS Track", type: "gpx", contributor: "Sadman Sakib" },
+    ],
   },
   {
     id: "w3",
@@ -466,6 +482,7 @@ export const waterfalls: Waterfall[] = [
     lat: 21.89262,
     lng: 92.43857,
     region: "Bandarban",
+    region_tag: "CHT",
     description:
       "A remote and pristine waterfall in the deep hills of Bandarban, Ri-Sung-Sung offers a secluded experience amidst dense jungle terrain.",
     how_to_go:
@@ -476,6 +493,7 @@ export const waterfalls: Waterfall[] = [
     coordinates_pending: false,
     nearby_peak_slugs: ["keokradong", "capital", "lakhuduang"],
     images: [],
+    trail_files: [],
   },
   {
     id: "w4",
@@ -485,6 +503,7 @@ export const waterfalls: Waterfall[] = [
     lat: 22.67376,
     lng: 91.65754,
     region: "Chittagong",
+    region_tag: "Chittagong",
     description:
       "The second Sohosro Dhara waterfall is a lesser-known gem near Sitakunda, featuring multiple thin streams cascading down a rocky face.",
     how_to_go:
@@ -495,6 +514,7 @@ export const waterfalls: Waterfall[] = [
     coordinates_pending: false,
     nearby_peak_slugs: [],
     images: [],
+    trail_files: [],
   },
   {
     id: "w5",
@@ -504,6 +524,7 @@ export const waterfalls: Waterfall[] = [
     lat: null,
     lng: null,
     region: "Bandarban",
+    region_tag: "CHT",
     description:
       "Nafakhum is one of the largest and most iconic waterfalls in Bangladesh, located on the Sangu River in Remakri, Thanchi. The roaring horseshoe-shaped falls is a must-visit for any trekker.",
     how_to_go:
@@ -514,5 +535,48 @@ export const waterfalls: Waterfall[] = [
     coordinates_pending: true,
     nearby_peak_slugs: ["saka-haphong", "zow-tlang"],
     images: [],
+    trail_files: [],
+  },
+  {
+    id: "w6",
+    name_en: "Ateka Falls",
+    name_bn: "আটেকা জলপ্রপাত",
+    slug: "ateka-falls",
+    lat: null,
+    lng: null,
+    region: "Sylhet",
+    region_tag: "Sylhet",
+    description:
+      "Ateka Falls is located in the Rajkandi Reserve Forest, Kurma Bit, Komolganj, Moulovi Bazar. A hidden gem in the Sylhet region, distinct from the Chittagong Hill Tracts waterfalls.",
+    how_to_go:
+      "Reach Komolganj, Moulovi Bazar by bus from Sylhet city. From Komolganj, local transport to Kurma Bit area of Rajkandi Reserve Forest. A forest trek leads to the falls.",
+    tips:
+      "Located inside a reserve forest — entry permits may be required. Carry insect repellent and wear long clothing. Best visited November-February when trails are dry.",
+    contributor: "Rakib Kishore",
+    coordinates_pending: true,
+    nearby_peak_slugs: [],
+    images: [],
+    trail_files: [],
+  },
+  {
+    id: "w7",
+    name_en: "Sijuk Falls",
+    name_bn: "সিজুক জলপ্রপাত",
+    slug: "sijuk-falls",
+    lat: null,
+    lng: null,
+    region: "Bandarban",
+    region_tag: "CHT",
+    description:
+      "Sijuk Falls is a recently documented waterfall in the Chittagong Hill Tracts. Exact coordinates are pending verification from field surveys.",
+    how_to_go:
+      "Access details are being compiled. Check back for updated route information.",
+    tips:
+      "As a newly documented site, trail conditions are unknown. Always travel with a local guide and inform someone of your itinerary.",
+    contributor: "Ridwanul Khair",
+    coordinates_pending: true,
+    nearby_peak_slugs: [],
+    images: [],
+    trail_files: [],
   },
 ];
