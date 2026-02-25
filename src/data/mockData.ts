@@ -487,6 +487,27 @@ export const mountains: Mountain[] = [
     first_ascent_date: null,
     category: "peak",
   },
+  {
+    id: "21",
+    name_en: "Naithao Haphong",
+    name_bn: "নাইথাও হাফং",
+    alt_name: "Grongna Haphong (Beautiful Mountain)",
+    slug: "naithao-haphong",
+    altitude_ft: 3008,
+    altitude_m: 917,
+    height_source: "gps",
+    region: "Bandarban",
+    lat: 21.64806,
+    lng: 92.60417,
+    difficulty: 9,
+    prominence: 338,
+    range: "Upper Mowdok",
+    description:
+      "Naithao Haphong (নাইথাও হাফং), also known as Grongna Haphong (Beautiful Mountain), stands at 3,000-3,015 ft in the Upper Mowdok range. Located on the border of Remakri Union, Bandarban & Matupi, Chin State. Remote sensing elevation: 2,885 ft (SRTM/Google Earth/ArcGIS). Key col at 21°38'41\"N 92°36'21\"E (2,660-2,675 ft measured, 2,580 ft SRTM). Topographic prominence: 330-345 ft with only 642 m isolation (South) — the least isolated peak in Bangladesh with ≥300 ft prominence. Line/Prominence parent: Mowdok Mual. Island parent: Zow Tlang. 19th highest peak of Bangladesh. Loho Jhiri originates from this peak and confluences with Madhuci Khiang/Choto Mowdok Chara. Nearest settlements: Mathi Para, Dolian Para.",
+    images: [],
+    first_ascent_date: null,
+    category: "peak",
+  },
 ];
 
 export const regions = ["Bandarban", "Rangamati", "Khagrachari", "Chittagong", "Sylhet"] as const;
