@@ -423,6 +423,27 @@ export const mountains: Mountain[] = [
     first_ascent_date: "2004-01-01",
     category: "peak",
   },
+  {
+    id: "19",
+    name_en: "Taung Prai",
+    name_bn: "তাউং প্রাই",
+    alt_name: "",
+    slug: "taung-prai",
+    altitude_ft: 2985,
+    altitude_m: 910,
+    height_source: "gearth",
+    region: "Rangamati",
+    lat: 21.9025,
+    lng: 92.62694,
+    difficulty: 7,
+    prominence: 740,
+    range: "Reng Tlang",
+    description:
+      "Taung Prai stands at approximately 2,980-2,990 ft in the Reng Tlang range, Bilaichari, Rangamati. Topographic prominence of 740 ft with 7.7 km isolation. Line parent: Lisra Haphong. Island parent: Mukhra Thutai Haphong. Nearest settlements: Lui Moy Para and Kes Pai Para.",
+    images: [],
+    first_ascent_date: null,
+    category: "peak",
+  },
 ];
 
 export const regions = ["Bandarban", "Rangamati", "Khagrachari", "Chittagong", "Sylhet"] as const;
