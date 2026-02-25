@@ -1,12 +1,52 @@
 import { useParams, Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import { ArrowLeft, Mountain, MapPin, TrendingUp, Calendar, Download } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { mountains } from "@/data/mockData";
+import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+import { MAPBOX_TOKEN } from "@/lib/mapbox";
+
+mapboxgl.accessToken = MAPBOX_TOKEN;
 
 const PeakDetail = () => {
   const { slug } = useParams();
   const peak = mountains.find((m) => m.slug === slug);
+  const mapContainer = useRef<HTMLDivElement>(null);
+  const map = useRef<mapboxgl.Map | null>(null);
+
+  useEffect(() => {
+    if (!peak || !mapContainer.current || map.current) return;
+
+    map.current = new mapboxgl.Map({
+      container: mapContainer.current,
+      style: "mapbox://styles/mapbox/satellite-streets-v12",
+      center: [peak.lng, peak.lat],
+      zoom: 13,
+      pitch: 60,
+      bearing: -30,
+      antialias: true,
+    });
+
+    map.current.on("style.load", () => {
+      map.current!.addSource("mapbox-dem", {
+        type: "raster-dem",
+        url: "mapbox://mapbox.mapbox-terrain-dem-v1",
+        tileSize: 512,
+        maxzoom: 14,
+      });
+      map.current!.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
+    });
+
+    map.current.addControl(new mapboxgl.NavigationControl(), "top-right");
+
+    const el = document.createElement("div");
+    el.style.cssText = "width:16px;height:16px;background:hsl(160,60%,45%);border:2px solid white;border-radius:50%;box-shadow:0 0 10px hsl(160,60%,45%,0.6)";
+    new mapboxgl.Marker(el).setLngLat([peak.lng, peak.lat]).addTo(map.current);
+
+    return () => { map.current?.remove(); map.current = null; };
+  }, [peak]);
 
   if (!peak) {
     return (
@@ -35,14 +75,8 @@ const PeakDetail = () => {
         <p className="text-xl text-muted-foreground mt-1">{peak.name_bn}</p>
       </div>
 
-      {/* Map placeholder */}
-      <div className="rounded-xl border border-border bg-muted/30 h-64 flex items-center justify-center mb-10">
-        <div className="text-center text-muted-foreground">
-          <Mountain className="h-10 w-10 mx-auto mb-2 opacity-40" />
-          <p className="text-sm">3D Mapbox terrain view coming soon</p>
-          <p className="text-xs mt-1 font-mono">{peak.lat}°N, {peak.lng}°E</p>
-        </div>
-      </div>
+      {/* 3D Map */}
+      <div ref={mapContainer} className="rounded-xl border border-border h-72 mb-10 overflow-hidden" />
 
       <div className="grid md:grid-cols-2 gap-10">
         {/* Specs */}
