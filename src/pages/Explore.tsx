@@ -10,6 +10,8 @@ import { PeakCard } from "@/components/PeakCard";
 import { WaterfallCard } from "@/components/WaterfallCard";
 import { mountains, waterfalls, forestRegions, regions, waterfallRegionTags, type Mountain, type Waterfall } from "@/data/mockData";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { PageTransition } from "@/components/PageTransition";
 
 type ViewMode = "grid" | "list";
 
@@ -44,7 +46,6 @@ function FilterPanel({
 }) {
   return (
     <div className="space-y-8">
-      {/* Region */}
       <div>
         <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wider">Region</h3>
         <div className="space-y-2">
@@ -60,15 +61,14 @@ function FilterPanel({
         </div>
       </div>
 
-      {/* Altitude */}
       <div>
         <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wider">
           Altitude (ft)
         </h3>
         <Slider
           min={0}
-        max={3500}
-        step={50}
+          max={3500}
+          step={50}
           value={altRange}
           onValueChange={(v) => setAltRange(v as [number, number])}
           className="mb-2"
@@ -79,7 +79,6 @@ function FilterPanel({
         </div>
       </div>
 
-      {/* Difficulty */}
       <div>
         <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wider">
           Difficulty (1-10)
@@ -98,7 +97,6 @@ function FilterPanel({
         </div>
       </div>
 
-      {/* Category */}
       <div>
         <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wider">Category</h3>
         <div className="flex flex-wrap gap-2">
@@ -106,7 +104,7 @@ function FilterPanel({
             <Badge
               key={c}
               variant={category === c ? "default" : "outline"}
-              className="cursor-pointer capitalize"
+              className="cursor-pointer capitalize transition-all duration-200"
               onClick={() => setCategory(c)}
             >
               {c === "all" ? "All" : c}
@@ -115,14 +113,13 @@ function FilterPanel({
         </div>
       </div>
 
-      {/* Waterfall Region Tag */}
       {category !== "peak" && (
         <div>
           <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wider">Waterfall Region</h3>
           <div className="flex flex-wrap gap-2">
             <Badge
               variant={waterfallRegion === "all" ? "default" : "outline"}
-              className="cursor-pointer"
+              className="cursor-pointer transition-all duration-200"
               onClick={() => setWaterfallRegion("all")}
             >
               All
@@ -131,7 +128,7 @@ function FilterPanel({
               <Badge
                 key={rt}
                 variant={waterfallRegion === rt ? "default" : "outline"}
-                className="cursor-pointer"
+                className="cursor-pointer transition-all duration-200"
                 onClick={() => setWaterfallRegion(rt)}
               >
                 {rt}
@@ -182,161 +179,201 @@ const Explore = () => {
   const filterProps = { selectedRegions, toggleRegion, altRange, setAltRange, diffRange, setDiffRange, category, setCategory, waterfallRegion, setWaterfallRegion };
 
   return (
-    <main className="container py-8">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h1 className="text-3xl font-bold">Explore</h1>
-          <p className="text-muted-foreground mt-1">{totalCount} results</p>
-        </div>
-        <div className="flex items-center gap-2">
-          {/* Mobile filter toggle */}
-          <Sheet open={mobileFilters} onOpenChange={setMobileFilters}>
-            <SheetTrigger asChild className="lg:hidden">
-              <Button variant="outline" size="sm">
-                <SlidersHorizontal className="h-4 w-4 mr-1" /> Filters
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="w-80 bg-background">
-              <SheetTitle>Filters</SheetTitle>
-              <div className="mt-6">
-                <FilterPanel {...filterProps} />
-              </div>
-            </SheetContent>
-          </Sheet>
-
-          {/* View toggle */}
-          <div className="flex border border-border rounded-md">
-            <Button
-              variant={view === "grid" ? "secondary" : "ghost"}
-              size="icon"
-              className="h-9 w-9 rounded-r-none"
-              onClick={() => setView("grid")}
-            >
-              <Grid3x3 className="h-4 w-4" />
-            </Button>
-            <Button
-              variant={view === "list" ? "secondary" : "ghost"}
-              size="icon"
-              className="h-9 w-9 rounded-l-none"
-              onClick={() => setView("list")}
-            >
-              <List className="h-4 w-4" />
-            </Button>
+    <PageTransition>
+      <main className="container py-8">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="text-3xl font-bold">Explore</h1>
+            <p className="text-muted-foreground mt-1">{totalCount} results</p>
           </div>
-        </div>
-      </div>
-
-      <div className="flex gap-8">
-        {/* Desktop sidebar */}
-        <aside className="hidden lg:block w-64 shrink-0">
-          <FilterPanel {...filterProps} />
-        </aside>
-
-        {/* Content */}
-        <div className="flex-1 min-w-0">
-          {totalCount === 0 ? (
-            <div className="text-center py-20 text-muted-foreground">
-              <p className="text-lg">No results match your filters.</p>
-              <Button variant="link" className="mt-2" onClick={() => {
-                setSelectedRegions([]);
-                setAltRange([0, 3500]);
-                setDiffRange([1, 10]);
-                setCategory("all");
-              }}>
-                Clear all filters
-              </Button>
-            </div>
-          ) : view === "grid" ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-              {filteredMountains.map((peak) => (
-                <PeakCard key={peak.id} peak={peak} />
-              ))}
-              {filteredWaterfalls.map((wf) => (
-                <WaterfallCard key={wf.id} waterfall={wf} />
-              ))}
-            </div>
-          ) : (
-            <div className="rounded-lg border border-border overflow-hidden">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Name</TableHead>
-                    <TableHead>Type</TableHead>
-                    <TableHead className="text-right">Altitude</TableHead>
-                    <TableHead>Region</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {filteredMountains.map((peak) => (
-                    <TableRow key={peak.id} className="cursor-pointer hover:bg-muted/50">
-                      <TableCell>
-                        <Link to={`/peak/${peak.slug}`} className="hover:text-primary font-medium">
-                          {peak.name_en}
-                          <span className="block text-xs text-muted-foreground">{peak.name_bn}</span>
-                        </Link>
-                      </TableCell>
-                      <TableCell><Badge variant="outline" className="text-xs">Peak</Badge></TableCell>
-                      <TableCell className="text-right font-mono text-sm">
-                        {peak.altitude_ft.toLocaleString()} ft
-                      </TableCell>
-                      <TableCell>
-                        <Badge variant="outline" className="text-xs">{peak.region}</Badge>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                  {filteredWaterfalls.map((wf) => (
-                    <TableRow key={wf.id} className="cursor-pointer hover:bg-muted/50">
-                      <TableCell>
-                        <Link to={`/waterfall/${wf.slug}`} className="hover:text-blue-400 font-medium">
-                          {wf.name_en}
-                          <span className="block text-xs text-muted-foreground">{wf.name_bn}</span>
-                        </Link>
-                      </TableCell>
-                      <TableCell><Badge variant="outline" className="text-xs text-blue-400">Waterfall</Badge></TableCell>
-                      <TableCell className="text-right text-sm text-muted-foreground">—</TableCell>
-                      <TableCell>
-                        <Badge variant="outline" className="text-xs">{wf.region}</Badge>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Forest Regions Section */}
-      {forestRegions.length > 0 && (
-        <div className="mt-12">
-          <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <TreePine className="h-5 w-5 text-primary" /> Forest Regions & Basins
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {forestRegions.map((fr) => (
-              <Link
-                key={fr.id}
-                to={`/region/${fr.slug}`}
-                className="group rounded-xl border border-border bg-card hover:border-primary/40 p-5 transition-all duration-300"
-              >
-                <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">{fr.name}</h3>
-                <p className="text-sm text-muted-foreground mt-1">{fr.political_name}</p>
-                <div className="flex flex-wrap gap-3 mt-3 text-xs text-muted-foreground">
-                  <span>{fr.total_area_km2} km²</span>
-                  <span>·</span>
-                  <span>{fr.forest_density_pct}% density</span>
-                  <span>·</span>
-                  <span>{fr.streams.length} streams</span>
-                  <span>·</span>
-                  <span>{fr.notable_mammals.length}+ mammal species</span>
+          <div className="flex items-center gap-2">
+            <Sheet open={mobileFilters} onOpenChange={setMobileFilters}>
+              <SheetTrigger asChild className="lg:hidden">
+                <Button variant="outline" size="sm">
+                  <SlidersHorizontal className="h-4 w-4 mr-1" /> Filters
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-80 bg-background">
+                <SheetTitle>Filters</SheetTitle>
+                <div className="mt-6">
+                  <FilterPanel {...filterProps} />
                 </div>
-              </Link>
-            ))}
+              </SheetContent>
+            </Sheet>
+
+            <div className="flex border border-border rounded-md overflow-hidden">
+              <Button
+                variant={view === "grid" ? "secondary" : "ghost"}
+                size="icon"
+                className="h-9 w-9 rounded-none transition-colors duration-200"
+                onClick={() => setView("grid")}
+              >
+                <Grid3x3 className="h-4 w-4" />
+              </Button>
+              <Button
+                variant={view === "list" ? "secondary" : "ghost"}
+                size="icon"
+                className="h-9 w-9 rounded-none transition-colors duration-200"
+                onClick={() => setView("list")}
+              >
+                <List className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
         </div>
-      )}
-    </main>
+
+        <div className="flex gap-8">
+          <aside className="hidden lg:block w-64 shrink-0">
+            <FilterPanel {...filterProps} />
+          </aside>
+
+          <div className="flex-1 min-w-0">
+            {totalCount === 0 ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+                className="text-center py-20 text-muted-foreground"
+              >
+                <p className="text-lg">No results match your filters.</p>
+                <Button variant="link" className="mt-2" onClick={() => {
+                  setSelectedRegions([]);
+                  setAltRange([0, 3500]);
+                  setDiffRange([1, 10]);
+                  setCategory("all");
+                }}>
+                  Clear all filters
+                </Button>
+              </motion.div>
+            ) : view === "grid" ? (
+              <motion.div
+                layout
+                className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5"
+              >
+                {filteredMountains.map((peak, i) => (
+                  <motion.div
+                    key={peak.id}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: Math.min(i * 0.04, 0.4), duration: 0.35 }}
+                    layout
+                  >
+                    <PeakCard peak={peak} />
+                  </motion.div>
+                ))}
+                {filteredWaterfalls.map((wf, i) => (
+                  <motion.div
+                    key={wf.id}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: Math.min((filteredMountains.length + i) * 0.04, 0.6), duration: 0.35 }}
+                    layout
+                  >
+                    <WaterfallCard waterfall={wf} />
+                  </motion.div>
+                ))}
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className="rounded-lg border border-border overflow-hidden"
+              >
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Name</TableHead>
+                      <TableHead>Type</TableHead>
+                      <TableHead className="text-right">Altitude</TableHead>
+                      <TableHead>Region</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {filteredMountains.map((peak) => (
+                      <TableRow key={peak.id} className="cursor-pointer hover:bg-muted/50 transition-colors duration-150">
+                        <TableCell>
+                          <Link to={`/peak/${peak.slug}`} className="hover:text-primary font-medium transition-colors duration-200">
+                            {peak.name_en}
+                            <span className="block text-xs text-muted-foreground">{peak.name_bn}</span>
+                          </Link>
+                        </TableCell>
+                        <TableCell><Badge variant="outline" className="text-xs">Peak</Badge></TableCell>
+                        <TableCell className="text-right font-mono text-sm">
+                          {peak.altitude_ft.toLocaleString()} ft
+                        </TableCell>
+                        <TableCell>
+                          <Badge variant="outline" className="text-xs">{peak.region}</Badge>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                    {filteredWaterfalls.map((wf) => (
+                      <TableRow key={wf.id} className="cursor-pointer hover:bg-muted/50 transition-colors duration-150">
+                        <TableCell>
+                          <Link to={`/waterfall/${wf.slug}`} className="hover:text-blue-400 font-medium transition-colors duration-200">
+                            {wf.name_en}
+                            <span className="block text-xs text-muted-foreground">{wf.name_bn}</span>
+                          </Link>
+                        </TableCell>
+                        <TableCell><Badge variant="outline" className="text-xs text-blue-400">Waterfall</Badge></TableCell>
+                        <TableCell className="text-right text-sm text-muted-foreground">—</TableCell>
+                        <TableCell>
+                          <Badge variant="outline" className="text-xs">{wf.region}</Badge>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </motion.div>
+            )}
+          </div>
+        </div>
+
+        {/* Forest Regions Section */}
+        {forestRegions.length > 0 && (
+          <div className="mt-12">
+            <motion.h2
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-xl font-bold mb-4 flex items-center gap-2"
+            >
+              <TreePine className="h-5 w-5 text-primary" /> Forest Regions & Basins
+            </motion.h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {forestRegions.map((fr, i) => (
+                <motion.div
+                  key={fr.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.4 }}
+                >
+                  <Link
+                    to={`/region/${fr.slug}`}
+                    className="group block rounded-xl border border-border bg-card hover:border-primary/40 hover:shadow-emerald p-5 transition-all duration-300"
+                  >
+                    <h3 className="text-lg font-semibold group-hover:text-primary transition-colors duration-200">{fr.name}</h3>
+                    <p className="text-sm text-muted-foreground mt-1">{fr.political_name}</p>
+                    <div className="flex flex-wrap gap-3 mt-3 text-xs text-muted-foreground">
+                      <span>{fr.total_area_km2} km²</span>
+                      <span>·</span>
+                      <span>{fr.forest_density_pct}% density</span>
+                      <span>·</span>
+                      <span>{fr.streams.length} streams</span>
+                      <span>·</span>
+                      <span>{fr.notable_mammals.length}+ mammal species</span>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        )}
+      </main>
+    </PageTransition>
   );
 };
 

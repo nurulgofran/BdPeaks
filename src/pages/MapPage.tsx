@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { PageTransition } from "@/components/PageTransition";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { MAPBOX_TOKEN } from "@/lib/mapbox";
@@ -80,17 +81,19 @@ const MapPage = () => {
   }, []);
 
   return (
-    <main className="relative w-full" style={{ height: "calc(100vh - 64px)" }}>
-      <div ref={mapContainer} className="absolute inset-0" />
-      <div className="absolute top-4 left-4 z-10 bg-card/80 backdrop-blur border border-border rounded-lg px-4 py-3">
-        <h1 className="text-sm font-bold">3D Terrain Map</h1>
-        <p className="text-xs text-muted-foreground">{mountains.length} peaks · {waterfalls.filter(w => !w.coordinates_pending).length} waterfalls</p>
-        <div className="flex items-center gap-3 mt-2 text-[10px] text-muted-foreground">
-          <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full" style={{background:"hsl(160,60%,45%)"}} /> Peaks</span>
-          <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full" style={{background:"hsl(200,80%,55%)"}} /> Waterfalls</span>
+    <PageTransition>
+      <main className="relative w-full" style={{ height: "calc(100vh - 64px)" }}>
+        <div ref={mapContainer} className="absolute inset-0" />
+        <div className="absolute top-4 left-4 z-10 bg-card/80 backdrop-blur-lg border border-border rounded-lg px-4 py-3 shadow-lg">
+          <h1 className="text-sm font-bold">3D Terrain Map</h1>
+          <p className="text-xs text-muted-foreground">{mountains.length} peaks · {waterfalls.filter(w => !w.coordinates_pending).length} waterfalls</p>
+          <div className="flex items-center gap-3 mt-2 text-[10px] text-muted-foreground">
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full" style={{background:"hsl(160,60%,45%)"}} /> Peaks</span>
+            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full" style={{background:"hsl(200,80%,55%)"}} /> Waterfalls</span>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </PageTransition>
   );
 };
 

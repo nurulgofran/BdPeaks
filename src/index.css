@@ -58,9 +58,27 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Smooth focus outlines */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+    transition: box-shadow 0.2s ease;
+  }
+
+  /* Selection color */
+  ::selection {
+    background: hsl(160 60% 45% / 0.3);
+    color: hsl(210 40% 98%);
   }
 }
 
@@ -82,4 +100,34 @@
   .shadow-emerald {
     box-shadow: 0 0 30px -5px hsl(160 60% 45% / 0.2);
   }
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(220 26% 11%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(220 20% 28%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(220 20% 35%);
+}
+
+/* Mapbox popup polish */
+.mapboxgl-popup-content {
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+  padding: 8px 12px !important;
+}
+
+.mapboxgl-popup-tip {
+  border-top-color: white !important;
 }
