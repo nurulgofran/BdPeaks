@@ -71,7 +71,7 @@ export const mountains: Mountain[] = [
     id: "1",
     name_en: "Saka Haphong",
     name_bn: "সাকা হাফং",
-    alt_name: "Mowdok Taung / Tlang Moy / Border Hung / Shopno Chura",
+    alt_name: "Mowdok Taung / Tlang Moy",
     slug: "saka-haphong",
     altitude_ft: 3474,
     altitude_m: 1059,
