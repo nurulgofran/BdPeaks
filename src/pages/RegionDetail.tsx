@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { PageTransition } from "@/components/PageTransition";
 import {
   ArrowLeft, TreePine, Droplets, Leaf, Bug, Bird, Waves,
   BarChart3, Ruler, CloudRain, Mountain,
@@ -13,16 +14,19 @@ const RegionDetail = () => {
 
   if (!region) {
     return (
-      <main className="container py-20 text-center">
-        <p className="text-muted-foreground text-lg">Region not found.</p>
-        <Button variant="link" asChild className="mt-4">
-          <Link to="/explore">← Back to Explore</Link>
-        </Button>
-      </main>
+      <PageTransition>
+        <main className="container py-20 text-center">
+          <p className="text-muted-foreground text-lg">Region not found.</p>
+          <Button variant="link" asChild className="mt-4">
+            <Link to="/explore">← Back to Explore</Link>
+          </Button>
+        </main>
+      </PageTransition>
     );
   }
 
   return (
+    <PageTransition>
     <main className="container py-8 max-w-5xl">
       <Button variant="ghost" size="sm" asChild className="mb-6 text-muted-foreground">
         <Link to="/explore">
@@ -176,6 +180,7 @@ const RegionDetail = () => {
         </div>
       </div>
     </main>
+    </PageTransition>
   );
 };
 
