@@ -508,6 +508,27 @@ export const mountains: Mountain[] = [
     first_ascent_date: null,
     category: "peak",
   },
+  {
+    id: "22",
+    name_en: "Jongriak Tlang",
+    name_bn: "জংরিয়াক ত্লাং",
+    alt_name: "Mukhrang Kho Haphong (Mountain of Monkey Cave)",
+    slug: "jongriak-tlang",
+    altitude_ft: 3121,
+    altitude_m: 951,
+    height_source: "gps",
+    region: "Bandarban",
+    lat: 21.66306,
+    lng: 92.60389,
+    difficulty: 9,
+    prominence: 343,
+    range: "Upper Mowdok",
+    description:
+      "Jongriak Tlang (জংরিয়াক ত্লাং) — 'Mountain of Monkeys' in Bawm language, also known as Mukhrang Kho Haphong ('Mountain of Monkey Cave' in Tripura). Stands at 3,118-3,123 ft in the Upper Mowdok range. Located on the border of Thanchi Upazila, Bandarban & Matupi, Chin State. Remote sensing: Google Earth 3,020 ft (1 arc-second X-band SRTM), ArcGIS 3,010 ft (ESRI/NASA/SRTM). Key col at 21°40'10\"N 92°36'17\"E (2,775 ft measured, 2,730 ft SRTM). Prominence: 340-345 ft with 1.1 km isolation (North). Line/Prominence parent: Zow Tlang. Island parent at 21°40'23\"N 92°36'16\"E. Has 3 sub-peaks (≥33 ft prominence); significant sub-peak at 21°40'03\"N 92°36'17\"E (3,030 ft, 120-130 ft prominence). 4th/5th highest peak of Upper Mowdok. Jongriak Jhiri, a tributary of Choto Mowdok Chara, originates from the peak and contains monkey-inhabited caves. Nearest settlements: Mathi Para, Dolian Para.",
+    images: [],
+    first_ascent_date: null,
+    category: "peak",
+  },
 ];
 
 export const regions = ["Bandarban", "Rangamati", "Khagrachari", "Chittagong", "Sylhet"] as const;
