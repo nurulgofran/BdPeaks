@@ -25,6 +25,27 @@ export interface TrailFile {
   contributor: string;
 }
 
+export interface WaterfallStep {
+  step_number: number;
+  type: string;
+}
+
+export interface WaterfallHydrology {
+  watershed: string;
+  primary_source: string;
+  primary_source_lat: number | null;
+  primary_source_lng: number | null;
+  stream_gradient_pct: number | null;
+  total_height_ft: string;
+  largest_single_drop_ft: number | null;
+  largest_single_drop_step: string;
+  avg_width_ft: number | null;
+  avg_discharge_m3s: string;
+  beisel_rating: number | null;
+  waterfall_type: string;
+  steps: WaterfallStep[];
+}
+
 export interface Waterfall {
   id: string;
   name_en: string;
@@ -42,6 +63,7 @@ export interface Waterfall {
   nearby_peak_slugs: string[];
   images: string[];
   trail_files: TrailFile[];
+  hydrology: WaterfallHydrology | null;
 }
 
 export const mountains: Mountain[] = [
@@ -470,6 +492,7 @@ export const waterfalls: Waterfall[] = [
     nearby_peak_slugs: ["keokradong", "capital"],
     images: [],
     trail_files: [],
+    hydrology: null,
   },
   {
     id: "w2",
@@ -494,6 +517,7 @@ export const waterfalls: Waterfall[] = [
       { name: "Khoiya Chora Trail", type: "kmz", contributor: "Sajal" },
       { name: "Khoiya Chora GPS Track", type: "gpx", contributor: "Sadman Sakib" },
     ],
+    hydrology: null,
   },
   {
     id: "w3",
@@ -515,6 +539,7 @@ export const waterfalls: Waterfall[] = [
     nearby_peak_slugs: ["keokradong", "capital", "lakhuduang"],
     images: [],
     trail_files: [],
+    hydrology: null,
   },
   {
     id: "w4",
@@ -536,6 +561,7 @@ export const waterfalls: Waterfall[] = [
     nearby_peak_slugs: [],
     images: [],
     trail_files: [],
+    hydrology: null,
   },
   {
     id: "w5",
@@ -557,6 +583,7 @@ export const waterfalls: Waterfall[] = [
     nearby_peak_slugs: ["saka-haphong", "zow-tlang"],
     images: [],
     trail_files: [],
+    hydrology: null,
   },
   {
     id: "w6",
@@ -578,6 +605,7 @@ export const waterfalls: Waterfall[] = [
     nearby_peak_slugs: [],
     images: [],
     trail_files: [],
+    hydrology: null,
   },
   {
     id: "w7",
@@ -599,6 +627,50 @@ export const waterfalls: Waterfall[] = [
     nearby_peak_slugs: [],
     images: [],
     trail_files: [],
+    hydrology: null,
+  },
+  {
+    id: "w8",
+    name_en: "Jamrum Waterfall",
+    name_bn: "জামরুম জলপ্রপাত",
+    slug: "jamrum-waterfall",
+    lat: null,
+    lng: null,
+    region: "Bandarban",
+    region_tag: "CHT",
+    description:
+      "Jamrum is a spectacular staircase/tiered waterfall with 6 distinct steps, fed by the Jamrum Jhiri stream which flows into the Toain and then the Matamuhuri river system. With a total height of 370-380 feet and a largest single drop of 81 feet (5th step), it is one of the tallest measured waterfalls in the CHT.",
+    how_to_go:
+      "Access details are being compiled. The waterfall is located in the Matamuhuri watershed area of Bandarban.",
+    tips:
+      "This is a remote multi-tier waterfall. Each step has a different character — from the punchbowl at the top to the chute at the bottom. Carry ropes and proper footwear for the steep sections.",
+    contributor: "",
+    coordinates_pending: true,
+    nearby_peak_slugs: [],
+    images: [],
+    trail_files: [],
+    hydrology: {
+      watershed: "জামরুম ঝিরি → টোয়াইন → মাতামুহুরি",
+      primary_source: "তৈন রিজ",
+      primary_source_lat: 21.61,
+      primary_source_lng: 92.44194,
+      stream_gradient_pct: 29,
+      total_height_ft: "370-380",
+      largest_single_drop_ft: 81,
+      largest_single_drop_step: "5th step",
+      avg_width_ft: 30,
+      avg_discharge_m3s: "29 (estimated, further measurement needed)",
+      beisel_rating: 4,
+      waterfall_type: "Staircase/Tiered",
+      steps: [
+        { step_number: 1, type: "Punchbowl" },
+        { step_number: 2, type: "Cascade, Segmented" },
+        { step_number: 3, type: "Horsetail" },
+        { step_number: 4, type: "Ephemeral" },
+        { step_number: 5, type: "Fan" },
+        { step_number: 6, type: "Chute" },
+      ],
+    },
   },
 ];
 
