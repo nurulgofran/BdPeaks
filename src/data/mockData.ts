@@ -1033,6 +1033,26 @@ export const mountains: Mountain[] = [
     first_ascent_date: null,
     category: "peak",
   },
+  {
+    id: "48",
+    name_en: "Ngasai Hung",
+    name_bn: "নাসাই হুং",
+    alt_name: "Akhainthong",
+    slug: "ngasai-hung",
+    altitude_ft: 0,
+    altitude_m: 0,
+    height_source: "gearth",
+    region: "Bandarban",
+    lat: 21.28639,
+    lng: 92.68028,
+    difficulty: 6,
+    prominence: 0,
+    range: "Naga Hills",
+    description: "Ngasai Hung (Akhainthong) is widely recognized as the easternmost point of Bangladesh, located in the Remakri union of Thanchi. Primary coordinates: 21°17′11″N 92°40′49″E. An alternate survey reading places it at 21°47′12″N 92°25′42″E. Its geographic significance makes it a landmark of national importance.",
+    images: [],
+    first_ascent_date: null,
+    category: "peak",
+  },
 ];
 
 export const regions = ["Bandarban", "Rangamati", "Khagrachari", "Chittagong", "Sylhet"] as const;
