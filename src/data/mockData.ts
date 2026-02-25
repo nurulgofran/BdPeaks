@@ -571,6 +571,27 @@ export const mountains: Mountain[] = [
     first_ascent_date: null,
     category: "peak",
   },
+  {
+    id: "25",
+    name_en: "Busi Hung",
+    name_bn: "বুশি হুং",
+    alt_name: "",
+    slug: "busi-hung",
+    altitude_ft: 2188,
+    altitude_m: 667,
+    height_source: "gearth",
+    region: "Bandarban",
+    lat: 21.49611,
+    lng: 92.36861,
+    difficulty: 6,
+    prominence: 902,
+    range: "Mirinja",
+    description:
+      "Busi Hung (বুশি হুং) is the highest peak of the Mirinja range at 667 m (2,188 ft), notable for its beautiful pyramidal shape. Key col at 21°27'35\"N 92°23'59\"E (from maps, not field-measured). Prominence: 270-280 m (~902 ft). Isolation: 14.1 km. Nearest higher neighbour: Kleuchut Hung. Island parent at 21°16'10\"N 92°27'21\"E (Rakhine State, Myanmar). Nearest villages: Reng Y Para (রেং ওয়াই পাড়া), Lelong Para (লেলং পাড়া).",
+    images: [],
+    first_ascent_date: null,
+    category: "peak",
+  },
 ];
 
 export const regions = ["Bandarban", "Rangamati", "Khagrachari", "Chittagong", "Sylhet"] as const;
