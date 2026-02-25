@@ -550,6 +550,27 @@ export const mountains: Mountain[] = [
     first_ascent_date: null,
     category: "peak",
   },
+  {
+    id: "24",
+    name_en: "Kleuchut Hung",
+    name_bn: "ক্লিউচুত হুং",
+    alt_name: "তুলার পাহাড়",
+    slug: "kleuchut-hung",
+    altitude_ft: 2319,
+    altitude_m: 706,
+    height_source: "gearth",
+    region: "Bandarban",
+    lat: 21.37722,
+    lng: 92.43,
+    difficulty: 7,
+    prominence: 505,
+    range: "Unnamed (South Western Matamuhuri)",
+    description:
+      "Kleuchut Hung (ক্লিউচুত হুং / তুলার পাহাড়) stands at 706 m (2,319 ft) on the border of Maungdaw Township, Rakhine State, Myanmar & Alikadam Upazila, Bandarban, Bangladesh. The highest and most prominent peak of this unnamed range in the Bangladeshi part.\n\nKey col at 21°21'05\"N 92°26'20\"E (from maps — col is in Rakhine State, not field-measured). Prominence: 154 m (505 ft). Isolation: 5.45 km. Nearest higher neighbour: Obum Taung (same range). Island parent at 21°16'10\"N 92°27'21\"E.\n\nThe range is divided between Myanmar and Bangladesh. The highest peak is in Rakhine State; others are on the border. Covered with raw, untouched tropical rainforest with diverse flora and fauna. Eastern ridges are the source of many streams confluencing with the Matamuhuri, creating a small drainage basin inhabited by the Mru indigenous people.\n\nNearest villages: Moroni/Boroni (মোরনী), Boro Agla/Boro Akhla (বড় আগলা), Toroni/Pusha (তোরণী), Fatra (ফাতরা).",
+    images: [],
+    first_ascent_date: null,
+    category: "peak",
+  },
 ];
 
 export const regions = ["Bandarban", "Rangamati", "Khagrachari", "Chittagong", "Sylhet"] as const;
