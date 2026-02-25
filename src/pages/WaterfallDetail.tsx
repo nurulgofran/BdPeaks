@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
-import { ArrowLeft, Droplets, MapPin, AlertTriangle, Route, Utensils, Info, User, FileDown, File } from "lucide-react";
+import { ArrowLeft, Droplets, MapPin, AlertTriangle, Route, Utensils, Info, User, FileDown, File, Waves, Ruler, BarChart3 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { waterfalls, mountains } from "@/data/mockData";
@@ -182,8 +182,59 @@ const WaterfallDetail = () => {
           )}
         </div>
 
-        {/* Right column — Tips & Advice */}
-        <div>
+        {/* Right column */}
+        <div className="space-y-8">
+          {/* Hydrology Analysis */}
+          {wf.hydrology && (
+            <div className="rounded-xl border border-blue-500/20 bg-blue-500/5 p-6">
+              <h2 className="text-lg font-semibold mb-4 flex items-center gap-2 text-blue-400">
+                <Waves className="h-4 w-4" /> Hydrological Analysis
+              </h2>
+
+              <dl className="space-y-2.5">
+                {[
+                  { label: "Watershed", value: wf.hydrology.watershed },
+                  { label: "Primary Source", value: wf.hydrology.primary_source },
+                  { label: "Stream Gradient", value: wf.hydrology.stream_gradient_pct ? `${wf.hydrology.stream_gradient_pct}%` : "—" },
+                  { label: "Total Height", value: `${wf.hydrology.total_height_ft} ft` },
+                  { label: "Largest Single Drop", value: wf.hydrology.largest_single_drop_ft ? `${wf.hydrology.largest_single_drop_ft} ft (${wf.hydrology.largest_single_drop_step})` : "—" },
+                  { label: "Average Width", value: wf.hydrology.avg_width_ft ? `${wf.hydrology.avg_width_ft} ft` : "—" },
+                  { label: "Avg Discharge", value: `${wf.hydrology.avg_discharge_m3s} m³/s` },
+                  { label: "Beisel Rating", value: wf.hydrology.beisel_rating?.toString() ?? "—" },
+                  { label: "Type", value: wf.hydrology.waterfall_type },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center justify-between py-1.5 border-b border-border/30">
+                    <dt className="text-xs text-muted-foreground">{item.label}</dt>
+                    <dd className="text-sm font-medium text-right max-w-[60%]">{item.value}</dd>
+                  </div>
+                ))}
+              </dl>
+
+              {/* Steps breakdown */}
+              {wf.hydrology.steps.length > 0 && (
+                <div className="mt-5">
+                  <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
+                    <Ruler className="h-3.5 w-3.5 text-primary" /> Step Breakdown
+                  </h3>
+                  <div className="space-y-1.5">
+                    {wf.hydrology.steps.map((step) => (
+                      <div
+                        key={step.step_number}
+                        className="flex items-center gap-3 py-2 px-3 rounded-md bg-muted/30"
+                      >
+                        <span className="w-7 h-7 rounded-full bg-primary/20 text-primary text-xs font-bold flex items-center justify-center shrink-0">
+                          {step.step_number}
+                        </span>
+                        <span className="text-sm font-medium">{step.type}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Tips & Advice */}
           <div className="rounded-xl border border-yellow-500/20 bg-yellow-500/5 p-6">
             <h2 className="text-lg font-semibold mb-3 flex items-center gap-2 text-yellow-400">
               <AlertTriangle className="h-4 w-4" /> Tips & Advice
