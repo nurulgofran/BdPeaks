@@ -73,7 +73,7 @@ const WaterfallDetail = () => {
 
   return (
     <PageTransition>
-      <main className="container py-8 max-w-5xl">
+      <main className="container py-6 sm:py-8 max-w-5xl px-4 sm:px-8">
         <Button variant="ghost" size="sm" asChild className="mb-6 text-muted-foreground">
           <Link to="/explore">
             <ArrowLeft className="h-4 w-4 mr-1" /> Back to Explore
@@ -99,8 +99,8 @@ const WaterfallDetail = () => {
               </Badge>
             )}
           </div>
-          <h1 className="text-4xl font-bold">{wf.name_en}</h1>
-          <p className="text-xl text-muted-foreground mt-1">{wf.name_bn}</p>
+          <h1 className="text-3xl sm:text-4xl font-bold">{wf.name_en}</h1>
+          <p className="text-lg sm:text-xl text-muted-foreground mt-1">{wf.name_bn}</p>
           {wf.contributor && (
             <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-primary/20 bg-primary/5">
               <User className="h-4 w-4 text-primary" />

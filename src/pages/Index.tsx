@@ -38,13 +38,13 @@ const Index = () => {
               <Droplets className="h-5 w-5 text-primary" />
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-4 sm:mb-6">
               Discover Bangladesh's
               <br />
               <span className="text-gradient-emerald">Hidden Peaks & Waterfalls</span>
             </h1>
 
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto mb-8 sm:mb-10 px-2">
               The definitive database of mountains, waterfalls, and trails across Bandarban, Rangamati & Khagrachari.
             </p>
 

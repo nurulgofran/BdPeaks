@@ -180,12 +180,12 @@ const Explore = () => {
 
   return (
     <PageTransition>
-      <main className="container py-8">
+      <main className="container py-6 sm:py-8">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <h1 className="text-3xl font-bold">Explore</h1>
-            <p className="text-muted-foreground mt-1">{totalCount} results</p>
+        <div className="flex items-start sm:items-center justify-between mb-6 sm:mb-8 gap-3">
+          <div className="min-w-0">
+            <h1 className="text-2xl sm:text-3xl font-bold">Explore</h1>
+            <p className="text-sm text-muted-foreground mt-1">{totalCount} results</p>
           </div>
           <div className="flex items-center gap-2">
             <Sheet open={mobileFilters} onOpenChange={setMobileFilters}>
