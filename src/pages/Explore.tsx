@@ -8,7 +8,7 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/s
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 import { PeakCard } from "@/components/PeakCard";
 import { WaterfallCard } from "@/components/WaterfallCard";
-import { mountains, waterfalls, regions, type Mountain, type Waterfall } from "@/data/mockData";
+import { mountains, waterfalls, regions, waterfallRegionTags, type Mountain, type Waterfall } from "@/data/mockData";
 import { Link } from "react-router-dom";
 
 type ViewMode = "grid" | "list";
@@ -28,6 +28,8 @@ function FilterPanel({
   setDiffRange,
   category,
   setCategory,
+  waterfallRegion,
+  setWaterfallRegion,
 }: {
   selectedRegions: string[];
   toggleRegion: (r: string) => void;
@@ -37,6 +39,8 @@ function FilterPanel({
   setDiffRange: (v: [number, number]) => void;
   category: "all" | "peak" | "waterfall";
   setCategory: (c: "all" | "peak" | "waterfall") => void;
+  waterfallRegion: string;
+  setWaterfallRegion: (r: string) => void;
 }) {
   return (
     <div className="space-y-8">
@@ -110,6 +114,32 @@ function FilterPanel({
           ))}
         </div>
       </div>
+
+      {/* Waterfall Region Tag */}
+      {category !== "peak" && (
+        <div>
+          <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wider">Waterfall Region</h3>
+          <div className="flex flex-wrap gap-2">
+            <Badge
+              variant={waterfallRegion === "all" ? "default" : "outline"}
+              className="cursor-pointer"
+              onClick={() => setWaterfallRegion("all")}
+            >
+              All
+            </Badge>
+            {waterfallRegionTags.map((rt) => (
+              <Badge
+                key={rt}
+                variant={waterfallRegion === rt ? "default" : "outline"}
+                className="cursor-pointer"
+                onClick={() => setWaterfallRegion(rt)}
+              >
+                {rt}
+              </Badge>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -120,6 +150,7 @@ const Explore = () => {
   const [altRange, setAltRange] = useState<[number, number]>([0, 3500]);
   const [diffRange, setDiffRange] = useState<[number, number]>([1, 10]);
   const [category, setCategory] = useState<"all" | "peak" | "waterfall">("all");
+  const [waterfallRegion, setWaterfallRegion] = useState<string>("all");
   const [mobileFilters, setMobileFilters] = useState(false);
 
   const toggleRegion = (r: string) =>
@@ -141,13 +172,14 @@ const Explore = () => {
     if (category === "peak") return [];
     return waterfalls.filter((w) => {
       if (selectedRegions.length && !selectedRegions.includes(w.region)) return false;
+      if (waterfallRegion !== "all" && w.region_tag !== waterfallRegion) return false;
       return true;
     });
-  }, [selectedRegions, category]);
+  }, [selectedRegions, category, waterfallRegion]);
 
   const totalCount = filteredMountains.length + filteredWaterfalls.length;
 
-  const filterProps = { selectedRegions, toggleRegion, altRange, setAltRange, diffRange, setDiffRange, category, setCategory };
+  const filterProps = { selectedRegions, toggleRegion, altRange, setAltRange, diffRange, setDiffRange, category, setCategory, waterfallRegion, setWaterfallRegion };
 
   return (
     <main className="container py-8">

@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
-import { ArrowLeft, Droplets, MapPin, AlertTriangle, Route, Utensils, Info, User } from "lucide-react";
+import { ArrowLeft, Droplets, MapPin, AlertTriangle, Route, Utensils, Info, User, FileDown, File } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { waterfalls, mountains } from "@/data/mockData";
@@ -82,6 +82,7 @@ const WaterfallDetail = () => {
             <Droplets className="h-3 w-3 mr-1" /> Waterfall
           </Badge>
           <Badge variant="outline" className="text-xs">{wf.region}</Badge>
+          <Badge variant="outline" className="text-xs">{wf.region_tag}</Badge>
           {wf.coordinates_pending && (
             <Badge variant="outline" className="text-xs text-yellow-400 border-yellow-500/30">
               Coordinates Pending
@@ -91,9 +92,10 @@ const WaterfallDetail = () => {
         <h1 className="text-4xl font-bold">{wf.name_en}</h1>
         <p className="text-xl text-muted-foreground mt-1">{wf.name_bn}</p>
         {wf.contributor && (
-          <p className="text-sm text-muted-foreground mt-2 flex items-center gap-1">
-            <User className="h-3.5 w-3.5" /> Contributed by {wf.contributor}
-          </p>
+          <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-primary/20 bg-primary/5">
+            <User className="h-4 w-4 text-primary" />
+            <span className="text-sm font-medium">Contributed by <span className="text-primary">{wf.contributor}</span></span>
+          </div>
         )}
       </div>
 
@@ -127,6 +129,34 @@ const WaterfallDetail = () => {
             </h2>
             <p className="text-muted-foreground leading-relaxed">{wf.how_to_go}</p>
           </div>
+
+          {/* Trail Files */}
+          {wf.trail_files.length > 0 && (
+            <div>
+              <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <FileDown className="h-4 w-4 text-primary" /> Trail Files
+              </h2>
+              <div className="space-y-2">
+                {wf.trail_files.map((tf, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center justify-between p-3 rounded-lg border border-border bg-muted/30"
+                  >
+                    <div className="flex items-center gap-3">
+                      <File className="h-4 w-4 text-primary" />
+                      <div>
+                        <p className="text-sm font-medium">{tf.name}</p>
+                        <p className="text-xs text-muted-foreground">
+                          .{tf.type.toUpperCase()} · by {tf.contributor}
+                        </p>
+                      </div>
+                    </div>
+                    <Badge variant="outline" className="text-xs uppercase">{tf.type}</Badge>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Nearby Peaks */}
           {nearbyPeaks.length > 0 && (
