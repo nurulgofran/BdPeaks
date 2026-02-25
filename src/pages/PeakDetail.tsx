@@ -73,6 +73,9 @@ const PeakDetail = () => {
         </div>
         <h1 className="text-4xl font-bold">{peak.name_en}</h1>
         <p className="text-xl text-muted-foreground mt-1">{peak.name_bn}</p>
+        {peak.alt_name && (
+          <p className="text-sm text-muted-foreground mt-1">Also known as: {peak.alt_name}</p>
+        )}
       </div>
 
       {/* 3D Map */}
@@ -84,8 +87,9 @@ const PeakDetail = () => {
           <h2 className="text-lg font-semibold mb-4">Technical Specs</h2>
           <dl className="space-y-3">
             {[
-              { icon: TrendingUp, label: "Altitude", value: `${peak.altitude_ft.toLocaleString()} ft` },
-              { icon: TrendingUp, label: "Prominence", value: `${peak.prominence} ft` },
+              { icon: TrendingUp, label: "Altitude", value: `${peak.altitude_ft.toLocaleString()} ft (${peak.altitude_m} m)` },
+              { icon: TrendingUp, label: "Source", value: peak.height_source === "gps" ? "GPS Survey" : "Google Earth" },
+              { icon: TrendingUp, label: "Prominence", value: peak.prominence ? `${peak.prominence} ft` : "N/A" },
               { icon: Mountain, label: "Range", value: peak.range },
               { icon: MapPin, label: "Region", value: peak.region },
               { icon: Calendar, label: "First Ascent", value: peak.first_ascent_date ?? "Unknown" },
