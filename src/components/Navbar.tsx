@@ -17,7 +17,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-14 md:h-16 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
           <Mountain className="h-7 w-7 text-primary transition-transform group-hover:scale-110" />

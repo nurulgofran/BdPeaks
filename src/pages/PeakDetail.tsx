@@ -65,7 +65,7 @@ const PeakDetail = () => {
 
   return (
     <PageTransition>
-      <main className="container py-8 max-w-5xl">
+      <main className="container py-6 sm:py-8 max-w-5xl px-4 sm:px-8">
         <Button variant="ghost" size="sm" asChild className="mb-6 text-muted-foreground">
           <Link to="/explore"><ArrowLeft className="h-4 w-4 mr-1" /> Back to Explore</Link>
         </Button>
@@ -77,14 +77,14 @@ const PeakDetail = () => {
           transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          <div className="flex items-center gap-3 mb-2">
+          <div className="flex flex-wrap items-center gap-2 mb-2">
             <Badge variant="outline" className="text-xs">{peak.region}</Badge>
             <Badge variant="outline" className="text-xs">Difficulty {peak.difficulty}/10</Badge>
           </div>
-          <h1 className="text-4xl font-bold">{peak.name_en}</h1>
-          <p className="text-xl text-muted-foreground mt-1">{peak.name_bn}</p>
+          <h1 className="text-3xl sm:text-4xl font-bold">{peak.name_en}</h1>
+          <p className="text-lg sm:text-xl text-muted-foreground mt-1">{peak.name_bn}</p>
           {peak.alt_name && (
-            <p className="text-sm text-muted-foreground mt-1">Also known as: {peak.alt_name}</p>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-1 leading-relaxed">Also known as: {peak.alt_name}</p>
           )}
         </motion.div>
 
@@ -94,10 +94,10 @@ const PeakDetail = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.15 }}
           ref={mapContainer}
-          className="rounded-xl border border-border h-72 mb-10 overflow-hidden"
+          className="rounded-xl border border-border h-56 sm:h-72 mb-8 sm:mb-10 overflow-hidden"
         />
 
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-10">
           {/* Specs */}
           <motion.div
             initial={{ opacity: 0, x: -16 }}
