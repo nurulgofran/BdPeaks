@@ -62,8 +62,8 @@ function FilterPanel({
         </h3>
         <Slider
           min={0}
-          max={4000}
-          step={100}
+        max={3500}
+        step={50}
           value={altRange}
           onValueChange={(v) => setAltRange(v as [number, number])}
           className="mb-2"
@@ -116,7 +116,7 @@ function FilterPanel({
 const Explore = () => {
   const [view, setView] = useState<ViewMode>("grid");
   const [selectedRegions, setSelectedRegions] = useState<string[]>([]);
-  const [altRange, setAltRange] = useState<[number, number]>([0, 4000]);
+  const [altRange, setAltRange] = useState<[number, number]>([0, 3500]);
   const [diffRange, setDiffRange] = useState<[number, number]>([1, 10]);
   const [category, setCategory] = useState<"all" | "peak" | "waterfall">("all");
   const [mobileFilters, setMobileFilters] = useState(false);
@@ -197,7 +197,7 @@ const Explore = () => {
               <p className="text-lg">No peaks match your filters.</p>
               <Button variant="link" className="mt-2" onClick={() => {
                 setSelectedRegions([]);
-                setAltRange([0, 4000]);
+                setAltRange([0, 3500]);
                 setDiffRange([1, 10]);
                 setCategory("all");
               }}>
