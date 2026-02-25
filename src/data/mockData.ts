@@ -7,7 +7,7 @@ export interface Mountain {
   altitude_ft: number;
   altitude_m: number;
   height_source: "gps" | "gearth";
-  region: "Bandarban" | "Rangamati" | "Khagrachari";
+  region: "Bandarban" | "Rangamati" | "Khagrachari" | "Chittagong";
   lat: number;
   lng: number;
   difficulty: number;
@@ -17,6 +17,23 @@ export interface Mountain {
   images: string[];
   first_ascent_date: string | null;
   category: "peak" | "waterfall";
+}
+
+export interface Waterfall {
+  id: string;
+  name_en: string;
+  name_bn: string;
+  slug: string;
+  lat: number | null;
+  lng: number | null;
+  region: "Bandarban" | "Rangamati" | "Khagrachari" | "Chittagong";
+  description: string;
+  how_to_go: string;
+  tips: string;
+  contributor: string;
+  coordinates_pending: boolean;
+  nearby_peak_slugs: string[];
+  images: string[];
 }
 
 export const mountains: Mountain[] = [
@@ -400,4 +417,102 @@ export const mountains: Mountain[] = [
   },
 ];
 
-export const regions = ["Bandarban", "Rangamati", "Khagrachari"] as const;
+export const regions = ["Bandarban", "Rangamati", "Khagrachari", "Chittagong"] as const;
+
+export const waterfalls: Waterfall[] = [
+  {
+    id: "w1",
+    name_en: "Tlubong Waterfall (The Double Falls)",
+    name_bn: "ত্লুবং জলপ্রপাত",
+    slug: "tlubong-waterfall",
+    lat: 21.92217,
+    lng: 92.54852,
+    region: "Bandarban",
+    description:
+      "Formed by the Prangsha and Pangkhiang streams, Tlubong is the starting point of the Remakri canal and one of the rare double waterfalls in the Chittagong Hill Tracts.",
+    how_to_go:
+      "Best reached from Sungsang para (Bawm village), approx. 2.5km south-east. 1-2 hours from Keokradong via Passing para.",
+    tips:
+      "Monsoon season offers the most spectacular flow but leeches are common. Carry salt and wear full-length leggings. Respect the local Bawm community customs — always ask permission before entering the village.",
+    contributor: "Zaqiul Deep",
+    coordinates_pending: false,
+    nearby_peak_slugs: ["keokradong", "capital"],
+    images: [],
+  },
+  {
+    id: "w2",
+    name_en: "Khoiya Chora Waterfall",
+    name_bn: "খৈইয়াছড়া জলপ্রপাত",
+    slug: "khoiya-chora-waterfall",
+    lat: 22.77014,
+    lng: 91.61256,
+    region: "Chittagong",
+    description:
+      "Khoiya Chora is one of the most accessible and popular waterfalls near Chittagong, featuring multiple cascading tiers through lush green hills.",
+    how_to_go:
+      "Located near Mirsarai, Chittagong. Accessible by bus from Chittagong city to Mirsarai, then a short trek of about 2-3 hours.",
+    tips:
+      "Best visited during or just after monsoon (July-September). Avoid visiting during heavy rainfall due to flash flood risk. Carry drinking water and snacks.",
+    contributor: "Sohrab Chowdhury",
+    coordinates_pending: false,
+    nearby_peak_slugs: [],
+    images: [],
+  },
+  {
+    id: "w3",
+    name_en: "Ri-Sung-Sung Falls",
+    name_bn: "রি-সুং-সুং জলপ্রপাত",
+    slug: "ri-sung-sung-falls",
+    lat: 21.89262,
+    lng: 92.43857,
+    region: "Bandarban",
+    description:
+      "A remote and pristine waterfall in the deep hills of Bandarban, Ri-Sung-Sung offers a secluded experience amidst dense jungle terrain.",
+    how_to_go:
+      "Accessible via Ruma, Bandarban. Requires a multi-hour trek through hilly terrain. Local guides are essential.",
+    tips:
+      "Extremely remote — carry all supplies. Hire a local Marma or Bawm guide. Not recommended during peak monsoon due to trail conditions.",
+    contributor: "Zaqiul Deep",
+    coordinates_pending: false,
+    nearby_peak_slugs: ["keokradong", "capital", "lakhuduang"],
+    images: [],
+  },
+  {
+    id: "w4",
+    name_en: "Sohosro Dhara-2",
+    name_bn: "সহস্রধারা-২",
+    slug: "sohosro-dhara-2",
+    lat: 22.67376,
+    lng: 91.65754,
+    region: "Chittagong",
+    description:
+      "The second Sohosro Dhara waterfall is a lesser-known gem near Sitakunda, featuring multiple thin streams cascading down a rocky face.",
+    how_to_go:
+      "Located near Sitakunda, Chittagong. Reachable by local transport from Sitakunda bazar followed by a short hike.",
+    tips:
+      "Less crowded than the original Sohosro Dhara. Best visited October-December when water flow is moderate and trails are dry. Carry sturdy footwear for slippery rocks.",
+    contributor: "Sohrab Chowdhury",
+    coordinates_pending: false,
+    nearby_peak_slugs: [],
+    images: [],
+  },
+  {
+    id: "w5",
+    name_en: "Nafakhum",
+    name_bn: "নাফাখুম",
+    slug: "nafakhum",
+    lat: null,
+    lng: null,
+    region: "Bandarban",
+    description:
+      "Nafakhum is one of the largest and most iconic waterfalls in Bangladesh, located on the Sangu River in Remakri, Thanchi. The roaring horseshoe-shaped falls is a must-visit for any trekker.",
+    how_to_go:
+      "Reach Thanchi by bus from Bandarban town (3-4 hours), then take a boat ride to Remakri (3-4 hours). From Remakri, a 3-hour trek leads to Nafakhum.",
+    tips:
+      "The trek from Remakri involves multiple river crossings. Dry season (Nov-Mar) is safest. Hire a mandatory local guide from Thanchi. Accommodation available at Remakri.",
+    contributor: "",
+    coordinates_pending: true,
+    nearby_peak_slugs: ["saka-haphong", "zow-tlang"],
+    images: [],
+  },
+];
