@@ -1,9 +1,9 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
-import { ArrowLeft, Mountain, MapPin, TrendingUp, Calendar, Download } from "lucide-react";
+import { ArrowLeft, Mountain, MapPin, TrendingUp, Calendar, Download, Droplets } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { mountains } from "@/data/mockData";
+import { mountains, waterfalls } from "@/data/mockData";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { MAPBOX_TOKEN } from "@/lib/mapbox";
@@ -110,6 +110,31 @@ const PeakDetail = () => {
 
           <h2 className="text-lg font-semibold mt-8 mb-4">Historical Ascents</h2>
           <p className="text-sm text-muted-foreground italic">No ascent records have been submitted yet.</p>
+
+          {/* Nearby Waterfalls */}
+          {(() => {
+            const nearby = waterfalls.filter((w) => w.nearby_peak_slugs.includes(peak.slug));
+            if (nearby.length === 0) return null;
+            return (
+              <>
+                <h2 className="text-lg font-semibold mt-8 mb-4 flex items-center gap-2">
+                  <Droplets className="h-4 w-4 text-blue-400" /> Nearby Waterfalls
+                </h2>
+                <div className="space-y-2">
+                  {nearby.map((wf) => (
+                    <Link
+                      key={wf.id}
+                      to={`/waterfall/${wf.slug}`}
+                      className="flex items-center justify-between p-3 rounded-lg border border-border hover:border-blue-500/40 transition-colors"
+                    >
+                      <span className="font-medium text-sm">{wf.name_en}</span>
+                      <Badge variant="outline" className="text-xs text-blue-400">Waterfall</Badge>
+                    </Link>
+                  ))}
+                </div>
+              </>
+            );
+          })()}
         </div>
       </div>
 

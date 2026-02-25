@@ -7,7 +7,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 import { PeakCard } from "@/components/PeakCard";
-import { mountains, regions, type Mountain } from "@/data/mockData";
+import { WaterfallCard } from "@/components/WaterfallCard";
+import { mountains, waterfalls, regions, type Mountain, type Waterfall } from "@/data/mockData";
 import { Link } from "react-router-dom";
 
 type ViewMode = "grid" | "list";
@@ -126,15 +127,25 @@ const Explore = () => {
       prev.includes(r) ? prev.filter((x) => x !== r) : [...prev, r]
     );
 
-  const filtered = useMemo(() => {
+  const filteredMountains = useMemo(() => {
     return mountains.filter((m) => {
       if (selectedRegions.length && !selectedRegions.includes(m.region)) return false;
       if (m.altitude_ft < altRange[0] || m.altitude_ft > altRange[1]) return false;
       if (m.difficulty < diffRange[0] || m.difficulty > diffRange[1]) return false;
-      if (category !== "all" && m.category !== category) return false;
+      if (category === "waterfall") return false;
       return true;
     });
   }, [selectedRegions, altRange, diffRange, category]);
+
+  const filteredWaterfalls = useMemo(() => {
+    if (category === "peak") return [];
+    return waterfalls.filter((w) => {
+      if (selectedRegions.length && !selectedRegions.includes(w.region)) return false;
+      return true;
+    });
+  }, [selectedRegions, category]);
+
+  const totalCount = filteredMountains.length + filteredWaterfalls.length;
 
   const filterProps = { selectedRegions, toggleRegion, altRange, setAltRange, diffRange, setDiffRange, category, setCategory };
 
@@ -144,7 +155,7 @@ const Explore = () => {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-3xl font-bold">Explore</h1>
-          <p className="text-muted-foreground mt-1">{filtered.length} results</p>
+          <p className="text-muted-foreground mt-1">{totalCount} results</p>
         </div>
         <div className="flex items-center gap-2">
           {/* Mobile filter toggle */}
@@ -192,9 +203,9 @@ const Explore = () => {
 
         {/* Content */}
         <div className="flex-1 min-w-0">
-          {filtered.length === 0 ? (
+          {totalCount === 0 ? (
             <div className="text-center py-20 text-muted-foreground">
-              <p className="text-lg">No peaks match your filters.</p>
+              <p className="text-lg">No results match your filters.</p>
               <Button variant="link" className="mt-2" onClick={() => {
                 setSelectedRegions([]);
                 setAltRange([0, 3500]);
@@ -206,8 +217,11 @@ const Explore = () => {
             </div>
           ) : view === "grid" ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-              {filtered.map((peak) => (
+              {filteredMountains.map((peak) => (
                 <PeakCard key={peak.id} peak={peak} />
+              ))}
+              {filteredWaterfalls.map((wf) => (
+                <WaterfallCard key={wf.id} waterfall={wf} />
               ))}
             </div>
           ) : (
@@ -216,13 +230,13 @@ const Explore = () => {
                 <TableHeader>
                   <TableRow>
                     <TableHead>Name</TableHead>
+                    <TableHead>Type</TableHead>
                     <TableHead className="text-right">Altitude</TableHead>
                     <TableHead>Region</TableHead>
-                    <TableHead className="text-center">Difficulty</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {filtered.map((peak) => (
+                  {filteredMountains.map((peak) => (
                     <TableRow key={peak.id} className="cursor-pointer hover:bg-muted/50">
                       <TableCell>
                         <Link to={`/peak/${peak.slug}`} className="hover:text-primary font-medium">
@@ -230,16 +244,27 @@ const Explore = () => {
                           <span className="block text-xs text-muted-foreground">{peak.name_bn}</span>
                         </Link>
                       </TableCell>
+                      <TableCell><Badge variant="outline" className="text-xs">Peak</Badge></TableCell>
                       <TableCell className="text-right font-mono text-sm">
                         {peak.altitude_ft.toLocaleString()} ft
                       </TableCell>
                       <TableCell>
                         <Badge variant="outline" className="text-xs">{peak.region}</Badge>
                       </TableCell>
-                      <TableCell className="text-center">
-                        <Badge variant="outline" className="text-xs">
-                          {peak.difficulty}/10 · {getDifficultyLabel(peak.difficulty)}
-                        </Badge>
+                    </TableRow>
+                  ))}
+                  {filteredWaterfalls.map((wf) => (
+                    <TableRow key={wf.id} className="cursor-pointer hover:bg-muted/50">
+                      <TableCell>
+                        <Link to={`/waterfall/${wf.slug}`} className="hover:text-blue-400 font-medium">
+                          {wf.name_en}
+                          <span className="block text-xs text-muted-foreground">{wf.name_bn}</span>
+                        </Link>
+                      </TableCell>
+                      <TableCell><Badge variant="outline" className="text-xs text-blue-400">Waterfall</Badge></TableCell>
+                      <TableCell className="text-right text-sm text-muted-foreground">—</TableCell>
+                      <TableCell>
+                        <Badge variant="outline" className="text-xs">{wf.region}</Badge>
                       </TableCell>
                     </TableRow>
                   ))}
