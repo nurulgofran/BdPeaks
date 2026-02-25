@@ -48,9 +48,8 @@ const MapPage = () => {
       );
 
       const el = document.createElement("div");
-      el.style.cssText = "width:12px;height:12px;background:hsl(160,60%,45%);border-radius:50%;cursor:pointer;box-shadow:0 0 6px hsl(160,60%,45%,0.6);border:2px solid rgba(255,255,255,0.9);transition:transform 0.2s";
-      el.onmouseenter = () => el.style.transform = "scale(1.4)";
-      el.onmouseleave = () => el.style.transform = "scale(1)";
+      el.className = "peak-marker";
+      el.style.cssText = "width:18px;height:18px;background:hsl(160,60%,45%);border-radius:50%;cursor:pointer;box-shadow:0 0 6px hsl(160,60%,45%,0.6);border:2px solid rgba(255,255,255,0.9)";
 
       new mapboxgl.Marker(el)
         .setLngLat([peak.lng, peak.lat])
@@ -67,9 +66,8 @@ const MapPage = () => {
       );
 
       const el = document.createElement("div");
-      el.style.cssText = "width:10px;height:10px;background:hsl(200,80%,55%);border-radius:50%;cursor:pointer;box-shadow:0 0 6px hsl(200,80%,55%,0.6);border:2px solid rgba(255,255,255,0.9);transition:transform 0.2s";
-      el.onmouseenter = () => el.style.transform = "scale(1.4)";
-      el.onmouseleave = () => el.style.transform = "scale(1)";
+      el.className = "waterfall-marker";
+      el.style.cssText = "width:14px;height:14px;background:hsl(200,80%,55%);border-radius:50%;cursor:pointer;box-shadow:0 0 6px hsl(200,80%,55%,0.6);border:2px solid rgba(255,255,255,0.9)";
 
       new mapboxgl.Marker(el)
         .setLngLat([wf.lng, wf.lat])

@@ -131,3 +131,20 @@
 .mapboxgl-popup-tip {
   border-top-color: white !important;
 }
+
+/* Map markers — CSS hover to avoid JS flicker */
+.peak-marker,
+.waterfall-marker {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transform-origin: center center;
+}
+
+.peak-marker:hover {
+  transform: scale(1.5);
+  box-shadow: 0 0 12px hsl(160, 60%, 45%, 0.8);
+}
+
+.waterfall-marker:hover {
+  transform: scale(1.5);
+  box-shadow: 0 0 12px hsl(200, 80%, 55%, 0.8);
+}
