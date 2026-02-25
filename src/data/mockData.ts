@@ -466,6 +466,27 @@ export const mountains: Mountain[] = [
     first_ascent_date: null,
     category: "peak",
   },
+  {
+    id: "20",
+    name_en: "Kapaw Taung",
+    name_bn: "কাপাও তাউং",
+    alt_name: "",
+    slug: "kapaw-taung",
+    altitude_ft: 2271,
+    altitude_m: 692,
+    height_source: "gps",
+    region: "Bandarban",
+    lat: 21.57083,
+    lng: 92.50917,
+    difficulty: 6,
+    prominence: 469,
+    range: "South Chimbuk / Tui Kuam",
+    description:
+      "Kapaw Taung stands at 2,271 ft in the South Chimbuk / Tui Kuam range, Alikadam, Bandarban. Previous British Military Survey elevation: 2,281 ft. Key col at 21°34'23\"N 92°30'49\"E (1,802 ft). Topographic prominence: 469 ft with 1.5 km isolation (East). Line/Prominence/Island parent: Tower Peak. 7th highest and 6th most prominent peak of South Chimbuk. A source of Kapaw Chara/Dolong Jhiri originates from the peak. Nearest settlements: Maikoa Para, Aiyak Para.",
+    images: [],
+    first_ascent_date: null,
+    category: "peak",
+  },
 ];
 
 export const regions = ["Bandarban", "Rangamati", "Khagrachari", "Chittagong", "Sylhet"] as const;
