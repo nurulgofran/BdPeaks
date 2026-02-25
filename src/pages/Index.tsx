@@ -1,24 +1,48 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useMemo, useRef, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Search, ChevronDown, ArrowRight, Mountain, Droplets } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { MountainSilhouette } from "@/components/MountainSilhouette";
 import { PeakCard } from "@/components/PeakCard";
-import { mountains } from "@/data/mockData";
-import { motion } from "framer-motion";
+import { mountains, waterfalls } from "@/data/mockData";
+import { motion, AnimatePresence } from "framer-motion";
 import { PageTransition } from "@/components/PageTransition";
 
 const Index = () => {
   const [search, setSearch] = useState("");
+  const [showResults, setShowResults] = useState(false);
+  const searchRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
   const featured = mountains.slice(0, 3);
+
+  const searchResults = useMemo(() => {
+    if (!search.trim()) return [];
+    const q = search.toLowerCase();
+    const peaks = mountains
+      .filter((m) => m.name_en.toLowerCase().includes(q) || m.name_bn.includes(q) || m.region.toLowerCase().includes(q) || m.altitude_ft.toString().includes(q))
+      .slice(0, 5)
+      .map((m) => ({ type: "peak" as const, slug: m.slug, name: m.name_en, sub: `${m.altitude_ft.toLocaleString()} ft · ${m.region}` }));
+    const wfs = waterfalls
+      .filter((w) => w.name_en.toLowerCase().includes(q) || w.name_bn.includes(q) || w.region.toLowerCase().includes(q))
+      .slice(0, 5)
+      .map((w) => ({ type: "waterfall" as const, slug: w.slug, name: w.name_en, sub: w.region }));
+    return [...peaks, ...wfs].slice(0, 8);
+  }, [search]);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) setShowResults(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
   return (
     <PageTransition>
       <main>
         {/* Hero */}
         <section className="relative min-h-[92vh] flex flex-col items-center justify-center bg-gradient-hero overflow-hidden">
-          {/* Decorative dots */}
           <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, hsl(160 60% 45%) 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
 
           <motion.div
@@ -48,27 +72,65 @@ const Index = () => {
               The definitive database of mountains, waterfalls, and trails across Bandarban, Rangamati & Khagrachari.
             </p>
 
-            {/* Search */}
+            {/* Search with live results */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="relative max-w-md mx-auto"
+              ref={searchRef}
             >
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground z-10" />
               <Input
-                placeholder="Search by peak name, height, or area…"
+                placeholder="Search peaks, waterfalls, regions…"
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => { setSearch(e.target.value); setShowResults(true); }}
+                onFocus={() => setShowResults(true)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && searchResults.length > 0) {
+                    const r = searchResults[0];
+                    navigate(`/${r.type === "peak" ? "peak" : "waterfall"}/${r.slug}`);
+                    setShowResults(false);
+                  }
+                }}
                 className="pl-12 h-13 rounded-full border-border bg-card/60 backdrop-blur text-base placeholder:text-muted-foreground/60 focus-visible:ring-primary"
               />
+
+              <AnimatePresence>
+                {showResults && searchResults.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full mt-2 w-full rounded-xl border border-border bg-card shadow-xl overflow-hidden z-20"
+                  >
+                    {searchResults.map((r) => (
+                      <Link
+                        key={`${r.type}-${r.slug}`}
+                        to={`/${r.type === "peak" ? "peak" : "waterfall"}/${r.slug}`}
+                        onClick={() => setShowResults(false)}
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-muted/50 transition-colors border-b border-border/30 last:border-0"
+                      >
+                        {r.type === "peak" ? (
+                          <Mountain className="h-4 w-4 text-primary shrink-0" />
+                        ) : (
+                          <Droplets className="h-4 w-4 text-blue-400 shrink-0" />
+                        )}
+                        <div className="text-left min-w-0">
+                          <p className="text-sm font-medium truncate">{r.name}</p>
+                          <p className="text-xs text-muted-foreground">{r.sub}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           </motion.div>
 
-          {/* Mountain silhouette */}
           <MountainSilhouette className="absolute bottom-0 left-0 right-0 w-full h-40 md:h-56" />
 
-          {/* Scroll indicator */}
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
@@ -116,6 +178,31 @@ const Index = () => {
             <Button variant="outline" asChild>
               <Link to="/explore">View all peaks <ArrowRight className="ml-1 h-4 w-4" /></Link>
             </Button>
+          </div>
+        </section>
+
+        {/* Stats */}
+        <section className="border-t border-border">
+          <div className="container py-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              {[
+                { value: mountains.length, label: "Peaks Documented" },
+                { value: waterfalls.length, label: "Waterfalls Mapped" },
+                { value: waterfalls.filter(w => !w.coordinates_pending).length, label: "GPS Verified" },
+                { value: "3", label: "Hill Districts" },
+              ].map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.4 }}
+                >
+                  <p className="text-3xl md:text-4xl font-bold text-gradient-emerald">{stat.value}</p>
+                  <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
