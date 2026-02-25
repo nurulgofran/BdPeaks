@@ -568,8 +568,8 @@ export const waterfalls: Waterfall[] = [
     name_en: "Nafakhum",
     name_bn: "নাফাখুম",
     slug: "nafakhum",
-    lat: null,
-    lng: null,
+    lat: 21.7203,
+    lng: 92.5337,
     region: "Bandarban",
     region_tag: "CHT",
     description:
@@ -579,7 +579,7 @@ export const waterfalls: Waterfall[] = [
     tips:
       "The trek from Remakri involves multiple river crossings. Dry season (Nov-Mar) is safest. Hire a mandatory local guide from Thanchi. Accommodation available at Remakri.",
     contributor: "",
-    coordinates_pending: true,
+    coordinates_pending: false,
     nearby_peak_slugs: ["saka-haphong", "zow-tlang"],
     images: [],
     trail_files: [],
@@ -671,6 +671,116 @@ export const waterfalls: Waterfall[] = [
         { step_number: 6, type: "Chute" },
       ],
     },
+  },
+  {
+    id: "w9",
+    name_en: "Tinap Saitar",
+    name_bn: "তিনাপ সাইতার",
+    slug: "tinap-saitar",
+    lat: 22.1667,
+    lng: 92.3333,
+    region: "Bandarban",
+    region_tag: "CHT",
+    description:
+      "Tinap Saitar (also known as Paindu Saitar) is considered one of the tallest waterfalls in Bangladesh, located in Roangchhari/Ruma Upazila, Bandarban. 'Tinap' means water and 'Saitar' means waterfall in the Bawm language. It requires a 40 km trek through dense forest.",
+    how_to_go:
+      "From Bandarban, take a local bus to Roangchhari. From Roangchhari bus stand, a 23 km trek with a guide through hilly terrain leads to the waterfall.",
+    tips:
+      "Extremely remote — carry all supplies for 2 days. A local Bawm guide is mandatory. Best visited November-March. The 40 km round trip requires overnight camping.",
+    contributor: "",
+    coordinates_pending: false,
+    nearby_peak_slugs: [],
+    images: [],
+    trail_files: [],
+    hydrology: null,
+  },
+  {
+    id: "w10",
+    name_en: "Amiakhum",
+    name_bn: "আমিয়াখুম",
+    slug: "amiakhum",
+    lat: 21.6833,
+    lng: 92.5667,
+    region: "Bandarban",
+    region_tag: "CHT",
+    description:
+      "Amiakhum is one of the most breathtaking and inaccessible waterfalls in Bangladesh, located in Thanchi upazila near the Myanmar border. The crystal-clear waters tumble down rugged cliffs into a tranquil pool. Often called the most beautiful waterfall in Bangladesh.",
+    how_to_go:
+      "From Thanchi, take a boat to Remakri, then trek to Nafakhum. From Nafakhum, continue another 3-4 hours of difficult trekking through dense jungle and river crossings to reach Amiakhum.",
+    tips:
+      "One of the most remote waterfalls — requires at least 3 days round trip from Bandarban. Multiple river crossings required. Only attempt in dry season (Nov-Feb). Mandatory local guide from Thanchi.",
+    contributor: "",
+    coordinates_pending: true,
+    nearby_peak_slugs: ["saka-haphong", "zow-tlang"],
+    images: [],
+    trail_files: [],
+    hydrology: null,
+  },
+  {
+    id: "w11",
+    name_en: "Jadipai Waterfall",
+    name_bn: "জাদিপাই জলপ্রপাত",
+    slug: "jadipai-waterfall",
+    lat: 21.9450,
+    lng: 92.5100,
+    region: "Bandarban",
+    region_tag: "CHT",
+    description:
+      "Jadipai is one of the widest waterfalls in Bangladesh, located approximately 1.5 km from Keokradong peak in Ruma Upazila. Known as the 'Queen of Bandarban's Waterfalls', it features a wide curtain of water cascading down a cliff face.",
+    how_to_go:
+      "Trek from Ruma to Boga Lake, then continue to Keokradong. Jadipai is about 1.5 km descent from Keokradong peak through steep trails.",
+    tips:
+      "The descent to Jadipai from Keokradong is steep and slippery. Best combined with Keokradong-Boga Lake trek. Carry rope for safety. Best visited October-February.",
+    contributor: "",
+    coordinates_pending: true,
+    nearby_peak_slugs: ["keokradong", "capital"],
+    images: [],
+    trail_files: [],
+    hydrology: null,
+  },
+  {
+    id: "w12",
+    name_en: "Madhabkunda Waterfall",
+    name_bn: "মাধবকুণ্ড জলপ্রপাত",
+    slug: "madhabkunda-waterfall",
+    lat: 24.638472,
+    lng: 92.224556,
+    region: "Sylhet",
+    region_tag: "Sylhet",
+    description:
+      "Madhabkunda is the largest waterfall in Bangladesh at approximately 200 feet (61 m) high, located in Barlekha Upazila, Moulvibazar District. The waterfall is fed by a stream originating from the Patharia Hills and is a popular tourist destination.",
+    how_to_go:
+      "From Sylhet city, take a bus to Kulaura or directly to Madhabkunda (approximately 72 km). The waterfall is easily accessible with paved roads leading close to the site.",
+    tips:
+      "Most accessible major waterfall in Bangladesh. Entry fee applies. Best visited during monsoon (June-September) for maximum water flow. Weekdays are less crowded.",
+    contributor: "",
+    coordinates_pending: false,
+    nearby_peak_slugs: [],
+    images: [],
+    trail_files: [],
+    hydrology: null,
+  },
+  {
+    id: "w13",
+    name_en: "Hum Hum Waterfall",
+    name_bn: "হাম হাম জলপ্রপাত",
+    slug: "humhum-waterfall",
+    lat: 24.167972,
+    lng: 91.912528,
+    region: "Sylhet",
+    region_tag: "Sylhet",
+    description:
+      "Hum Hum (also known as Cheetah Falls) is a stunning horsetail waterfall in the Rajkandi Reserve Forest, Kamalganj, Moulvibazar. Discovered in 2010, it stands 135-170 feet tall and is surrounded by dense tropical forest.",
+    how_to_go:
+      "From Sreemangal, travel to Kamalganj, then to Rajkandi Reserve Forest. A 3-4 hour trek through the forest leads to the waterfall.",
+    tips:
+      "The trek involves stream crossings and steep climbs. Leeches are common — carry salt. A local guide is essential. Best visited September-December. Discovered in 2010 by tourist guide Shyamal Deva Barma.",
+    contributor: "",
+    coordinates_pending: false,
+    nearby_peak_slugs: [],
+    images: [],
+    trail_files: [],
+    hydrology: null,
   },
 ];
 
