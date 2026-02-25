@@ -21,7 +21,12 @@ const MapPage = () => {
       pitch: 60,
       bearing: -20,
       antialias: true,
+      fadeDuration: 0,
     });
+
+    map.current.setMaxPitch(85);
+    map.current.touchZoomRotate.enable();
+    map.current.dragRotate.enable();
 
     map.current.on("style.load", () => {
       map.current!.addSource("mapbox-dem", {
