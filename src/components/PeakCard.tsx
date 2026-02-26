@@ -38,14 +38,14 @@ export function PeakCard({ peak }: { peak: Mountain }) {
       {/* Header row */}
       <div className="flex items-start justify-between gap-3 relative z-10">
         <div className="min-w-0 flex-1">
-          <h3 className="text-[15px] font-semibold leading-snug group-hover:text-primary transition-colors duration-200 truncate">
+          <h3 className="text-lg font-semibold leading-snug group-hover:text-primary transition-colors duration-200 truncate">
             {peak.name_en}
           </h3>
-          <p className="text-xs text-muted-foreground/50 mt-0.5">{peak.name_bn}</p>
+          <p className="text-sm text-muted-foreground/50 mt-0.5">{peak.name_bn}</p>
         </div>
         <div className="flex items-center gap-1.5 shrink-0 pt-0.5">
-          <span className={`w-2 h-2 rounded-full ${difficultyDot(peak.difficulty)}`} />
-          <span className="text-[10px] font-medium text-muted-foreground">D{peak.difficulty}</span>
+          <span className={`w-2.5 h-2.5 rounded-full ${difficultyDot(peak.difficulty)}`} />
+          <span className="text-xs font-medium text-muted-foreground">D{peak.difficulty}</span>
         </div>
       </div>
 
@@ -53,20 +53,20 @@ export function PeakCard({ peak }: { peak: Mountain }) {
       <div className="border-t border-border/30 my-3" />
 
       {/* Stats */}
-      <div className="flex items-center gap-4 text-xs text-muted-foreground relative z-10">
+      <div className="flex items-center gap-4 text-sm text-muted-foreground relative z-10">
         <span className="flex items-center gap-1.5">
-          <TrendingUp className="h-3.5 w-3.5 text-primary/60" />
+          <TrendingUp className="h-4 w-4 text-primary/60" />
           <span className="font-medium text-foreground/80">{peak.altitude_ft.toLocaleString()}</span>
           <span className="text-muted-foreground/40">ft</span>
         </span>
         <span className="flex items-center gap-1.5">
-          <MapPin className="h-3.5 w-3.5 text-muted-foreground/40" />
+          <MapPin className="h-4 w-4 text-muted-foreground/40" />
           {peak.region}
         </span>
       </div>
 
       {/* Range tag */}
-      <span className="mt-3 self-start text-[10px] text-muted-foreground/40 bg-muted/40 px-2 py-0.5 rounded-full relative z-10">
+      <span className="mt-3 self-start text-xs text-muted-foreground/60 bg-muted/40 px-2.5 py-1 rounded-full relative z-10">
         {peak.range}
       </span>
     </Link>

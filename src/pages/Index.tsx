@@ -49,7 +49,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative z-10 text-center px-4 max-w-3xl"
+            className="relative z-10 text-center px-4 w-full"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -58,17 +58,16 @@ const Index = () => {
               className="flex items-center justify-center gap-2 mb-6"
             >
               <Mountain className="h-6 w-6 text-primary" />
-              <span className="text-sm font-semibold tracking-widest uppercase text-primary">BD Peaks Archive</span>
-              <Droplets className="h-5 w-5 text-primary" />
+              <span className="text-base font-semibold tracking-widest uppercase text-primary">BD Peaks Archive</span>
+              <Droplets className="h-6 w-6 text-primary" />
             </motion.div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-4 sm:mb-6">
-              Discover Bangladesh's
-              <br />
-              <span className="text-gradient-emerald">Hidden Peaks & Waterfalls</span>
+            <h1 className="flex flex-col items-center text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-bold tracking-tight leading-tight mb-4 sm:mb-6 w-full lg:whitespace-nowrap">
+              <span>Discover Bangladesh's</span>
+              <span className="text-gradient-emerald mt-1 sm:mt-2">Hidden Peaks & Waterfalls</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto mb-8 sm:mb-10 px-2">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 sm:mb-12 px-4 leading-relaxed">
               The definitive database of mountains, waterfalls, and trails across Bandarban, Rangamati & Khagrachari.
             </p>
 
@@ -77,7 +76,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="relative max-w-md mx-auto"
+              className="relative max-w-2xl mx-auto"
               ref={searchRef}
             >
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground z-10" />
@@ -93,7 +92,7 @@ const Index = () => {
                     setShowResults(false);
                   }
                 }}
-                className="pl-12 h-13 rounded-full border-border bg-card/60 backdrop-blur text-base placeholder:text-muted-foreground/60 focus-visible:ring-primary"
+                className="pl-14 h-14 rounded-full border-border bg-card/60 backdrop-blur text-lg placeholder:text-muted-foreground/60 focus-visible:ring-primary"
               />
 
               <AnimatePresence>
@@ -150,8 +149,8 @@ const Index = () => {
             className="flex items-end justify-between mb-10"
           >
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold">Featured Peaks</h2>
-              <p className="text-muted-foreground mt-1">The most iconic summits of Bangladesh</p>
+              <h2 className="text-3xl md:text-4xl font-bold">Featured Peaks</h2>
+              <p className="text-lg text-muted-foreground mt-2">The most iconic summits of Bangladesh</p>
             </div>
             <Button variant="ghost" asChild className="hidden sm:flex text-primary hover:text-primary">
               <Link to="/explore">
@@ -198,8 +197,8 @@ const Index = () => {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1, duration: 0.4 }}
                 >
-                  <p className="text-3xl md:text-4xl font-bold text-gradient-emerald">{stat.value}</p>
-                  <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
+                  <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-gradient-emerald">{stat.value}</p>
+                  <p className="text-base md:text-lg text-muted-foreground mt-3 font-medium">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -214,7 +213,7 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-2xl font-bold mb-6"
+              className="text-3xl font-bold mb-8"
             >
               Latest Trail Updates
             </motion.h2>
@@ -235,8 +234,8 @@ const Index = () => {
                 >
                   <div className="mt-1 h-2 w-2 rounded-full bg-primary shrink-0" />
                   <div>
-                    <p className="font-medium text-sm">{item.title}</p>
-                    <p className="text-xs text-muted-foreground mt-1">
+                    <p className="font-medium text-base">{item.title}</p>
+                    <p className="text-sm text-muted-foreground mt-1.5">
                       {item.date} · {item.region}
                     </p>
                   </div>
@@ -246,7 +245,7 @@ const Index = () => {
           </div>
         </section>
       </main>
-    </PageTransition>
+    </PageTransition >
   );
 };
 

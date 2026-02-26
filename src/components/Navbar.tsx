@@ -27,13 +27,13 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-2">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               end={item.to === "/"}
-              className="flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
+              className="flex items-center gap-2 px-4 py-2 rounded-md text-base font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
               activeClassName="text-primary bg-primary/10"
             >
               <item.icon className="h-4 w-4" />

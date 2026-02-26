@@ -47,22 +47,23 @@ function FilterPanel({
   return (
     <div className="space-y-8">
       <div>
-        <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wider">Region</h3>
-        <div className="space-y-2">
+        <h3 className="text-base font-semibold mb-3 text-muted-foreground uppercase tracking-wider">Region</h3>
+        <div className="space-y-2.5">
           {regions.map((r) => (
             <label key={r} className="flex items-center gap-3 cursor-pointer group">
               <Checkbox
                 checked={selectedRegions.includes(r)}
                 onCheckedChange={() => toggleRegion(r)}
+                className="scale-110"
               />
-              <span className="text-sm group-hover:text-foreground transition-colors">{r}</span>
+              <span className="text-base group-hover:text-foreground transition-colors">{r}</span>
             </label>
           ))}
         </div>
       </div>
 
-      <div>
-        <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wider">
+      <div className="mt-8">
+        <h3 className="text-base font-semibold mb-3 text-muted-foreground uppercase tracking-wider">
           Altitude (ft)
         </h3>
         <Slider
@@ -73,14 +74,14 @@ function FilterPanel({
           onValueChange={(v) => setAltRange(v as [number, number])}
           className="mb-2"
         />
-        <div className="flex justify-between text-xs text-muted-foreground">
+        <div className="flex justify-between text-sm text-muted-foreground">
           <span>{altRange[0].toLocaleString()}</span>
           <span>{altRange[1].toLocaleString()}</span>
         </div>
       </div>
 
-      <div>
-        <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wider">
+      <div className="mt-8">
+        <h3 className="text-base font-semibold mb-3 text-muted-foreground uppercase tracking-wider">
           Difficulty (1-10)
         </h3>
         <Slider
@@ -91,15 +92,15 @@ function FilterPanel({
           onValueChange={(v) => setDiffRange(v as [number, number])}
           className="mb-2"
         />
-        <div className="flex justify-between text-xs text-muted-foreground">
+        <div className="flex justify-between text-sm text-muted-foreground">
           <span>{diffRange[0]}</span>
           <span>{diffRange[1]}</span>
         </div>
       </div>
 
-      <div>
-        <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wider">Category</h3>
-        <div className="flex flex-wrap gap-2">
+      <div className="mt-8">
+        <h3 className="text-base font-semibold mb-3 text-muted-foreground uppercase tracking-wider">Category</h3>
+        <div className="flex flex-wrap gap-2.5">
           {(["all", "peak", "waterfall"] as const).map((c) => (
             <Badge
               key={c}
@@ -114,9 +115,9 @@ function FilterPanel({
       </div>
 
       {category !== "peak" && (
-        <div>
-          <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wider">Waterfall Region</h3>
-          <div className="flex flex-wrap gap-2">
+        <div className="mt-8">
+          <h3 className="text-base font-semibold mb-3 text-muted-foreground uppercase tracking-wider">Waterfall Region</h3>
+          <div className="flex flex-wrap gap-2.5">
             <Badge
               variant={waterfallRegion === "all" ? "default" : "outline"}
               className="cursor-pointer transition-all duration-200"
@@ -184,10 +185,10 @@ const Explore = () => {
     <PageTransition>
       <main className="container py-6 sm:py-8">
         {/* Header */}
-        <div className="flex items-start sm:items-center justify-between mb-6 sm:mb-8 gap-3">
+        <div className="flex items-start sm:items-center justify-between mb-8 sm:mb-10 gap-3">
           <div className="min-w-0">
-            <h1 className="text-2xl sm:text-3xl font-bold">Explore</h1>
-            <p className="text-sm text-muted-foreground mt-1">{totalCount} results</p>
+            <h1 className="text-3xl sm:text-4xl font-bold">Explore</h1>
+            <p className="text-base text-muted-foreground mt-2">{totalCount} results</p>
           </div>
           <div className="flex items-center gap-2">
             <Sheet open={mobileFilters} onOpenChange={setMobileFilters}>
@@ -296,32 +297,32 @@ const Explore = () => {
                     {filteredMountains.map((peak) => (
                       <TableRow key={peak.id} className="cursor-pointer hover:bg-muted/50 transition-colors duration-150">
                         <TableCell>
-                          <Link to={`/peak/${peak.slug}`} className="hover:text-primary font-medium transition-colors duration-200">
+                          <Link to={`/peak/${peak.slug}`} className="hover:text-primary font-medium transition-colors duration-200 text-base">
                             {peak.name_en}
-                            <span className="block text-xs text-muted-foreground">{peak.name_bn}</span>
+                            <span className="block text-sm text-muted-foreground mt-0.5">{peak.name_bn}</span>
                           </Link>
                         </TableCell>
-                        <TableCell><Badge variant="outline" className="text-xs">Peak</Badge></TableCell>
-                        <TableCell className="text-right font-mono text-sm">
+                        <TableCell><Badge variant="outline" className="text-sm">Peak</Badge></TableCell>
+                        <TableCell className="text-right font-mono text-base">
                           {peak.altitude_ft.toLocaleString()} ft
                         </TableCell>
                         <TableCell>
-                          <Badge variant="outline" className="text-xs">{peak.region}</Badge>
+                          <Badge variant="outline" className="text-sm">{peak.region}</Badge>
                         </TableCell>
                       </TableRow>
                     ))}
                     {filteredWaterfalls.map((wf) => (
                       <TableRow key={wf.id} className="cursor-pointer hover:bg-muted/50 transition-colors duration-150">
                         <TableCell>
-                          <Link to={`/waterfall/${wf.slug}`} className="hover:text-blue-400 font-medium transition-colors duration-200">
+                          <Link to={`/waterfall/${wf.slug}`} className="hover:text-blue-400 font-medium transition-colors duration-200 text-base">
                             {wf.name_en}
-                            <span className="block text-xs text-muted-foreground">{wf.name_bn}</span>
+                            <span className="block text-sm text-muted-foreground mt-0.5">{wf.name_bn}</span>
                           </Link>
                         </TableCell>
-                        <TableCell><Badge variant="outline" className="text-xs text-blue-400">Waterfall</Badge></TableCell>
-                        <TableCell className="text-right text-sm text-muted-foreground">—</TableCell>
+                        <TableCell><Badge variant="outline" className="text-sm text-blue-400">Waterfall</Badge></TableCell>
+                        <TableCell className="text-right text-base text-muted-foreground">—</TableCell>
                         <TableCell>
-                          <Badge variant="outline" className="text-xs">{wf.region}</Badge>
+                          <Badge variant="outline" className="text-sm">{wf.region}</Badge>
                         </TableCell>
                       </TableRow>
                     ))}

@@ -28,14 +28,14 @@ export function WaterfallCard({ waterfall }: { waterfall: Waterfall }) {
       </div>
 
       <div className="p-4 space-y-2">
-        <h3 className="text-lg font-semibold leading-tight group-hover:text-blue-400 transition-colors">
+        <h3 className="text-xl font-semibold leading-tight group-hover:text-blue-400 transition-colors">
           {waterfall.name_en}
         </h3>
-        <p className="text-sm text-muted-foreground">{waterfall.name_bn}</p>
+        <p className="text-base text-muted-foreground">{waterfall.name_bn}</p>
 
-        <div className="flex items-center gap-3 text-xs text-muted-foreground pt-1">
-          <span className="flex items-center gap-1">
-            <MapPin className="h-3.5 w-3.5" />
+        <div className="flex items-center gap-3 text-sm text-muted-foreground pt-1">
+          <span className="flex items-center gap-1.5">
+            <MapPin className="h-4 w-4" />
             {waterfall.region}
           </span>
         </div>
