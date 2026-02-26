@@ -1,8 +1,11 @@
 # Stage 1: Build the React Application
 FROM node:20-alpine as build
 
-# Set the working directory
 WORKDIR /app
+
+# Accept VITE_API_URL as a build argument
+ARG VITE_API_URL
+ENV VITE_API_URL=$VITE_API_URL
 
 # Copy package.json and package-lock.json
 COPY package*.json ./

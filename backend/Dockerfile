@@ -15,9 +15,8 @@ COPY . .
 # Generate Prisma Client
 RUN npx prisma generate
 
-# Create the database file safely
-RUN npx prisma db push
-
+# Expose port 3000
 EXPOSE 3000
 
-CMD ["node", "server.js"]
+# Run migrations then start the server
+CMD ["sh", "-c", "npx prisma db push && node server.js"]

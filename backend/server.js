@@ -8,7 +8,22 @@ const prisma = new PrismaClient();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+const allowedOrigins = [
+  'https://bdpeaks.info',
+  'https://www.bdpeaks.info',
+  'http://localhost:8080',
+  'http://localhost:5173',
+];
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (mobile apps, curl, etc.)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 app.use(express.json());
 
 // Routes
