@@ -1965,6 +1965,33 @@ export const mountains: Mountain[] = [
       comments: "A Peregrine eagle was spotted flying over the summit during the first ascent. The team camped at the main source of the Sangu River that night, further along the ridge, but had to spend the night without water as the stream was too far below.",
     },
   },
+  {
+    id: "87",
+    name_en: "Wanui Taung",
+    name_bn: "ওয়ানুই তং",
+    alt_name: "Kaurui Hung",
+    slug: "wanui-taung",
+    altitude_ft: 2515,
+    altitude_m: 766,
+    height_source: "gps",
+    region: "Bandarban",
+    lat: 21.42215,
+    lng: 92.63955,
+    difficulty: 8,
+    prominence: 370,
+    range: "Mowdok",
+    description: "Wanui Taung (also known as Kaurui Hung) required three separate summit attempts during the expedition. The first attempt from the north along the Mowdok ridgeline ended when the ridge narrowed into a sheer vertical drop. The second attempt from the south along the same ridgeline met the same fate. The successful third attempt followed a wild boar trail through bamboo forest and streams up a steep slope. Map data suggests this peak is lower than Wine Khiang Tong, but GPS measurement recorded it higher at 2,509–2,520 ft. Summiting this peak completed all expedition objectives.",
+    images: [],
+    first_ascent_date: null,
+    category: "peak",
+    extended: {
+      original_location: "21°25'19.7\"N 92°38'22.4\"E",
+      topographic_prominence: "365–375 ft",
+      geographic_isolation: "2.1 km",
+      island_parent_location: "Tankhanai Taung",
+      comments: "Three attempts were needed — north and south ridgeline approaches both ended at sheer drops. The successful route used a wild boar trail through bamboo forest.",
+    },
+  },
 ];
 
 export const regions = ["Bandarban", "Rangamati", "Khagrachari", "Chittagong", "Sylhet"] as const;
