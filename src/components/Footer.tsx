@@ -14,7 +14,7 @@ export function Footer() {
               <span className="text-lg font-bold">BD <span className="text-primary">Peaks</span></span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              The definitive open-source archive for Bangladesh's mountains, waterfalls, and trekking trails.
+              The definitive open-source archive for Bangladesh's mountains and waterfalls.
             </p>
           </div>
 
@@ -34,7 +34,6 @@ export function Footer() {
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="flex items-center gap-2"><Mountain className="h-3.5 w-3.5 text-primary" /> {mountains.length} peaks documented</p>
               <p className="flex items-center gap-2"><Droplets className="h-3.5 w-3.5 text-blue-400" /> {waterfalls.length} waterfalls mapped</p>
-              <p>{waterfalls.filter(w => !w.coordinates_pending).length} GPS-verified locations</p>
             </div>
           </div>
 
@@ -42,13 +41,15 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wider">Credits</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Built with data from GPS surveys, community contributors, and trekking expeditions across the Chittagong Hill Tracts.
+              Built with data from independent GPS surveys and made possible by monumental contributions from Hasan Shihab & the Symphony of Horizon team. I deeply acknowledge the foundational work of the Banglatrek Archive, Nature Adventure Club, D-Way Expeditors, সংশপ্তক অভিযাত্রী, BD Explorers, Pear Alam, অদ্রি । Audree, Salehin Arshady and all the mountain-loving people who continue to enrich this database.
             </p>
           </div>
         </div>
 
         <div className="border-t border-border mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} BD Peaks Archive. Open data for adventure.</p>
+          <p>
+            © {new Date().getFullYear()} BD Peaks Archive. Created & Maintained by <a href="https://www.nurulgofran.dev" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors font-medium">Md Norul Gofran</a>.
+          </p>
           <p>Maps powered by Mapbox · Elevation data from SRTM & GPS surveys</p>
         </div>
       </div>

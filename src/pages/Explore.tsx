@@ -333,48 +333,7 @@ const Explore = () => {
           </div>
         </div>
 
-        {/* Forest Regions Section */}
-        {forestRegions.length > 0 && (
-          <div className="mt-12">
-            <motion.h2
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-xl font-bold mb-4 flex items-center gap-2"
-            >
-              <TreePine className="h-5 w-5 text-primary" /> Forest Regions & Basins
-            </motion.h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {forestRegions.map((fr, i) => (
-                <motion.div
-                  key={fr.id}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.4 }}
-                >
-                  <Link
-                    to={`/region/${fr.slug}`}
-                    className="group block rounded-xl border border-border bg-card hover:border-primary/40 hover:shadow-emerald p-5 transition-all duration-300"
-                  >
-                    <h3 className="text-lg font-semibold group-hover:text-primary transition-colors duration-200">{fr.name}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{fr.political_name}</p>
-                    <div className="flex flex-wrap gap-3 mt-3 text-xs text-muted-foreground">
-                      <span>{fr.total_area_km2} km²</span>
-                      <span>·</span>
-                      <span>{fr.forest_density_pct}% density</span>
-                      <span>·</span>
-                      <span>{fr.streams.length} streams</span>
-                      <span>·</span>
-                      <span>{fr.notable_mammals.length}+ mammal species</span>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        )}
+
       </main>
     </PageTransition>
   );

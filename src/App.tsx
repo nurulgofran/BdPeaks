@@ -15,6 +15,8 @@ import RegionDetail from "./pages/RegionDetail";
 import Contribute from "./pages/Contribute";
 import NotFound from "./pages/NotFound";
 
+import AdminDashboard from "./pages/AdminDashboard";
+
 const queryClient = new QueryClient();
 
 function AnimatedRoutes() {
@@ -30,6 +32,7 @@ function AnimatedRoutes() {
         <Route path="/map" element={<MapPage />} />
         <Route path="/region/:slug" element={<RegionDetail />} />
         <Route path="/contribute" element={<Contribute />} />
+        <Route path="/admin" element={<AdminDashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

@@ -205,45 +205,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Latest Updates */}
-        <section className="border-t border-border">
-          <div className="container py-16">
-            <motion.h2
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-3xl font-bold mb-8"
-            >
-              Latest Trail Updates
-            </motion.h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              {[
-                { title: "Tahjindong trail rerouted due to landslide", date: "Feb 2026", region: "Bandarban" },
-                { title: "New campsite established near Boga Lake", date: "Jan 2026", region: "Bandarban" },
-                { title: "Dumlong trek guide updated with GPS waypoints", date: "Dec 2025", region: "Rangamati" },
-                { title: "Community mapping initiative launched in Khagrachari", date: "Nov 2025", region: "Khagrachari" },
-              ].map((item, i) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, duration: 0.4 }}
-                  className="flex items-start gap-4 p-4 rounded-lg border border-border hover:border-primary/30 transition-all duration-300 hover:bg-muted/30"
-                >
-                  <div className="mt-1 h-2 w-2 rounded-full bg-primary shrink-0" />
-                  <div>
-                    <p className="font-medium text-base">{item.title}</p>
-                    <p className="text-sm text-muted-foreground mt-1.5">
-                      {item.date} · {item.region}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+
       </main>
     </PageTransition >
   );
