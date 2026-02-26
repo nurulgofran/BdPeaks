@@ -1124,7 +1124,6 @@ export const mountains: Mountain[] = [
     first_ascent_date: "2018",
     category: "peak",
     extended: {
-      survey_name: "Ramiu Taung / Rakhamoin Taung / Rakhamoo Taung / Pyramid Hill",
       political_location: "Roangchari, Bandarban & Bilaichari, Rangamati",
       original_location: "22°11'03\"N 92°29'E",
       key_col_location: "22°10'16\"N 92°29'45\"E",
