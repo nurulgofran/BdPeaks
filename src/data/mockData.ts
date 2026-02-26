@@ -56,6 +56,7 @@ export interface Mountain {
   images: string[];
   first_ascent_date: string | null;
   category: "peak" | "waterfall";
+  coordinates_pending?: boolean;
   extended?: MountainExtended;
 }
 
@@ -162,10 +163,12 @@ export const mountains: Mountain[] = [
     difficulty: 4,
     prominence: 0,
     range: "Chittagong Hill Tracts",
-    description: "Located near the Bankkhali river watershed in Bandarban.",
+    description: "The peak is situated near the Bankkhali river watershed. Its alternate name, \"Bankkhali Hung,\" reflects the local geography, as the word Hung in the indigenous Khumi and Mro languages translates to \"valley\" or \"mountain stream\".",
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
+    coordinates_pending: true,
   },
   {
     id: "3",
@@ -186,6 +189,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "4",
@@ -206,6 +210,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "5",
@@ -226,6 +231,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "6",
@@ -307,6 +313,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "9",
@@ -327,6 +334,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "10",
@@ -347,6 +355,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "11",
@@ -367,6 +376,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "12",
@@ -387,6 +397,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "13",
@@ -407,6 +418,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
     extended: {
       topographic_prominence: "422 ft",
       geographic_isolation: "2.25 km",
@@ -433,6 +445,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "15",
@@ -453,6 +466,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "16",
@@ -473,6 +487,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "17",
@@ -545,6 +560,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "20",
@@ -599,6 +615,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "22",
@@ -665,6 +682,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "25",
@@ -685,6 +703,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "26",
@@ -725,6 +744,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "28",
@@ -765,6 +785,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "30",
@@ -785,6 +806,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "31",
@@ -805,6 +827,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "32",
@@ -825,6 +848,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "33",
@@ -845,6 +869,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "34",
@@ -865,6 +890,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "35",
@@ -885,6 +911,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "36",
@@ -905,6 +932,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "37",
@@ -925,6 +953,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "38",
@@ -945,6 +974,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "39",
@@ -1082,6 +1112,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "45",
@@ -1102,6 +1133,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "46",
@@ -1162,6 +1194,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "49",
@@ -1212,6 +1245,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "51",
@@ -1265,6 +1299,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "53",
@@ -1344,6 +1379,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "56",
@@ -1389,6 +1425,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "58",
@@ -1409,6 +1446,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "59",
@@ -1429,6 +1467,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "60",
@@ -1449,6 +1488,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "61",
@@ -1509,6 +1549,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "64",
@@ -1599,6 +1640,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "68",
@@ -1902,6 +1944,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "78",
@@ -1922,6 +1965,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "79",
@@ -1942,6 +1986,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "80",
@@ -2062,6 +2107,7 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
+    coordinates_pending: true,
   },
   {
     id: "84",
@@ -2307,32 +2353,7 @@ export const mountains: Mountain[] = [
       mount_code: "P6.03",
     },
   },
-  {
-    id: "93",
-    name_en: "P11.03",
-    name_bn: "",
-    alt_name: null,
-    slug: "p11-03",
-    altitude_ft: 2756,
-    altitude_m: 840,
-    height_source: "gearth",
-    region: "Rangamati",
-    lat: 22.15931,
-    lng: 92.55767,
-    difficulty: 6,
-    prominence: 1224,
-    range: "Reng Tlang Range",
-    description: "Unnamed prominent peak (code P11.03) in the Reng Tlang Range with 1,224 ft of topographic prominence.",
-    images: [],
-    first_ascent_date: null,
-    category: "peak",
-    extended: {
-      original_location: "22°9'33.52\"N 92°33'27.60\"E",
-      topographic_prominence: "1,224 ft",
-      saddle_elevation: "1,532 ft",
-      mount_code: "P11.03",
-    },
-  },
+
   {
     id: "94",
     name_en: "Munaha Taung",
@@ -2467,58 +2488,8 @@ export const mountains: Mountain[] = [
       comments: "Key saddle elevation was collected from map data rather than physical measurement. The true peak is the highest in the Mirinja range."
     },
   },
-  {
-    id: "99",
-    name_en: "P4.05",
-    name_bn: "",
-    alt_name: null,
-    slug: "p4-05",
-    altitude_ft: 2867,
-    altitude_m: 874,
-    height_source: "gearth",
-    region: "Bandarban",
-    lat: 21.73460,
-    lng: 92.42264,
-    difficulty: 6,
-    prominence: 833,
-    range: "Mowdok Range",
-    description: "Unnamed prominent peak (code P4.05) in the Mowdok Range with 833 ft of topographic prominence.",
-    images: [],
-    first_ascent_date: null,
-    category: "peak",
-    extended: {
-      original_location: "21°44'4.54\"N 92°25'21.49\"E",
-      topographic_prominence: "833 ft",
-      saddle_elevation: "2,034 ft",
-      mount_code: "P4.05",
-    },
-  },
-  {
-    id: "100",
-    name_en: "P6.04",
-    name_bn: "",
-    alt_name: null,
-    slug: "p6-04",
-    altitude_ft: 2047,
-    altitude_m: 624,
-    height_source: "gearth",
-    region: "Bandarban",
-    lat: 21.79763,
-    lng: 92.54066,
-    difficulty: 5,
-    prominence: 948,
-    range: "Mowdok Range",
-    description: "Unnamed peak (code P6.04) in the Mowdok Range with 948 ft of topographic prominence.",
-    images: [],
-    first_ascent_date: null,
-    category: "peak",
-    extended: {
-      original_location: "21°47'51.46\"N 92°32'26.38\"E",
-      topographic_prominence: "948 ft",
-      saddle_elevation: "1,099 ft",
-      mount_code: "P6.04",
-    },
-  },
+
+
   {
     id: "103",
     name_en: "Sorongsukh Moun",
