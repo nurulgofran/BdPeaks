@@ -672,8 +672,8 @@ export const mountains: Mountain[] = [
     altitude_m: 852,
     height_source: "gearth",
     region: "Bandarban",
-    lat: 0,
-    lng: 0,
+    lat: 21.6711,
+    lng: 92.4417,
     difficulty: 6,
     prominence: 0,
     range: "Mowdok Range",
@@ -681,7 +681,6 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
-    coordinates_pending: true,
   },
   {
     id: "25",
