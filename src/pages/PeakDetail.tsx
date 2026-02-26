@@ -328,11 +328,25 @@ const PeakDetail = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.4 }}
-          className="mt-12 flex gap-3"
+          className="mt-12 flex flex-wrap gap-3"
         >
           <Button variant="outline" disabled>
             <Download className="h-4 w-4 mr-2" /> Download GPX
           </Button>
+
+          {peak.coordinates_pending ? (
+            <Button asChild className="bg-amber-500 hover:bg-amber-600 text-white">
+              <Link to={`/contribute?mountain=${encodeURIComponent(peak.name_en)}`}>
+                <MapPin className="h-4 w-4 mr-2" /> Provide Coordinates
+              </Link>
+            </Button>
+          ) : (
+            <Button variant="secondary" asChild>
+              <Link to={`/contribute?mountain=${encodeURIComponent(peak.name_en)}`}>
+                Suggest an Edit
+              </Link>
+            </Button>
+          )}
         </motion.div>
       </main>
     </PageTransition>
