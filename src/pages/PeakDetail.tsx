@@ -9,13 +9,8 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { MAPBOX_TOKEN } from "@/lib/mapbox";
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/PageTransition";
-import sakaHaphongImg from "@/assets/peaks/saka-haphong.png";
 
 mapboxgl.accessToken = MAPBOX_TOKEN;
-
-const heroImages: Record<string, string> = {
-  "saka-haphong": sakaHaphongImg,
-};
 
 const PeakDetail = () => {
   const { slug } = useParams();
@@ -69,7 +64,6 @@ const PeakDetail = () => {
   }
 
   const ext = peak.extended;
-  const heroImg = ext?.hero_image ? heroImages[ext.hero_image] : null;
 
   return (
     <PageTransition>
@@ -78,22 +72,6 @@ const PeakDetail = () => {
           <Link to="/explore"><ArrowLeft className="h-4 w-4 mr-1" /> Back to Explore</Link>
         </Button>
 
-        {/* Hero Image */}
-        {heroImg && (
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-8 rounded-xl overflow-hidden border border-border"
-          >
-            <img
-              src={heroImg}
-              alt={peak.name_en}
-              className="w-full h-48 sm:h-72 md:h-96 object-cover"
-              loading="lazy"
-            />
-          </motion.div>
-        )}
 
         {/* Header */}
         <motion.div
