@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,35 +7,51 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import Index from "./pages/Index";
-import Explore from "./pages/Explore";
-import PeakDetail from "./pages/PeakDetail";
-import WaterfallDetail from "./pages/WaterfallDetail";
-import MapPage from "./pages/MapPage";
-import RegionDetail from "./pages/RegionDetail";
-import Contribute from "./pages/Contribute";
-import NotFound from "./pages/NotFound";
-import AdminDashboard from "./pages/AdminDashboard";
 import { ScrollToTop } from "@/components/ScrollToTop";
+
+// Eagerly load the homepage for fastest initial render
+import Index from "./pages/Index";
+
+// Lazy load all other pages — they only download when navigated to
+const Explore = lazy(() => import("./pages/Explore"));
+const PeakDetail = lazy(() => import("./pages/PeakDetail"));
+const WaterfallDetail = lazy(() => import("./pages/WaterfallDetail"));
+const MapPage = lazy(() => import("./pages/MapPage"));
+const RegionDetail = lazy(() => import("./pages/RegionDetail"));
+const Contribute = lazy(() => import("./pages/Contribute"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 
 const queryClient = new QueryClient();
 
+function PageLoader() {
+  return (
+    <div className="flex items-center justify-center min-h-[60vh]">
+      <div className="flex flex-col items-center gap-3">
+        <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+        <p className="text-sm text-muted-foreground">Loading...</p>
+      </div>
+    </div>
+  );
+}
+
 function AnimatedRoutes() {
   const location = useLocation();
-  const isMapPage = location.pathname === "/map";
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Index />} />
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/peak/:slug" element={<PeakDetail />} />
-        <Route path="/waterfall/:slug" element={<WaterfallDetail />} />
-        <Route path="/map" element={<MapPage />} />
-        <Route path="/region/:slug" element={<RegionDetail />} />
-        <Route path="/contribute" element={<Contribute />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<PageLoader />}>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Index />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/peak/:slug" element={<PeakDetail />} />
+          <Route path="/waterfall/:slug" element={<WaterfallDetail />} />
+          <Route path="/map" element={<MapPage />} />
+          <Route path="/region/:slug" element={<RegionDetail />} />
+          <Route path="/contribute" element={<Contribute />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </AnimatePresence>
   );
 }

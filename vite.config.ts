@@ -18,4 +18,31 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Core React libraries — rarely change, cached long-term
+          "vendor-core": [
+            "react",
+            "react-dom",
+            "react-router-dom",
+          ],
+          // Mapbox — heaviest dependency, only needed on Map page
+          "vendor-map": [
+            "mapbox-gl",
+          ],
+          // Animation library
+          "vendor-motion": [
+            "framer-motion",
+          ],
+          // UI component libraries
+          "vendor-ui": [
+            "recharts",
+            "@tanstack/react-query",
+          ],
+        },
+      },
+    },
+  },
 }));
