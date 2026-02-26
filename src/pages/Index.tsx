@@ -58,16 +58,16 @@ const Index = () => {
               className="flex items-center justify-center gap-2 mb-6"
             >
               <Mountain className="h-6 w-6 text-primary" />
-              <span className="text-base font-semibold tracking-widest uppercase text-primary">BD Peaks Archive</span>
-              <Droplets className="h-6 w-6 text-primary" />
+              <span className="text-sm font-semibold tracking-widest uppercase text-primary">BD Peaks Archive</span>
+              <Droplets className="h-5 w-5 text-primary" />
             </motion.div>
 
-            <h1 className="flex flex-col items-center text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-bold tracking-tight leading-tight mb-4 sm:mb-6 w-full lg:whitespace-nowrap">
+            <h1 className="flex flex-col items-center text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight leading-tight mb-4 sm:mb-6 w-full lg:whitespace-nowrap">
               <span>Discover Bangladesh's</span>
               <span className="text-gradient-emerald mt-1 sm:mt-2">Hidden Peaks & Waterfalls</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 sm:mb-12 px-4 leading-relaxed">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 sm:mb-12 px-4 leading-relaxed">
               The definitive database of mountains, waterfalls, and trails across Bandarban, Rangamati & Khagrachari.
             </p>
 
