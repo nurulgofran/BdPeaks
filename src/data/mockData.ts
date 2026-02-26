@@ -1,3 +1,39 @@
+export interface MountainExtended {
+  survey_name?: string;
+  survey_name_note?: string;
+  local_names?: { name: string; note: string }[];
+  google_earth_location?: string;
+  google_earth_location_note?: string;
+  original_location?: string;
+  original_location_note?: string;
+  political_location?: string;
+  geological_location?: string;
+  anthropological_location?: string[];
+  google_earth_elevation_ft?: number;
+  google_earth_elevation_note?: string;
+  earlier_survey_elevation_ft?: number;
+  earlier_survey_elevation_note?: string;
+  geoid_elevation_ft?: string;
+  geoid_elevation_note?: string;
+  key_col_location?: string;
+  key_col_distance?: string;
+  key_col_elevation?: string;
+  topographic_prominence?: string;
+  proportional_prominence?: string;
+  geographic_isolation?: string;
+  isolation_direction?: string;
+  line_parent?: string;
+  line_parent_note?: string;
+  prominence_parent?: string;
+  prominence_parent_note?: string;
+  island_parent_location?: string;
+  island_parent_note?: string;
+  nearest_settlement?: string;
+  drainage?: string;
+  comments?: string;
+  hero_image?: string;
+}
+
 export interface Mountain {
   id: string;
   name_en: string;
@@ -17,6 +53,7 @@ export interface Mountain {
   images: string[];
   first_ascent_date: string | null;
   category: "peak" | "waterfall";
+  extended?: MountainExtended;
 }
 
 export interface TrailFile {
@@ -1431,21 +1468,63 @@ export const mountains: Mountain[] = [
     id: "69",
     name_en: "Saka Haphong",
     name_bn: "সাকা হাফং",
-    alt_name: "Tlang Moy / Modak Tong",
+    alt_name: "Tlang Moy / Border Hung / Mowdok Taung",
     slug: "saka-haphong",
     altitude_ft: 3474,
     altitude_m: 1059,
     height_source: "gps",
     region: "Bandarban",
-    lat: 21.78861,
-    lng: 92.60861,
+    lat: 21.78611,
+    lng: 92.61,
     difficulty: 9,
-    prominence: 2690,
-    range: "Greater Mowdok Range",
-    description: "Unofficially the highest peak of Bangladesh. Also known as Mowdok Mual, Mowdok Taung, Tlang Moy ('Beautiful Mountain' in Bawm). Tripura tribal name: Saka Haphong. GPS measurements range 1,052–1,064 m. First ascent by English adventurer Ginge Fullen (2006), first Bangladeshi summit team 2005 (Subrata Das Nitish & Bijoy Shankar Kar). Often called 'Everest of Bangladesh'. Access via Thanchi, Ruma Bazar, or Remakri Bazar.",
+    prominence: 2694,
+    range: "Mowdok (Upper portion) / Sakudaung",
+    description: "Saka Haphong is the highest, most prominent and most isolated peak of Bangladesh. The Tripura name 'Saka Haphong' means 'mountain of the east,' given by the Tripura people of Salokia para. In Bawm language 'Tlang Moy' means 'beautiful mountain.' The Mro people also call it 'Border Hung' (Border mountain). GPS measurements confirm an elevation of 3,474 ft (1,059 m). The peak sits on the Bangladesh-Myanmar border in Thanchi, Bandarban. Access via Thanchi, Ruma Bazar, or Remakri Bazar.",
     images: [],
     first_ascent_date: "2005",
     category: "peak",
+    extended: {
+      survey_name: "Mowdok Taung",
+      survey_name_note: "British didn't use any name for the mountain. 'Mowdok Taung' was first used for the whole Mowdok ridges in late 19th century. Later British used this name to 'Ngasai Hung' also. The name 'Mowdok Taung' appeared at the location of Saka Haphong on US and Russian maps in 1950s. The origin of the name 'Mowdok' is unknown. The earlier accounts of 19th century mentioned a mountain pass over 'Madhu Taung.' The accounts also mentioned that 'local Khumi people were crossing the pass frequently to go their ancestral homeland in Kaladan basin.' This 'Madhu Taung' of earlier accounts was called 'Mowdok Taung' in later accounts and maps. Madhu was renamed to an area which includes modern day Choto Mowdok.",
+      local_names: [
+        { name: "Saka Haphong", note: "The Tripura name means 'mountain of the east.' Given by the Tripura people of Salokia para." },
+        { name: "Tlang Moy", note: "In Bawm language means 'beautiful mountain.'" },
+        { name: "Border Hung", note: "Now a days the Mro people call this peak Border mountain also." },
+      ],
+      google_earth_location: "21°47'18\"N 92°36'34\"E",
+      google_earth_location_note: "Google Earth shows this point is almost 7-8 feet higher than the original highest point.",
+      original_location: "21°47'10\"N 92°36'36\"E",
+      original_location_note: "Original geographic location of the true summit.",
+      political_location: "Thanchi, Bandarban & Paletwa, Matupi, Chin State, Myanmar",
+      geological_location: "Sakudaung syncline, Kaladan fault, Chittagong Tripura folded belt",
+      anthropological_location: [
+        "Greater South East Asian Massif (coined by Jean Michaud)",
+        "Zomia (coined by William Van Schendel)",
+      ],
+      google_earth_elevation_ft: 3484,
+      google_earth_elevation_note: "1 arc-second X-band SRTM data by modifications with unknown sources. Google Earth doesn't reveal all their data sources.",
+      earlier_survey_elevation_ft: 3454,
+      earlier_survey_elevation_note: "Surveyed by 'Survey of India' under British military, 1935-36.",
+      geoid_elevation_ft: "3638–3644",
+      geoid_elevation_note: "Geoid is the original curvature line of ocean floor of the earth. In this area, the geoid line is situated 50-52 metres below the ellipsoid line.",
+      key_col_location: "21°59'59\"N 92°40'00\"E",
+      key_col_distance: "24.37 km North-East-North",
+      key_col_elevation: "760–800 ft",
+      topographic_prominence: "2,674–2,714 ft",
+      proportional_prominence: "2,792 ft",
+      geographic_isolation: "43 km",
+      isolation_direction: "East-North",
+      line_parent: "21°52'31\"N 93°00'48\"E",
+      line_parent_note: "Peak with 4,100+ ft elevation located in Chin State, Myanmar.",
+      prominence_parent: "Phawngpui Tlang / Blue Mountain",
+      prominence_parent_note: "Highest peak of Mizoram, India.",
+      island_parent_location: "27.988056, 86.925278",
+      island_parent_note: "Located in Tibet.",
+      nearest_settlement: "Nephew Para (Mru)",
+      drainage: "Nephew stream originated from Saka Haphong confluences with Remakri river.",
+      comments: "Saka Haphong is the highest, most prominent and most isolated peak of Bangladesh.",
+      hero_image: "saka-haphong",
+    },
   },
   {
     id: "70",
