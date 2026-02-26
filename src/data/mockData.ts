@@ -1912,6 +1912,32 @@ export const mountains: Mountain[] = [
       island_parent_location: "Wain Khiang Tong / Tom O Hung",
     },
   },
+  {
+    id: "85",
+    name_en: "Rigrei Khiang Tong",
+    name_bn: "রিগরেই খিয়াং তং",
+    alt_name: "Spak O Che Hung / স্পাক অ চে হুং (শঙ্খ নদীর শেষ পাহাড়)",
+    slug: "rigrei-khiang-tong",
+    altitude_ft: 2684,
+    altitude_m: 818,
+    height_source: "gps",
+    region: "Bandarban",
+    lat: 21.33777,
+    lng: 92.65938,
+    difficulty: 6,
+    prominence: 345,
+    range: "",
+    description: "Rigrei Khiang Tong, also known as Spak O Che Hung meaning 'the last mountain of the Sangu River.' Elevation: 2,670–2,685 ft (GPS: 2,684 ft). This peak marks the final significant elevation along the Sangu River watershed.",
+    images: [],
+    first_ascent_date: null,
+    category: "peak",
+    extended: {
+      original_location: "21°20'16.0\"N 92°39'33.8\"E",
+      topographic_prominence: "340–350 ft",
+      geographic_isolation: "2.14 km",
+      island_parent_location: "Prenkhep Hung",
+    },
+  },
 ];
 
 export const regions = ["Bandarban", "Rangamati", "Khagrachari", "Chittagong", "Sylhet"] as const;
