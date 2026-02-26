@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# Database Files (Prisma/SQLite)
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3

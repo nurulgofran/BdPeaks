@@ -14,7 +14,10 @@ const Index = () => {
   const [showResults, setShowResults] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-  const featured = mountains.slice(0, 3);
+  // Sort by altitude_ft descending and take the top 3
+  const featured = [...mountains]
+    .sort((a, b) => b.altitude_ft - a.altitude_ft)
+    .slice(0, 3);
 
   const searchResults = useMemo(() => {
     if (!search.trim()) return [];
@@ -187,7 +190,7 @@ const Index = () => {
               {[
                 { value: mountains.length, label: "Peaks Documented" },
                 { value: waterfalls.length, label: "Waterfalls Mapped" },
-                { value: waterfalls.filter(w => !w.coordinates_pending).length, label: "GPS Verified" },
+                { value: waterfalls.filter(w => !w.coordinates_pending).length, label: "Trails Mapped" },
                 { value: "3", label: "Hill Districts" },
               ].map((stat, i) => (
                 <motion.div

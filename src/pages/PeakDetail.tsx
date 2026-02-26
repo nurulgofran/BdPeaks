@@ -9,6 +9,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { MAPBOX_TOKEN } from "@/lib/mapbox";
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/PageTransition";
+import { WeatherWidget } from "@/components/WeatherWidget";
 
 mapboxgl.accessToken = MAPBOX_TOKEN;
 
@@ -225,6 +226,12 @@ const PeakDetail = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
+            {peak.lat !== 0 && peak.lng !== 0 && (
+              <div className="mb-8">
+                <WeatherWidget lat={peak.lat} lng={peak.lng} />
+              </div>
+            )}
+
             <h2 className="text-lg font-semibold mb-4">Description</h2>
             <p className="text-muted-foreground leading-relaxed">{peak.description}</p>
 

@@ -14,8 +14,8 @@ import MapPage from "./pages/MapPage";
 import RegionDetail from "./pages/RegionDetail";
 import Contribute from "./pages/Contribute";
 import NotFound from "./pages/NotFound";
-
 import AdminDashboard from "./pages/AdminDashboard";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +51,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <ScrollToTop />
         <Navbar />
         <AnimatedRoutes />
         <FooterWrapper />
