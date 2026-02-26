@@ -1878,6 +1878,32 @@ export const mountains: Mountain[] = [
     first_ascent_date: null,
     category: "peak",
   },
+  {
+    id: "84",
+    name_en: "Kuramcha Hung",
+    name_bn: "কুরামচা হুং",
+    alt_name: "Golpatar Pahar / গোলপাতার পাহাড়",
+    slug: "kuramcha-hung",
+    altitude_ft: 2315,
+    altitude_m: 706,
+    height_source: "gps",
+    region: "Bandarban",
+    lat: 21.44975,
+    lng: 92.63095,
+    difficulty: 5,
+    prominence: 383,
+    range: "",
+    description: "Kuramcha Hung (also known as Golpatar Pahar). Elevation: 2,300–2,320 ft (GPS: 2,315 ft). Prominence: 375–390 ft.",
+    images: [],
+    first_ascent_date: null,
+    category: "peak",
+    extended: {
+      original_location: "21°26'59.1\"N 92°37'51.4\"E",
+      topographic_prominence: "375–390 ft",
+      geographic_isolation: "1.875 km",
+      island_parent_location: "Wain Khiang Tong / Tom O Hung",
+    },
+  },
 ];
 
 export const regions = ["Bandarban", "Rangamati", "Khagrachari", "Chittagong", "Sylhet"] as const;
