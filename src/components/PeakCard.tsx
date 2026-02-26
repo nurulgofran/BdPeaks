@@ -4,83 +4,72 @@ import { Badge } from "@/components/ui/badge";
 import type { Mountain } from "@/data/mockData";
 
 function getDifficultyColor(d: number) {
-  if (d <= 3) return "bg-emerald/20 text-primary border-primary/30";
-  if (d <= 6) return "bg-yellow-500/20 text-yellow-400 border-yellow-500/30";
-  return "bg-red-500/20 text-red-400 border-red-500/30";
+  if (d <= 3) return "bg-emerald-500/15 text-emerald-400 border-emerald-500/25";
+  if (d <= 6) return "bg-amber-500/15 text-amber-400 border-amber-500/25";
+  return "bg-red-500/15 text-red-400 border-red-500/25";
 }
 
-/** Generate a unique gradient based on peak properties */
-function peakGradient(peak: Mountain) {
-  const hue1 = (peak.altitude_ft * 0.05 + peak.difficulty * 20) % 360;
-  const hue2 = (hue1 + 40) % 360;
-  return `linear-gradient(135deg, hsl(${hue1} 35% 18%) 0%, hsl(${hue2} 40% 12%) 100%)`;
-}
-
-/** Simple SVG mountain silhouette unique per peak */
-function MountainSilhouetteSVG({ peak }: { peak: Mountain }) {
-  const h = peak.altitude_ft;
-  const p1 = 20 + (h % 30);
-  const p2 = 50 + (h % 20) - 10;
-  const p3 = 80 - (h % 25);
-  const peak1Y = 25 + (peak.difficulty % 5) * 3;
-  const peak2Y = 15 + (h % 7) * 2;
-  const peak3Y = 30 + (h % 9) * 2;
+/** Minimal topo-line SVG — unique per peak */
+function TopoLines({ seed }: { seed: number }) {
+  const lines = Array.from({ length: 5 }, (_, i) => {
+    const y = 20 + i * 14 + (seed + i * 7) % 8;
+    const cx = 50 + ((seed * (i + 1)) % 40) - 20;
+    const cy = y - 6 - (i * 2);
+    return `M 0 ${y} Q ${cx} ${cy} 100 ${y + ((seed + i) % 6) - 3}`;
+  });
 
   return (
     <svg
-      viewBox="0 0 200 80"
-      className="absolute bottom-0 left-0 w-full h-3/5 opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+      viewBox="0 0 100 100"
+      className="absolute inset-0 w-full h-full opacity-[0.06] group-hover:opacity-[0.1] transition-opacity duration-700"
       preserveAspectRatio="none"
     >
-      <polygon
-        points={`0,80 ${p1},${peak1Y} ${p2},${peak2Y} ${p3},${peak3Y} 200,80`}
-        fill="currentColor"
-        className="text-foreground"
-      />
-      <polygon
-        points={`0,80 ${p1 + 15},${peak1Y + 12} ${p2 + 10},${peak2Y + 15} 200,80`}
-        fill="currentColor"
-        className="text-foreground/50"
-      />
+      {lines.map((d, i) => (
+        <path key={i} d={d} fill="none" stroke="currentColor" strokeWidth="0.5" className="text-foreground" />
+      ))}
     </svg>
   );
 }
 
 export function PeakCard({ peak }: { peak: Mountain }) {
+  const seed = peak.altitude_ft + peak.difficulty * 100;
+
   return (
     <Link
       to={`/peak/${peak.slug}`}
-      className="group block rounded-xl border border-border bg-card hover:border-primary/40 hover:shadow-emerald transition-all duration-300 overflow-hidden"
+      className="group relative flex flex-col rounded-2xl border border-border/60 bg-card/80 backdrop-blur-sm hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
     >
-      <div
-        className="relative h-44 rounded-t-xl overflow-hidden"
-        style={{ background: peakGradient(peak) }}
-      >
-        <MountainSilhouetteSVG peak={peak} />
-        <span className="absolute bottom-3 left-3 text-[10px] font-mono tracking-wider text-foreground/30 uppercase">
-          {peak.altitude_ft.toLocaleString()} ft · {peak.range}
+      {/* Visual header */}
+      <div className="relative h-36 rounded-t-2xl overflow-hidden bg-muted/40">
+        <TopoLines seed={seed} />
+
+        {/* Altitude watermark */}
+        <span className="absolute bottom-2 right-3 text-[2rem] font-black leading-none text-foreground/[0.04] tracking-tighter select-none">
+          {peak.altitude_ft.toLocaleString()}
         </span>
+
         <Badge
-          className={`absolute top-3 right-3 border ${getDifficultyColor(peak.difficulty)}`}
+          className={`absolute top-3 right-3 text-[10px] font-semibold border ${getDifficultyColor(peak.difficulty)}`}
           variant="outline"
         >
           D{peak.difficulty}
         </Badge>
       </div>
 
-      <div className="p-4 space-y-2">
-        <h3 className="text-lg font-semibold leading-tight group-hover:text-primary transition-colors">
+      {/* Info */}
+      <div className="flex flex-col gap-1.5 p-4 pt-3">
+        <h3 className="text-base font-semibold leading-snug group-hover:text-primary transition-colors duration-200">
           {peak.name_en}
         </h3>
-        <p className="text-sm text-muted-foreground">{peak.name_bn}</p>
+        <p className="text-xs text-muted-foreground/70">{peak.name_bn}</p>
 
-        <div className="flex items-center gap-3 text-xs text-muted-foreground pt-1">
+        <div className="flex items-center gap-3 text-[11px] text-muted-foreground mt-1.5 pt-2 border-t border-border/40">
           <span className="flex items-center gap-1">
-            <TrendingUp className="h-3.5 w-3.5 text-primary" />
+            <TrendingUp className="h-3 w-3 text-primary/70" />
             {peak.altitude_ft.toLocaleString()} ft
           </span>
           <span className="flex items-center gap-1">
-            <MapPin className="h-3.5 w-3.5" />
+            <MapPin className="h-3 w-3 text-muted-foreground/50" />
             {peak.region}
           </span>
         </div>
