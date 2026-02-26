@@ -156,13 +156,15 @@ const Explore = () => {
     );
 
   const filteredMountains = useMemo(() => {
-    return mountains.filter((m) => {
-      if (selectedRegions.length && !selectedRegions.includes(m.region)) return false;
-      if (m.altitude_ft < altRange[0] || m.altitude_ft > altRange[1]) return false;
-      if (m.difficulty < diffRange[0] || m.difficulty > diffRange[1]) return false;
-      if (category === "waterfall") return false;
-      return true;
-    });
+    return mountains
+      .filter((m) => {
+        if (selectedRegions.length && !selectedRegions.includes(m.region)) return false;
+        if (m.altitude_ft < altRange[0] || m.altitude_ft > altRange[1]) return false;
+        if (m.difficulty < diffRange[0] || m.difficulty > diffRange[1]) return false;
+        if (category === "waterfall") return false;
+        return true;
+      })
+      .sort((a, b) => b.altitude_ft - a.altitude_ft);
   }, [selectedRegions, altRange, diffRange, category]);
 
   const filteredWaterfalls = useMemo(() => {
