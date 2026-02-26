@@ -66,9 +66,17 @@ export function PeakCard({ peak }: { peak: Mountain }) {
       </div>
 
       {/* Range tag */}
-      <span className="mt-3 self-start text-xs text-muted-foreground/60 bg-muted/40 px-2.5 py-1 rounded-full relative z-10">
-        {peak.range}
-      </span>
+      <div className="mt-3 flex gap-2 self-start flex-wrap relative z-10">
+        <span className="text-xs text-muted-foreground/60 bg-muted/40 px-2.5 py-1 rounded-full">
+          {peak.range}
+        </span>
+        {peak.coordinates_pending && (
+          <span className="text-xs text-amber-500/80 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full shrink-0 flex items-center gap-1">
+            <MapPin className="h-3 w-3" />
+            Pending Coordinates
+          </span>
+        )}
+      </div>
     </Link>
   );
 }
