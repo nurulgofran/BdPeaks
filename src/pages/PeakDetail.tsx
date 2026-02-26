@@ -19,7 +19,7 @@ const PeakDetail = () => {
   const map = useRef<mapboxgl.Map | null>(null);
 
   useEffect(() => {
-    if (!peak || !mapContainer.current || map.current) return;
+    if (!peak || !mapContainer.current || map.current || peak.lat === 0 || peak.lng === 0) return;
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
