@@ -207,7 +207,7 @@ const MapPage = () => {
   return (
     <PageTransition>
       <main className="relative w-full" style={{ height: "calc(100vh - 56px)" }}>
-        <div ref={mapContainer} className="absolute inset-0" />
+        <div ref={mapContainer} style={{ width: "100%", height: "100%" }} />
         <div className="absolute bottom-4 left-4 sm:top-4 sm:bottom-auto z-10 bg-card/80 backdrop-blur-lg border border-border rounded-lg px-3 py-2 sm:px-4 sm:py-3 shadow-lg max-w-[calc(100%-2rem)]">
           <h1 className="text-sm font-bold">3D Terrain Map</h1>
           <p className="text-xs text-muted-foreground">{mountains.length} peaks · {waterfalls.filter(w => !w.coordinates_pending).length} waterfalls</p>
