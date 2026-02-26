@@ -25,6 +25,13 @@ const MapPage = () => {
       fadeDuration: 0,
     });
 
+    // Force resize after load — fixes blank canvas when lazy-loaded with animations
+    map.current.on("load", () => {
+      map.current?.resize();
+    });
+    // Fallback resize in case the container dimensions settle after a transition
+    setTimeout(() => map.current?.resize(), 300);
+
     map.current.setMaxPitch(85);
     map.current.touchZoomRotate.enable();
     map.current.dragRotate.enable();
