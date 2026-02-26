@@ -9,20 +9,20 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 const allowedOrigins = [
-  'https://bdpeaks.info',
-  'https://www.bdpeaks.info',
-  'http://localhost:8080',
-  'http://localhost:5173',
+    'https://bdpeaks.info',
+    'https://www.bdpeaks.info',
+    'http://localhost:8080',
+    'http://localhost:5173',
 ];
 app.use(cors({
-  origin: (origin, callback) => {
-    // Allow requests with no origin (mobile apps, curl, etc.)
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
+    origin: (origin, callback) => {
+        // Allow requests with no origin (mobile apps, curl, etc.)
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
     }
-  }
 }));
 app.use(express.json());
 
@@ -71,7 +71,29 @@ app.get('/api/contributions', async (req, res) => {
     }
 });
 
-// 3. Health check for Coolify
+// 3. Update contribution status (Admin - Approve/Reject)
+app.patch('/api/contributions/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
+
+        if (!status || !['APPROVED', 'REJECTED', 'PENDING'].includes(status)) {
+            return res.status(400).json({ error: "Invalid status. Must be APPROVED, REJECTED, or PENDING." });
+        }
+
+        const contribution = await prisma.contribution.update({
+            where: { id: parseInt(id) },
+            data: { status }
+        });
+
+        res.json({ message: `Contribution ${status.toLowerCase()} successfully`, data: contribution });
+    } catch (error) {
+        console.error("Error updating contribution:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+// 4. Health check for Coolify
 app.get('/health', (req, res) => {
     res.status(200).send('OK');
 });

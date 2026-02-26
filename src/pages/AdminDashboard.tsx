@@ -45,6 +45,23 @@ export default function AdminDashboard() {
         toast.success("Coordinates copied to clipboard");
     };
 
+    const updateStatus = async (id: number, status: "APPROVED" | "REJECTED") => {
+        try {
+            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+            const res = await fetch(`${apiUrl}/api/contributions/${id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status }),
+            });
+            if (!res.ok) throw new Error("Failed to update status");
+            toast.success(`Contribution ${status.toLowerCase()} successfully`);
+            fetchContributions();
+        } catch (error) {
+            console.error(error);
+            toast.error("Failed to update contribution status");
+        }
+    };
+
     const getStatusBadge = (status: string) => {
         switch (status) {
             case "PENDING": return <Badge variant="outline" className="text-yellow-500 bg-yellow-500/10 border-yellow-500/20"><RefreshCw className="w-3 h-3 mr-1 animate-spin" /> Pending</Badge>;
@@ -107,8 +124,8 @@ export default function AdminDashboard() {
                                         </TableCell>
                                         <TableCell>{getStatusBadge(item.status)}</TableCell>
                                         <TableCell className="text-right">
-                                            <Button size="sm" variant="outline" className="text-xs mr-2">Approve</Button>
-                                            <Button size="sm" variant="ghost" className="text-xs text-red-500 hover:text-red-600 hover:bg-red-500/10">Reject</Button>
+                                            <Button size="sm" variant="outline" className="text-xs mr-2" disabled={item.status === "APPROVED"} onClick={() => updateStatus(item.id, "APPROVED")}>Approve</Button>
+                                            <Button size="sm" variant="ghost" className="text-xs text-red-500 hover:text-red-600 hover:bg-red-500/10" disabled={item.status === "REJECTED"} onClick={() => updateStatus(item.id, "REJECTED")}>Reject</Button>
                                         </TableCell>
                                     </TableRow>
                                 ))
