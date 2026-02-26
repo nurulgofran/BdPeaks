@@ -42,7 +42,7 @@ const MapPage = () => {
     map.current.addControl(new mapboxgl.NavigationControl(), "top-right");
 
     // Add peak markers (green) — minimal dot style
-    mountains.forEach((peak) => {
+    mountains.filter((p) => p.lat !== 0 && p.lng !== 0).forEach((peak) => {
       const popup = new mapboxgl.Popup({ offset: 12, className: "peak-popup" }).setHTML(
         `<div style="color:#111827;padding:4px"><a href="/peak/${peak.slug}" style="text-decoration:none;color:inherit"><strong>${peak.name_en}</strong><br/><span style="font-size:11px">${peak.altitude_ft.toLocaleString()} ft · ${peak.region}</span><br/><span style="font-size:10px;color:#10B981">View details →</span></a></div>`
       );
