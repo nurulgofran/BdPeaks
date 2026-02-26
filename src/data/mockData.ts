@@ -1938,6 +1938,33 @@ export const mountains: Mountain[] = [
       island_parent_location: "Prenkhep Hung",
     },
   },
+  {
+    id: "86",
+    name_en: "Prenkhep Hung",
+    name_bn: "প্রেনক্ষেপ হুং",
+    alt_name: "",
+    slug: "prenkhep-hung",
+    altitude_ft: 2702,
+    altitude_m: 823,
+    height_source: "gps",
+    region: "Bandarban",
+    lat: 21.31602,
+    lng: 92.66632,
+    difficulty: 7,
+    prominence: 510,
+    range: "Lower Mowdok",
+    description: "Prenkhep Hung is the twin-peaked border mountain — the third largest peak in Lower Mowdok after Ngasai Hung and Tankhanai Tong. Though US and Soviet maps only indicated the Sangu source peak (2,630+ ft) nearby, the British Survey marked this as a 2,670 ft highpoint. Lower Mowdok has numerous highpoints along its 36 km linear distance from Pillar 70 to Ngasai Hung, but only a handful qualify as independent peaks by prominence. After detailed measurement, 10 prominent peaks were identified — compared to 7 shown on maps. This region is Bangladesh's toughest terrain, with uniquely narrow ridgelines, steep relief, connected basins, and dense biodiversity hotspot forests shaped by the tectonic activity of the Chittagong-Tripura Folded Belt.",
+    images: [],
+    first_ascent_date: null,
+    category: "peak",
+    extended: {
+      original_location: "21°18'57.7\"N 92°39'58.7\"E",
+      topographic_prominence: "500–520 ft",
+      geographic_isolation: "3.54 km",
+      island_parent_location: "Ngasai Hung",
+      comments: "A Peregrine eagle was spotted flying over the summit during the first ascent. The team camped at the main source of the Sangu River that night, further along the ridge, but had to spend the night without water as the stream was too far below.",
+    },
+  },
 ];
 
 export const regions = ["Bandarban", "Rangamati", "Khagrachari", "Chittagong", "Sylhet"] as const;
