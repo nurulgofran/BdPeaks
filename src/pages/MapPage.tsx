@@ -37,43 +37,162 @@ const MapPage = () => {
         maxzoom: 14,
       });
       map.current!.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
+
+      // Build GeoJSON Features
+      const peakFeatures = mountains
+        .filter((p) => p.lat !== 0 && p.lng !== 0)
+        .map((peak) => ({
+          type: "Feature",
+          geometry: { type: "Point", coordinates: [peak.lng, peak.lat] },
+          properties: {
+            slug: peak.slug,
+            name: peak.name_en,
+            info: `${peak.altitude_ft.toLocaleString()} ft · ${peak.region}`,
+            type: "peak",
+          },
+        }));
+
+      const waterfallFeatures = waterfalls
+        .filter((wf) => !wf.coordinates_pending && wf.lat && wf.lng)
+        .map((wf) => ({
+          type: "Feature",
+          geometry: { type: "Point", coordinates: [wf.lng, wf.lat] },
+          properties: {
+            slug: wf.slug,
+            name: wf.name_en,
+            info: wf.region,
+            type: "waterfall",
+          },
+        }));
+
+      // Load custom SVG Icons into the Map as SDF (SDF allows dynamic tinting)
+      const loadIcon = (id: string, svg: string) => {
+        const img = new Image(48, 48);
+        img.onload = () => {
+          if (!map.current!.hasImage(id)) {
+            map.current!.addImage(id, img, { sdf: true });
+          }
+        };
+        img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      };
+
+      // Mountain SVG (Filled triangle shape)
+      const mountainSvg = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000">
+          <path d="M12 4l-8 16h16L12 4zm0 2.8l5 10H7l5-10z" />
+          <path d="M12 4l-8 16h16L12 4z" />
+        </svg>
+      `;
+      // Water / Drop SVG (Filled drop shape)
+      const waterSvg = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000">
+          <path d="M12 21c-4.42 0-8-3.58-8-8 0-4.63 4.31-8.58 7.37-11.23.36-.31.9-.31 1.25 0C15.68 4.42 20 8.37 20 13c0 4.42-3.58 8-8 8z" />
+        </svg>
+      `;
+
+      loadIcon("custom-mountain", mountainSvg);
+      loadIcon("custom-water", waterSvg);
+
+      // --- Peaks Layer ---
+      map.current!.addSource("peaks-source", {
+        type: "geojson",
+        data: { type: "FeatureCollection", features: peakFeatures as any },
+        cluster: false,
+      });
+
+      map.current!.addLayer({
+        id: "peaks-layer",
+        type: "symbol",
+        source: "peaks-source",
+        layout: {
+          "icon-image": "custom-mountain",
+          "icon-size": 0.5, // The 48x48 icon scaled down
+          "icon-allow-overlap": true,
+          "icon-pitch-alignment": "map",
+        },
+        paint: {
+          "icon-color": "hsl(160, 60%, 45%)",
+          "icon-halo-color": "rgba(255, 255, 255, 0.9)",
+          "icon-halo-width": 2,
+        },
+      });
+
+      // --- Waterfalls Layer ---
+      map.current!.addSource("waterfalls-source", {
+        type: "geojson",
+        data: { type: "FeatureCollection", features: waterfallFeatures as any },
+        cluster: false,
+      });
+
+      map.current!.addLayer({
+        id: "waterfalls-layer",
+        type: "symbol",
+        source: "waterfalls-source",
+        layout: {
+          "icon-image": "custom-water",
+          "icon-size": 0.45,
+          "icon-allow-overlap": true,
+          "icon-pitch-alignment": "map",
+        },
+        paint: {
+          "icon-color": "hsl(200, 80%, 55%)",
+          "icon-halo-color": "rgba(255, 255, 255, 0.9)",
+          "icon-halo-width": 2,
+        },
+      });
+
+
+      // --- Shared Popup Logic ---
+      const popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: true,
+        offset: 10,
+        className: "peak-popup",
+      });
+
+      const handlePointerEnter = (e: mapboxgl.MapMouseEvent) => {
+        map.current!.getCanvas().style.cursor = "pointer";
+      };
+
+      const handlePointerLeave = () => {
+        map.current!.getCanvas().style.cursor = "";
+      };
+
+      const handleClick = (e: mapboxgl.MapMouseEvent) => {
+        const features = map.current!.queryRenderedFeatures(e.point, {
+          layers: ["peaks-layer", "waterfalls-layer"],
+        });
+        if (!features.length) return;
+
+        const feature = features[0];
+        const props = feature.properties as any;
+        const coordinates = (feature.geometry as any).coordinates.slice();
+
+        // Ensure proper rendering across the dateline
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        const linkColor = props.type === "peak" ? "#10B981" : "#3B82F6";
+        const linkPath = props.type === "peak" ? "peak" : "waterfall";
+
+        popup
+          .setLngLat(coordinates as [number, number])
+          .setHTML(
+            `<div style="color:#111827;padding:4px"><a href="/${linkPath}/${props.slug}" style="text-decoration:none;color:inherit"><strong>${props.name}</strong><br/><span style="font-size:11px">${props.info}</span><br/><span style="font-size:10px;color:${linkColor}">View details →</span></a></div>`
+          )
+          .addTo(map.current!);
+      };
+
+      // Bind events
+      ["peaks-layer", "waterfalls-layer"].forEach((layer) => {
+        map.current!.on("mouseenter", layer as any, handlePointerEnter);
+        map.current!.on("mouseleave", layer as any, handlePointerLeave);
+        map.current!.on("click", layer as any, handleClick);
+      });
     });
 
     map.current.addControl(new mapboxgl.NavigationControl(), "top-right");
-
-    // Add peak markers (green) — minimal dot style
-    mountains.filter((p) => p.lat !== 0 && p.lng !== 0).forEach((peak) => {
-      const popup = new mapboxgl.Popup({ offset: 12, className: "peak-popup" }).setHTML(
-        `<div style="color:#111827;padding:4px"><a href="/peak/${peak.slug}" style="text-decoration:none;color:inherit"><strong>${peak.name_en}</strong><br/><span style="font-size:11px">${peak.altitude_ft.toLocaleString()} ft · ${peak.region}</span><br/><span style="font-size:10px;color:#10B981">View details →</span></a></div>`
-      );
-
-      const el = document.createElement("div");
-      el.className = "peak-marker";
-      el.style.cssText = "width:18px;height:18px;background:hsl(160,60%,45%);border-radius:50%;cursor:pointer;box-shadow:0 0 6px hsl(160,60%,45%,0.6);border:2px solid rgba(255,255,255,0.9)";
-
-      new mapboxgl.Marker(el)
-        .setLngLat([peak.lng, peak.lat])
-        .setPopup(popup)
-        .addTo(map.current!);
-    });
-
-    // Add waterfall markers (blue) — minimal dot style
-    waterfalls.forEach((wf) => {
-      if (wf.coordinates_pending || !wf.lat || !wf.lng) return;
-
-      const popup = new mapboxgl.Popup({ offset: 12, className: "peak-popup" }).setHTML(
-        `<div style="color:#111827;padding:4px"><a href="/waterfall/${wf.slug}" style="text-decoration:none;color:inherit"><strong>${wf.name_en}</strong><br/><span style="font-size:11px">${wf.region}</span><br/><span style="font-size:10px;color:#3B82F6">View details →</span></a></div>`
-      );
-
-      const el = document.createElement("div");
-      el.className = "waterfall-marker";
-      el.style.cssText = "width:14px;height:14px;background:hsl(200,80%,55%);border-radius:50%;cursor:pointer;box-shadow:0 0 6px hsl(200,80%,55%,0.6);border:2px solid rgba(255,255,255,0.9)";
-
-      new mapboxgl.Marker(el)
-        .setLngLat([wf.lng, wf.lat])
-        .setPopup(popup)
-        .addTo(map.current!);
-    });
 
     return () => { map.current?.remove(); map.current = null; };
   }, []);
@@ -86,8 +205,8 @@ const MapPage = () => {
           <h1 className="text-sm font-bold">3D Terrain Map</h1>
           <p className="text-xs text-muted-foreground">{mountains.length} peaks · {waterfalls.filter(w => !w.coordinates_pending).length} waterfalls</p>
           <div className="flex items-center gap-3 mt-2 text-[10px] text-muted-foreground">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full" style={{background:"hsl(160,60%,45%)"}} /> Peaks</span>
-            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full" style={{background:"hsl(200,80%,55%)"}} /> Waterfalls</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full" style={{ background: "hsl(160,60%,45%)" }} /> Peaks</span>
+            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full" style={{ background: "hsl(200,80%,55%)" }} /> Waterfalls</span>
           </div>
         </div>
       </main>

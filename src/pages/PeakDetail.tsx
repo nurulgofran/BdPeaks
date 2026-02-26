@@ -82,7 +82,6 @@ const PeakDetail = () => {
         >
           <div className="flex flex-wrap items-center gap-2 mb-2">
             <Badge variant="outline" className="text-xs">{peak.region}</Badge>
-            <Badge variant="outline" className="text-xs">Difficulty {peak.difficulty}/10</Badge>
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold">{peak.name_en}</h1>
           <p className="text-lg sm:text-xl text-muted-foreground mt-1">{peak.name_bn}</p>
@@ -293,33 +292,9 @@ const PeakDetail = () => {
               </>
             )}
 
-            <h2 className="text-lg font-semibold mt-8 mb-4">Historical Ascents</h2>
-            <p className="text-sm text-muted-foreground italic">No ascent records have been submitted yet.</p>
 
-            {/* Nearby Waterfalls */}
-            {(() => {
-              const nearby = waterfalls.filter((w) => w.nearby_peak_slugs.includes(peak.slug));
-              if (nearby.length === 0) return null;
-              return (
-                <>
-                  <h2 className="text-lg font-semibold mt-8 mb-4 flex items-center gap-2">
-                    <Droplets className="h-4 w-4 text-blue-400" /> Nearby Waterfalls
-                  </h2>
-                  <div className="space-y-2">
-                    {nearby.map((wf) => (
-                      <Link
-                        key={wf.id}
-                        to={`/waterfall/${wf.slug}`}
-                        className="flex items-center justify-between p-3 rounded-lg border border-border hover:border-blue-500/40 transition-all duration-300 hover:bg-muted/30"
-                      >
-                        <span className="font-medium text-sm">{wf.name_en}</span>
-                        <Badge variant="outline" className="text-xs text-blue-400">Waterfall</Badge>
-                      </Link>
-                    ))}
-                  </div>
-                </>
-              );
-            })()}
+
+
           </motion.div>
         </div>
 
@@ -330,9 +305,7 @@ const PeakDetail = () => {
           transition={{ duration: 0.4, delay: 0.4 }}
           className="mt-12 flex flex-wrap gap-3"
         >
-          <Button variant="outline" disabled>
-            <Download className="h-4 w-4 mr-2" /> Download GPX
-          </Button>
+
 
           {peak.coordinates_pending ? (
             <Button asChild className="bg-amber-500 hover:bg-amber-600 text-white">

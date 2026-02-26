@@ -15,34 +15,20 @@ import { PageTransition } from "@/components/PageTransition";
 
 type ViewMode = "grid" | "list";
 
-function getDifficultyLabel(d: number) {
-  if (d <= 3) return "Easy";
-  if (d <= 6) return "Moderate";
-  return "Hard";
-}
-
 function FilterPanel({
   selectedRegions,
   toggleRegion,
   altRange,
   setAltRange,
-  diffRange,
-  setDiffRange,
   category,
   setCategory,
-  waterfallRegion,
-  setWaterfallRegion,
 }: {
   selectedRegions: string[];
   toggleRegion: (r: string) => void;
   altRange: [number, number];
   setAltRange: (v: [number, number]) => void;
-  diffRange: [number, number];
-  setDiffRange: (v: [number, number]) => void;
   category: "all" | "peak" | "waterfall";
   setCategory: (c: "all" | "peak" | "waterfall") => void;
-  waterfallRegion: string;
-  setWaterfallRegion: (r: string) => void;
 }) {
   return (
     <div className="space-y-8">
@@ -81,24 +67,6 @@ function FilterPanel({
       </div>
 
       <div className="mt-8">
-        <h3 className="text-base font-semibold mb-3 text-muted-foreground uppercase tracking-wider">
-          Difficulty (1-10)
-        </h3>
-        <Slider
-          min={1}
-          max={10}
-          step={1}
-          value={diffRange}
-          onValueChange={(v) => setDiffRange(v as [number, number])}
-          className="mb-2"
-        />
-        <div className="flex justify-between text-sm text-muted-foreground">
-          <span>{diffRange[0]}</span>
-          <span>{diffRange[1]}</span>
-        </div>
-      </div>
-
-      <div className="mt-8">
         <h3 className="text-base font-semibold mb-3 text-muted-foreground uppercase tracking-wider">Category</h3>
         <div className="flex flex-wrap gap-2.5">
           {(["all", "peak", "waterfall"] as const).map((c) => (
@@ -113,31 +81,6 @@ function FilterPanel({
           ))}
         </div>
       </div>
-
-      {category !== "peak" && (
-        <div className="mt-8">
-          <h3 className="text-base font-semibold mb-3 text-muted-foreground uppercase tracking-wider">Waterfall Region</h3>
-          <div className="flex flex-wrap gap-2.5">
-            <Badge
-              variant={waterfallRegion === "all" ? "default" : "outline"}
-              className="cursor-pointer transition-all duration-200"
-              onClick={() => setWaterfallRegion("all")}
-            >
-              All
-            </Badge>
-            {waterfallRegionTags.map((rt) => (
-              <Badge
-                key={rt}
-                variant={waterfallRegion === rt ? "default" : "outline"}
-                className="cursor-pointer transition-all duration-200"
-                onClick={() => setWaterfallRegion(rt)}
-              >
-                {rt}
-              </Badge>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
@@ -146,9 +89,7 @@ const Explore = () => {
   const [view, setView] = useState<ViewMode>("grid");
   const [selectedRegions, setSelectedRegions] = useState<string[]>([]);
   const [altRange, setAltRange] = useState<[number, number]>([0, 3500]);
-  const [diffRange, setDiffRange] = useState<[number, number]>([1, 10]);
   const [category, setCategory] = useState<"all" | "peak" | "waterfall">("all");
-  const [waterfallRegion, setWaterfallRegion] = useState<string>("all");
   const [mobileFilters, setMobileFilters] = useState(false);
 
   const toggleRegion = (r: string) =>
@@ -161,25 +102,30 @@ const Explore = () => {
       .filter((m) => {
         if (selectedRegions.length && !selectedRegions.includes(m.region)) return false;
         if (m.altitude_ft < altRange[0] || m.altitude_ft > altRange[1]) return false;
-        if (m.difficulty < diffRange[0] || m.difficulty > diffRange[1]) return false;
         if (category === "waterfall") return false;
         return true;
       })
       .sort((a, b) => b.altitude_ft - a.altitude_ft);
-  }, [selectedRegions, altRange, diffRange, category]);
+  }, [selectedRegions, altRange, category]);
 
   const filteredWaterfalls = useMemo(() => {
     if (category === "peak") return [];
+
+    // Waterfalls don't have altitude data. If the user is actively filtering 
+    // by altitude (not default [0, 3500]) AND they haven't explicitly asked for 
+    // ONLY waterfalls, we should hide waterfalls so they don't pollute peak results.
+    const isDefaultAltitude = altRange[0] === 0 && altRange[1] === 3500;
+    if (!isDefaultAltitude && category !== "waterfall") return [];
+
     return waterfalls.filter((w) => {
       if (selectedRegions.length && !selectedRegions.includes(w.region)) return false;
-      if (waterfallRegion !== "all" && w.region_tag !== waterfallRegion) return false;
       return true;
     });
-  }, [selectedRegions, category, waterfallRegion]);
+  }, [selectedRegions, category, altRange]);
 
   const totalCount = filteredMountains.length + filteredWaterfalls.length;
 
-  const filterProps = { selectedRegions, toggleRegion, altRange, setAltRange, diffRange, setDiffRange, category, setCategory, waterfallRegion, setWaterfallRegion };
+  const filterProps = { selectedRegions, toggleRegion, altRange, setAltRange, category, setCategory };
 
   return (
     <PageTransition>
@@ -243,7 +189,6 @@ const Explore = () => {
                 <Button variant="link" className="mt-2" onClick={() => {
                   setSelectedRegions([]);
                   setAltRange([0, 3500]);
-                  setDiffRange([1, 10]);
                   setCategory("all");
                 }}>
                   Clear all filters
