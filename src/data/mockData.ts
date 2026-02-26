@@ -1997,8 +1997,8 @@ export const waterfalls: Waterfall[] = [
     name_en: "Jamrum Waterfall",
     name_bn: "জামরুম জলপ্রপাত",
     slug: "jamrum-waterfall",
-    lat: null,
-    lng: null,
+    lat: 21.61625,
+    lng: 92.44733,
     region: "Bandarban",
     region_tag: "CHT",
     description:
@@ -2008,7 +2008,7 @@ export const waterfalls: Waterfall[] = [
     tips:
       "This is a remote multi-tier waterfall. Each step has a different character — from the punchbowl at the top to the chute at the bottom. Carry ropes and proper footwear for the steep sections.",
     contributor: "",
-    coordinates_pending: true,
+    coordinates_pending: false,
     nearby_peak_slugs: [],
     images: [],
     trail_files: [],
