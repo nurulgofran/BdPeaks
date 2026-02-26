@@ -345,8 +345,8 @@ export const mountains: Mountain[] = [
     altitude_m: 777,
     height_source: "gearth",
     region: "Bandarban",
-    lat: 0,
-    lng: 0,
+    lat: 21.2971,
+    lng: 92.5830,
     difficulty: 5,
     prominence: 0,
     range: "Chittagong Hill Tracts",
@@ -354,7 +354,6 @@ export const mountains: Mountain[] = [
     images: [],
     first_ascent_date: null,
     category: "peak",
-    coordinates_pending: true,
   },
   {
     id: "11",
