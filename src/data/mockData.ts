@@ -2015,8 +2015,8 @@ export const waterfalls: Waterfall[] = [
     hydrology: {
       watershed: "জামরুম ঝিরি → টোয়াইন → মাতামুহুরি",
       primary_source: "তৈন রিজ",
-      primary_source_lat: 21.61,
-      primary_source_lng: 92.44194,
+      primary_source_lat: 21.61625,
+      primary_source_lng: 92.44733,
       stream_gradient_pct: 29,
       total_height_ft: "370-380",
       largest_single_drop_ft: 81,
