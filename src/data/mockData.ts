@@ -2592,10 +2592,7 @@ export const waterfalls: Waterfall[] = [
     coordinates_pending: false,
     nearby_peak_slugs: [],
     images: [],
-    trail_files: [
-      { name: "Khoiya Chora Trail", type: "kmz", contributor: "Sajal" },
-      { name: "Khoiya Chora GPS Track", type: "gpx", contributor: "Sadman Sakib" },
-    ],
+    trail_files: [],
     hydrology: null,
   },
   {

@@ -149,32 +149,7 @@ const WaterfallDetail = () => {
               <p className="text-muted-foreground leading-relaxed">{wf.how_to_go}</p>
             </div>
 
-            {wf.trail_files.length > 0 && (
-              <div>
-                <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                  <FileDown className="h-4 w-4 text-primary" /> Trail Files
-                </h2>
-                <div className="space-y-2">
-                  {wf.trail_files.map((tf, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center justify-between p-3 rounded-lg border border-border bg-muted/30 hover:border-primary/30 transition-all duration-200"
-                    >
-                      <div className="flex items-center gap-3">
-                        <File className="h-4 w-4 text-primary" />
-                        <div>
-                          <p className="text-sm font-medium">{tf.name}</p>
-                          <p className="text-xs text-muted-foreground">
-                            .{tf.type.toUpperCase()} · by {tf.contributor}
-                          </p>
-                        </div>
-                      </div>
-                      <Badge variant="outline" className="text-xs uppercase">{tf.type}</Badge>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+
 
             {nearbyPeaks.length > 0 && (
               <div>
