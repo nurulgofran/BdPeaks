@@ -1163,17 +1163,20 @@ export const mountains: Mountain[] = [
     difficulty: 5,
     prominence: 0,
     range: "Ruma area",
-    description: "Named after Darjeeling, India, likely for similar cloud coverage and terrain. Near Boga Lake area.",
+    description: "Named after Darjeeling, India, likely for similar cloud coverage and terrain. Near Boga Lake area. The local Bawm village near Keokradong is famously known as 'Darjeeling Para' due to its scenic, clean layout and high altitude.",
     images: [],
     first_ascent_date: null,
     category: "peak",
+    extended: {
+      comments: "While not a major distinct geological peak in the grander scale, 'Darjeeling Hill' or 'Darjeeling of Bangladesh' is a popular cultural moniker applied to this misty, cloud-covered hill and the adjacent Bawm tribal village."
+    },
     coordinates_pending: true,
   },
   {
     id: "45",
     name_en: "Lang Thong Tlang",
-    name_bn: "ল্যাং থং ত্ল্যাং",
-    alt_name: "",
+    name_bn: "ल্যাং থং ত্ল্যাং",
+    alt_name: "Marayong Thong",
     slug: "lang-thong-tlang",
     altitude_ft: 2912,
     altitude_m: 888,
@@ -1184,10 +1187,13 @@ export const mountains: Mountain[] = [
     difficulty: 6,
     prominence: 0,
     range: "Reng Tlang Range",
-    description: "Located on the Bandarban/Rangamati border in the Reng Tlang Range at 2,912 ft (888 m).",
+    description: "Located on the Bandarban/Rangamati border in the Reng Tlang Range. Tlang means 'mountain' in the Bawm language.",
     images: [],
     first_ascent_date: null,
     category: "peak",
+    extended: {
+      comments: "It is locally associated with Marayong Thong (also known as Maraing Tong), which hosts a prominent Buddhist shrine. The linguistic variations stem from Marma, Tripura, and Mro communities in the region."
+    },
     coordinates_pending: true,
   },
   {
@@ -1256,12 +1262,15 @@ export const mountains: Mountain[] = [
     lat: 0,
     lng: 0,
     difficulty: 6,
-    prominence: 0,
+    prominence: 330, // Approximated
     range: "Reng Tlang Range",
-    description: "Located in the Reng Tlang Range of Rangamati at 2,825 ft (861 m).",
+    description: "Located in the Reng Tlang Range of Rangamati. Sang Tlang is closely connected to Ruma Tlang, which is connected by a key col.",
     images: [],
     first_ascent_date: null,
     category: "peak",
+    extended: {
+      comments: "Although Sang Tlang appears taller on some older maps, recent field measurements in 2019/2020 by BD explorers confirmed neighboring Ruma Tlang is slightly higher (2,835 ft) compared to Sang Tlang (2,820 ft by GPS). The prominence of Sang Tlang is around 330 ft."
+    },
     coordinates_pending: true,
   },
   {
