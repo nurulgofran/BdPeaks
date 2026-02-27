@@ -29,8 +29,19 @@ const MapPage = () => {
     map.current.on("load", () => {
       map.current?.resize();
     });
-    // Fallback resize in case the container dimensions settle after a transition
-    setTimeout(() => map.current?.resize(), 300);
+
+    // Watch for container size changes (triggered by PageTransition animation
+    // revealing the container) and resize the map accordingly
+    const ro = new ResizeObserver(() => {
+      map.current?.resize();
+    });
+    ro.observe(mapContainer.current);
+
+    // Fallback resizes to cover the full page-transition animation (350ms)
+    // and any additional lazy-load settlement time
+    const t1 = setTimeout(() => map.current?.resize(), 100);
+    const t2 = setTimeout(() => map.current?.resize(), 400);
+    const t3 = setTimeout(() => map.current?.resize(), 700);
 
     map.current.setMaxPitch(85);
     map.current.touchZoomRotate.enable();
@@ -201,7 +212,7 @@ const MapPage = () => {
 
     map.current.addControl(new mapboxgl.NavigationControl(), "top-right");
 
-    return () => { map.current?.remove(); map.current = null; };
+    return () => { ro.disconnect(); clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); map.current?.remove(); map.current = null; };
   }, []);
 
   return (

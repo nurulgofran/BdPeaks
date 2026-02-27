@@ -41,14 +41,14 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wider">Credits</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Built with data from independent GPS surveys and made possible by monumental contributions from Hasan Shihab & the Symphony of Horizon team. I deeply acknowledge the foundational work of the Banglatrek Archive, Nature Adventure Club, D-Way Expeditors, সংশপ্তক অভিযাত্রী, BD Explorers, Pear Alam, অদ্রি । Audree, Salehin Arshady and all the mountain-loving people who continue to enrich this database.
+              Built with data from independent GPS surveys and made possible by monumental contributions from Hasan Shihab & the Symphony of Horizon team. I deeply acknowledge the foundational work of the Banglatrek Archive, Nature Adventure Club, D-Way Expeditors, সংশপ্তক অভিযাত্রী, BD Explorers, Pear Alam, Salehin Arshady and all the mountain-loving people who continue to enrich this database.
             </p>
           </div>
         </div>
 
         <div className="border-t border-border mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <p>
-            © {new Date().getFullYear()} BD Peaks Archive. Created & Maintained by <a href="https://www.nurulgofran.dev" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors font-medium">Md Norul Gofran</a>.
+            © {new Date().getFullYear()} BD Peaks Archive. Created & Maintained by <a href="https://www.nurulgofran.dev" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors font-medium">Nurul Gofran</a>.
           </p>
           <p>Maps powered by Mapbox · Elevation data from SRTM & GPS surveys</p>
         </div>

@@ -32,6 +32,14 @@ const PeakDetail = () => {
       antialias: true,
     });
 
+    map.current.on("load", () => map.current?.resize());
+
+    const ro = new ResizeObserver(() => map.current?.resize());
+    ro.observe(mapContainer.current);
+    const t1 = setTimeout(() => map.current?.resize(), 100);
+    const t2 = setTimeout(() => map.current?.resize(), 400);
+    const t3 = setTimeout(() => map.current?.resize(), 700);
+
     map.current.on("style.load", () => {
       map.current!.addSource("mapbox-dem", {
         type: "raster-dem",
@@ -48,7 +56,7 @@ const PeakDetail = () => {
     el.style.cssText = "width:16px;height:16px;background:hsl(160,60%,45%);border:2px solid white;border-radius:50%;box-shadow:0 0 10px hsl(160,60%,45%,0.6)";
     new mapboxgl.Marker(el).setLngLat([peak.lng, peak.lat]).addTo(map.current);
 
-    return () => { map.current?.remove(); map.current = null; };
+    return () => { ro.disconnect(); clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); map.current?.remove(); map.current = null; };
   }, [peak]);
 
   if (!peak) {
