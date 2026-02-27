@@ -827,8 +827,8 @@ export const mountains: Mountain[] = [
     name_bn: "নীল গিরি",
     alt_name: "Blue Mountain",
     slug: "neel-giri",
-    altitude_ft: 2300,
-    altitude_m: 701,
+    altitude_ft: 2350,
+    altitude_m: 716,
     height_source: "gearth",
     region: "Bandarban",
     lat: 0,
@@ -836,20 +836,22 @@ export const mountains: Mountain[] = [
     difficulty: 2,
     prominence: 0,
     range: "Bandarban-Thanchi Road Range",
-    description: "Famous tourist destination, ~46 km south of Bandarban on Bandarban-Thanchi road. Managed by Bangladesh Army. Known as 'Darjeeling of Bangladesh'. Army resort on summit. Surrounded by Mro tribal villages.",
+    description: "Famous tourist destination, ~46 km south of Bandarban on the Bandarban-Thanchi road. Managed by the Bangladesh Army, it offers spectacular cloud-touching views, earning the nickname 'Darjeeling of Bangladesh'.",
     images: [],
     first_ascent_date: null,
     category: "peak",
-    coordinates_pending: true,
+    extended: {
+      comments: "Tourism development accelerated significantly when the Nilgiri Hill Resort was established by the Bangladesh Army welfare organization in the early 2000s, transforming an otherwise remote area into a highly accessible tourist hub."
+    }
   },
   {
     id: "32",
     name_en: "Chandra Pahar",
     name_bn: "চন্দ্র পাহাড়",
-    alt_name: "Moon Mountain",
+    alt_name: "Naitong Hung / Moon Mountain",
     slug: "chandra-pahar",
-    altitude_ft: 2290,
-    altitude_m: 698,
+    altitude_ft: 2400,
+    altitude_m: 731,
     height_source: "gearth",
     region: "Bandarban",
     lat: 0,
@@ -857,10 +859,16 @@ export const mountains: Mountain[] = [
     difficulty: 3,
     prominence: 0,
     range: "Bandarban-Thanchi Road Range",
-    description: "Chandra = Moon. Located on or near the Bandarban-Thanchi road.",
+    description: "Located in the Chimbuk area near the Bandarban-Thanchi road. Traditionally known as Naitong Hung by the local Mro community, it is colloquially referred to as Chandra Pahar (Moon Mountain).",
     images: [],
     first_ascent_date: null,
     category: "peak",
+    extended: {
+      local_names: [
+        { name: "Naitong Hung", note: "Original name given by the local Mro community." }
+      ],
+      comments: "The hill gained prominence in modern times primarily due to development along the Chimbuk tourist routes."
+    },
     coordinates_pending: true,
   },
   {
@@ -869,8 +877,8 @@ export const mountains: Mountain[] = [
     name_bn: "চিম্বুক পিক",
     alt_name: "",
     slug: "chimbuk-peak",
-    altitude_ft: 2090,
-    altitude_m: 637,
+    altitude_ft: 2500,
+    altitude_m: 762,
     height_source: "gearth",
     region: "Bandarban",
     lat: 0,
@@ -1036,7 +1044,7 @@ export const mountains: Mountain[] = [
     id: "40",
     name_en: "Tazingdong",
     name_bn: "তাজিংডং",
-    alt_name: "Flag Sip / Bijoy",
+    alt_name: "Bijoy / Tahjingdong",
     slug: "tazingdong",
     altitude_ft: 2875,
     altitude_m: 876,
@@ -1047,10 +1055,17 @@ export const mountains: Mountain[] = [
     difficulty: 6,
     prominence: 0,
     range: "Saichal Range",
-    description: "Officially recognized by Bangladesh government as highest peak (official claim: 1,280 m). However, GPS and SRTM data show ~860-876 m. Also known as 'Bijoy' (Victory). Tajing = great, Dong = mountain. Route: Bandarban → Thanchi → Headmanpara → Sherkarpa → Tazingdong.",
+    description: "Officially recognized by the Bangladesh government as the highest peak with a stated elevation of 1,280 meters (4,200 ft) and often called 'Bijoy' (Victory). However, modern GPS and SRTM topological data have repeatedly shown its true elevation to be much lower, around 876 meters. In the local dialect, 'Tajing' means great/highest, and 'Dong' means mountain. Route: Bandarban → Thanchi → Headmanpara → Sherkarpa → Tazingdong.",
     images: [],
     first_ascent_date: null,
     category: "peak",
+    extended: {
+      local_names: [
+        { name: "Bijoy", note: "Victory" },
+        { name: "Tazingdong", note: "Tajing (great) + Dong (mountain)" }
+      ],
+      comments: "The designation of Tazingdong as the highest peak is highly contested by the modern hiking and mapping community, who largely point to Saka Haphong and Zow Tlang as objectively taller based on unmanipulated satellite and GPS data."
+    }
   },
   {
     id: "41",
