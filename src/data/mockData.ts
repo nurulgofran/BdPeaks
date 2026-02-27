@@ -31,6 +31,7 @@ export interface MountainExtended {
   nearest_settlement?: string;
   drainage?: string;
   comments?: string;
+  first_ascent_details?: string;
   saddle_elevation?: string;
   mount_code?: string;
   hero_image?: string;
@@ -1085,8 +1086,8 @@ export const mountains: Mountain[] = [
     name_bn: "কেওক্রাডং",
     alt_name: "",
     slug: "keokradong",
-    altitude_ft: 3220,
-    altitude_m: 981,
+    altitude_ft: 3235,
+    altitude_m: 986,
     height_source: "gps",
     region: "Bandarban",
     lat: 21.95,
@@ -1094,10 +1095,16 @@ export const mountains: Mountain[] = [
     difficulty: 6,
     prominence: 1328,
     range: "Ruma Upazila",
-    description: "Once believed to be Bangladesh's highest peak. GPS measured at 986 m (3,235 ft), Army signboard marks 967 m (3,173 ft). Popular trekking destination accessible from Boga Lake. One of the cloudiest places in Bangladesh. Route: Bandarban → Ruma → Boga Lake → Keokradong.",
+    description: "Once believed to be Bangladesh's highest peak, modern GPS data places Keokradong as approximately the 5th highest mountain in the country. It remains one of the most famous and popular trekking destinations, accessible from Boga Lake. The name originates from the Marma language (Keo='stone', Kra='hill', Dong='tallest'). Route: Bandarban → Ruma → Boga Lake → Keokradong.",
     images: [],
     first_ascent_date: null,
     category: "peak",
+    extended: {
+      local_names: [
+        { name: "Keokradong", note: "From Marma language: 'Keo' (stone), 'Kra' (hill), 'Dong' (tallest)." },
+      ],
+      comments: "The Bangladesh Army signboard at the summit proclaims an altitude of 967 meters (3,173 ft), while handheld GPS devices have recorded heights up to 986 meters (3,235 ft).",
+    }
   },
   {
     id: "44",
@@ -1500,9 +1507,9 @@ export const mountains: Mountain[] = [
     id: "61",
     name_en: "Dumlong",
     name_bn: "দুমলং",
-    alt_name: "Masha Panji Haphong",
+    alt_name: "Msha Panji Haphong",
     slug: "dumlong",
-    altitude_ft: 3315,
+    altitude_ft: 3314,
     altitude_m: 1010,
     height_source: "gps",
     region: "Rangamati",
@@ -1511,10 +1518,18 @@ export const mountains: Mountain[] = [
     difficulty: 8,
     prominence: 0,
     range: "Reng Tlang Range",
-    description: "The 3rd highest peak in Bangladesh. GPS measured 1,010 m (3,314 ft) by first expedition (2011, led by Wadud Mohosin Rubel). Highest peak of Rangamati Hill District. Also known as Masha Panji Haphong. Access via Ruma Bazar, Bandarban.",
+    description: "Dumlong is definitively the highest peak of the Rangamati Hill District and is consistently ranked among the top three highest peaks in Bangladesh. Known locally as Msha Panji Haphong, it is situated in the remote Bilaichhari Upazila.",
     images: [],
     first_ascent_date: "2011",
     category: "peak",
+    extended: {
+      local_names: [
+        { name: "Msha Panji Haphong", note: "Tripura language name meaning 'bad hilly place for vegetation'." },
+      ],
+      first_ascent_details: "In 2011, Wadud Mohosin Rubel, along with Asif Aminur Rashid, Nagib Meshkat, and Abdul Haq of the Nature Adventure Club, reached the summit and recorded an elevation of 3,314 feet using GPS. It was later measured at 3,312 feet by Travelers of Bangladesh (Zaqiul Deep).",
+      comments: "It is one of only three peaks in Bangladesh reliably confirmed to exceed 1,000 meters in height.",
+      political_location: "Bilaichhari Upazila, Rangamati District",
+    },
   },
   {
     id: "62",
@@ -1563,8 +1578,8 @@ export const mountains: Mountain[] = [
     name_bn: "মুখরা থুতাই হাফং",
     alt_name: "",
     slug: "mukhra-thutai-haphong",
-    altitude_ft: 3160,
-    altitude_m: 963,
+    altitude_ft: 3129,
+    altitude_m: 954,
     height_source: "gps",
     region: "Rangamati",
     lat: 21.66333,
@@ -1572,10 +1587,17 @@ export const mountains: Mountain[] = [
     difficulty: 8,
     prominence: 0,
     range: "Reng Tlang Range",
-    description: "Significant border peak at southernmost part of Belaichori, Rangamati. First summited by Fahim Hasan of BD Explorer (April 2013). GPS measured at 953.6 m (3,129 ft). Nearest settlement: Dhupanichora Para. Access via Ruma, Bandarban.",
+    description: "Significant border peak located in the southernmost part of Belaichori, Rangamati. First summited and measured by Fahim Hasan of BD Explorer (April 2013). The peak's name was verified from the local Tripura people of Dhupanichora village.",
     images: [],
     first_ascent_date: "2013-04",
     category: "peak",
+    extended: {
+      local_names: [
+        { name: "Mukhra Thutai Haphong", note: "Derived from the Tripura language." },
+      ],
+      first_ascent_details: "First recorded ascent and measurement took place in April 2013 by Fahim Hasan of BD Explorer, establishing the GPS measurement at 953.6 m (3,129 ft).",
+      nearest_settlement: "Dhupanichora Para",
+    },
   },
   {
     id: "65",
@@ -1792,10 +1814,10 @@ export const mountains: Mountain[] = [
     id: "72",
     name_en: "Jogi Haphong",
     name_bn: "যোগী হাফং",
-    alt_name: "Konduk Tlang",
+    alt_name: "Kongduk Tlang",
     slug: "jogi-haphong",
-    altitude_ft: 3245,
-    altitude_m: 989,
+    altitude_ft: 3251,
+    altitude_m: 991,
     height_source: "gps",
     region: "Bandarban",
     lat: 21.70361,
@@ -1803,19 +1825,25 @@ export const mountains: Mountain[] = [
     difficulty: 8,
     prominence: 0,
     range: "Mowdok Range",
-    description: "The 4th highest peak of Bangladesh. GPS measured at 983 m (3,222 ft). Located in the remote Modak Range. Yogi Haphong means 'Hermit/Monk Mountain' — a sacred name among tribal communities. Access: Bandarban → Thanchi → Remakri Bazar → Dalyan Para.",
+    description: "Generally recognized as the 4th highest peak in Bangladesh. 'Yogi/Jogi Haphong' means 'Hermit/Monk Mountain' — a sacred name among tribal communities. It's a popular but challenging destination for trekkers. Access: Bandarban → Thanchi → Remakri Bazar → Dalyan Para.",
     images: [],
-    first_ascent_date: null,
+    first_ascent_date: "2012",
     category: "peak",
+    extended: {
+      local_names: [
+        { name: "Kongduk", note: "Alternative local name" },
+      ],
+      first_ascent_details: "First officially recorded ascent was in 2012 by independent trekkers.",
+    },
   },
   {
     id: "73",
     name_en: "Zow Tlang",
     name_bn: "জো ত্লাং",
-    alt_name: "Reang Haphong / Mowdok Mual",
+    alt_name: "Mowdok Mual / Reang Haphong",
     slug: "zow-tlang",
-    altitude_ft: 3320,
-    altitude_m: 1012,
+    altitude_ft: 3353,
+    altitude_m: 1022,
     height_source: "gps",
     region: "Bandarban",
     lat: 21.67306,
@@ -1823,10 +1851,20 @@ export const mountains: Mountain[] = [
     difficulty: 10,
     prominence: 0,
     range: "Mowdok Range",
-    description: "The 2nd highest peak of Bangladesh. GPS measured at 1,022 m (3,353 ft) by multiple 2014 expeditions. Zow refers to 'Mizo' (from Mizoram); Tlang = mountain in Bawm language. Known for the most difficult climbing path among Bangladeshi peaks. Access: Bandarban → Thanchi → Remakri Bazar → Dalyan Para.",
+    description: "Zow Tlang is widely recognized as the second-highest mountain in Bangladesh. The peak is known for its rugged terrain and steep cliffs, making it one of the most difficult regional climbs. In the local Bawm language, 'Zow' means 'Mizo' (referring to the Mizoram region) and 'Tlang' means mountain. It is sometimes labeled as Mowdok Mual on older international maps.",
     images: [],
-    first_ascent_date: "2014",
+    first_ascent_date: "2005",
     category: "peak",
+    extended: {
+      local_names: [
+        { name: "Zow Tlang", note: "Mizo Mountain (Bawm language)" },
+        { name: "Reang Haphong", note: "Used by local communities" },
+        { name: "Mowdok Mual", note: "Appears on vintage international maps, though locally this name is often ascribed to a peak further south." },
+      ],
+      first_ascent_details: "First summitted in 2005 by explorers Subrata Das Nitish and Bijoy Shankar Kar. Precision GPS measurement of 3,353 feet was recorded on Jan 12, 2012 by the Bangla Trek team (Tashdid Rezwan Mugdho, Tarikul Alom Sujon, Salehin Arshady, and S.M. Mainul).",
+      comments: "A tragedy struck the 2012 Bangla Trek expedition when Mugdho and Sujon passed away in a bus accident on their return to Bandarban. A 2013 expedition led by Shahzaman Chowdhury Hira included the first woman to reach the summit.",
+      political_location: "Bangladesh-Myanmar border, Thanchi, Bandarban",
+    },
   },
   {
     id: "74",
