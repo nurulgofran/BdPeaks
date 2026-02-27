@@ -88,6 +88,15 @@ export interface WaterfallHydrology {
   steps: WaterfallStep[];
 }
 
+export interface WaterfallExtended {
+  local_names?: { name: string; note: string }[];
+  etymology?: string;
+  discovery_history?: string;
+  ecological_features?: string;
+  seasonal_notes?: string;
+  comments?: string;
+}
+
 export interface Waterfall {
   id: string;
   name_en: string;
@@ -106,6 +115,7 @@ export interface Waterfall {
   images: string[];
   trail_files: TrailFile[];
   hydrology: WaterfallHydrology | null;
+  extended?: WaterfallExtended;
 }
 
 export const mountains: Mountain[] = [
@@ -2805,7 +2815,7 @@ export const waterfalls: Waterfall[] = [
     region: "Bandarban",
     region_tag: "CHT",
     description:
-      "Nafakhum is one of the largest and most iconic waterfalls in Bangladesh, located on the Sangu River in Remakri, Thanchi. The roaring horseshoe-shaped falls is a must-visit for any trekker.",
+      "Nafakhum is one of the largest and most iconic waterfalls in Bangladesh, located on the Sangu (Remakri) River in Thanchi. The roaring horseshoe-shaped falls is a must-visit for any trekker. It is often referred to as the 'Niagara of Bangladesh' due to its powerful water volume.",
     how_to_go:
       "Reach Thanchi by bus from Bandarban town (3-4 hours), then take a boat ride to Remakri (3-4 hours). From Remakri, a 3-hour trek leads to Nafakhum.",
     tips:
@@ -2815,7 +2825,26 @@ export const waterfalls: Waterfall[] = [
     nearby_peak_slugs: ["saka-haphong", "zow-tlang"],
     images: [],
     trail_files: [],
-    hydrology: null,
+    hydrology: {
+      watershed: "Sangu River Basin",
+      primary_source: "Remaikree River (Sangu tributary)",
+      primary_source_lat: null,
+      primary_source_lng: null,
+      stream_gradient_pct: null,
+      total_height_ft: "25-30",
+      largest_single_drop_ft: 30,
+      largest_single_drop_step: "Main Drop",
+      avg_width_ft: 60,
+      avg_discharge_m3s: "High volume (Unmeasured)",
+      beisel_rating: null,
+      waterfall_type: "Block / Horseshoe",
+      steps: [{ step_number: 1, type: "Block" }],
+    },
+    extended: {
+      etymology: "'Nafa' refers to a specific fish (Baghair / flying fish / nating) found struggling to swim upstream here. 'Khum' means waterfall, deep pool, or cave in the Marma/Bawm languages.",
+      discovery_history: "Local folklore suggests it was originally discovered by indigenous hunters who were resting while pursuing a deer. The broader public tourism aspect only opened up in the 1990s.",
+      ecological_features: "Features a massive water volume drop of 25-30 feet. Known for the specific fish ('Nafa') navigating the strong currents at its base.",
+    }
   },
   {
     id: "w6",
@@ -2936,7 +2965,7 @@ export const waterfalls: Waterfall[] = [
     region: "Bandarban",
     region_tag: "CHT",
     description:
-      "Amiakhum is one of the most breathtaking and inaccessible waterfalls in Bangladesh, located in Thanchi upazila near the Myanmar border. The crystal-clear waters tumble down rugged cliffs into a tranquil pool. Often called the most beautiful waterfall in Bangladesh.",
+      "Amiakhum is one of the most breathtaking and inaccessible waterfalls in Bangladesh, located in Thanchi upazila near the Myanmar border. Known as the 'Queen of Bandarban' or 'Kingdom of Khum', its crystal-clear waters tumble down rugged cliffs into a tranquil pool.",
     how_to_go:
       "From Thanchi, take a boat to Remakri, then trek to Nafakhum. From Nafakhum, continue another 3-4 hours of difficult trekking through dense jungle and river crossings to reach Amiakhum.",
     tips:
@@ -2947,6 +2976,11 @@ export const waterfalls: Waterfall[] = [
     images: [],
     trail_files: [],
     hydrology: null,
+    extended: {
+      etymology: "In local mythology, 'Amia' is believed to be a friendly spirit residing in the woodlands, and 'Khum' means waterfall/reservoir (Marma language) — 'The waterfall of Amia'.",
+      discovery_history: "There is no documented 'discovery' date by outsiders due to its extreme remoteness near the border, remaining a purely indigenous secret for centuries before extreme trekking gained traction in Bangladesh.",
+      ecological_features: "Milky white foam set against dense green hills and severe stone formations. Its height is debated, with actual vertical sheer drops blending into steep heavy rapids.",
+    }
   },
   {
     id: "w11",
@@ -2958,9 +2992,9 @@ export const waterfalls: Waterfall[] = [
     region: "Bandarban",
     region_tag: "CHT",
     description:
-      "Jadipai is one of the widest waterfalls in Bangladesh, located approximately 1.5 km from Keokradong peak in Ruma Upazila. Known as the 'Queen of Bandarban's Waterfalls', it features a wide curtain of water cascading down a cliff face.",
+      "Jadipai is one of the widest waterfalls in Bangladesh, located approximately 1.5 km from the famous Keokradong peak in Ruma Upazila. It features a massive curtain of transparent water cascading ~200 feet down black rocks.",
     how_to_go:
-      "Trek from Ruma to Boga Lake, then continue to Keokradong. Jadipai is about 1.5 km descent from Keokradong peak through steep trails.",
+      "Trek from Ruma to Boga Lake, then continue to Keokradong. Jadipai is about a 1.5 km descent from Keokradong peak through steep trails past Passing Para and Jadi Para.",
     tips:
       "The descent to Jadipai from Keokradong is steep and slippery. Best combined with Keokradong-Boga Lake trek. Carry rope for safety. Best visited October-February.",
     contributor: "",
@@ -2968,7 +3002,25 @@ export const waterfalls: Waterfall[] = [
     nearby_peak_slugs: ["keokradong", "kapital"],
     images: [],
     trail_files: [],
-    hydrology: null,
+    hydrology: {
+      watershed: "Sangu River Basin",
+      primary_source: "Convergence of streams from Keokradong, Jongshia, & Jadipai hills",
+      primary_source_lat: null,
+      primary_source_lng: null,
+      stream_gradient_pct: null,
+      total_height_ft: "200",
+      largest_single_drop_ft: null,
+      largest_single_drop_step: "Main Cascade",
+      avg_width_ft: 80,
+      avg_discharge_m3s: "High during monsoon",
+      beisel_rating: null,
+      waterfall_type: "Curtain / Cascade",
+      steps: [{ step_number: 1, type: "Curtain Cascade" }],
+    },
+    extended: {
+      discovery_history: "Historically known to the indigenous communities of adjacent Jadi Para and Passing Para. It became a mainstream trekking staple alongside the popularization of the Boga Lake & Keokradong route in the early 2010s.",
+      ecological_features: "Known for its intensely wide curtain flow over dark, mossy 'black rocks'. The water is exceptionally cool and transparent, ultimately merging into the Sangu River.",
+    }
   },
   {
     id: "w12",
@@ -3090,17 +3142,35 @@ export const waterfalls: Waterfall[] = [
     region: "Bandarban",
     region_tag: "CHT",
     description:
-      "Baklai Falls is considered one of the tallest waterfalls in Bangladesh. Located in the remote hills of Bandarban, the journey involves trekking through inaccessible trails that offer stunning scenery.",
+      "Baklai Falls is widely cited as the tallest continuous waterfall in Bangladesh, boasting a magnificent ~380 ft drop. Located in Baklai village, Thanchi, the journey involves trekking through inaccessible trails that offer stunning scenery.",
     how_to_go:
-      "Accessible via multi-day trek in Bandarban. Requires experienced guide and proper preparation.",
+      "Accessible via a multi-day trek in Bandarban. Often visited as part of the challenging Keokradong to Tajingdong traverse route.",
     tips:
-      "Extremely remote and difficult to reach. One of the tallest waterfalls in Bangladesh. Carry ropes and proper trekking gear. Best attempted in dry season.",
+      "Extremely remote. It used to take 7-8 days to reach but travel infrastructure has reduced it to a 2-3 day trek. Carry ropes and proper trekking gear. Best attempted in the dry season.",
     contributor: "",
     coordinates_pending: false,
     nearby_peak_slugs: ["lakhudong", "kapital"],
     images: [],
     trail_files: [],
-    hydrology: null,
+    hydrology: {
+      watershed: "Sangu River Basin",
+      primary_source: "Deep hill springs of Nighting mouza",
+      primary_source_lat: null,
+      primary_source_lng: null,
+      stream_gradient_pct: null,
+      total_height_ft: "380-390",
+      largest_single_drop_ft: 380,
+      largest_single_drop_step: "Main Freefall",
+      avg_width_ft: null,
+      avg_discharge_m3s: "Variable",
+      beisel_rating: null,
+      waterfall_type: "Plunge",
+      steps: [{ step_number: 1, type: "Plunge" }],
+    },
+    extended: {
+      discovery_history: "Sighted initially from afar by early explorers (late 90s/early 2000s). The base was physically discovered and brought into the public limelight by 'DWay Expeditors', who tracked the roaring sound of the water through the thick jungle.",
+      comments: "There is an ongoing mountaineer debate on whether Baklai or Liluk/Langlok Falls officially holds the mathematical record for the highest waterfall in BD.",
+    }
   },
   {
     id: "w18",
@@ -3288,17 +3358,37 @@ export const waterfalls: Waterfall[] = [
     region: "Bandarban",
     region_tag: "CHT",
     description:
-      "Rijuk Falls is a waterfall in Ruma Upazila, Bandarban, in the Chittagong Hill Tracts.",
+      "Rijuk Falls is a prominent natural waterfall in Ruma Upazila, cascading continuously from a ~300 ft high hill directly into the Sangu River.",
     how_to_go:
-      "Located in Ruma, Bandarban. Accessible via trekking trails with local guide.",
+      "Located about 5 kilometers from Ruma Bazar. Reachable by a short boat ride down the Sangu River.",
     tips:
-      "Remote location — local guide essential. Best visited November-March.",
+      "Can be seen directly from a boat on the Sangu. The flow is strongest during the rainy season (July-August).",
     contributor: "",
     coordinates_pending: true,
     nearby_peak_slugs: [],
     images: [],
     trail_files: [],
-    hydrology: null,
+    hydrology: {
+      watershed: "Sangu River Basin",
+      primary_source: "Ruma Hill Springs",
+      primary_source_lat: null,
+      primary_source_lng: null,
+      stream_gradient_pct: null,
+      total_height_ft: "300",
+      largest_single_drop_ft: 300,
+      largest_single_drop_step: "Main Cascade",
+      avg_width_ft: null,
+      avg_discharge_m3s: "High during monsoon",
+      beisel_rating: null,
+      waterfall_type: "Cascade / River-drop",
+      steps: [{ step_number: 1, type: "Cascade" }],
+    },
+    extended: {
+      local_names: [
+        { name: "Ri Swang Swang", note: "Original name in the local Marma language." },
+      ],
+      ecological_features: "Unique because it falls directly into a major navigational river (the Sangu), rendering the water 'shiny like pearl particles' as it drops.",
+    }
   },
   {
     id: "w27",

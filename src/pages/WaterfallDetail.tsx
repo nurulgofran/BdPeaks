@@ -229,6 +229,65 @@ const WaterfallDetail = () => {
               </div>
             )}
 
+            {/* Extended Data: Local Names & Etymology */}
+            {wf.extended?.local_names && wf.extended.local_names.length > 0 && (
+              <div className="rounded-xl border border-border/50 bg-muted/10 p-6">
+                <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                  <Info className="h-4 w-4 text-primary" /> Local Names & Etymology
+                </h2>
+                <div className="space-y-3">
+                  {wf.extended.local_names.map((ln) => (
+                    <div key={ln.name} className="p-3 rounded-lg border border-border bg-card">
+                      <p className="text-sm font-semibold">{ln.name}</p>
+                      <p className="text-xs text-muted-foreground mt-1">{ln.note}</p>
+                    </div>
+                  ))}
+                </div>
+                {wf.extended.etymology && (
+                  <p className="text-sm text-muted-foreground mt-4 leading-relaxed italic">
+                    {wf.extended.etymology}
+                  </p>
+                )}
+              </div>
+            )}
+
+            {/* Extended Data: Discovery & History */}
+            {wf.extended?.discovery_history && (
+              <div className="rounded-xl border border-primary/20 bg-primary/5 p-6">
+                <h2 className="text-lg font-semibold mb-3 flex items-center gap-2 text-primary">
+                  <BarChart3 className="h-4 w-4" /> Discovery & History
+                </h2>
+                <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-wrap">
+                  {wf.extended.discovery_history}
+                </p>
+              </div>
+            )}
+
+            {/* Extended Data: Ecology & Seasonal Notes */}
+            {(wf.extended?.ecological_features || wf.extended?.seasonal_notes) && (
+              <div className="rounded-xl border border-green-500/20 bg-green-500/5 p-6">
+                <h2 className="text-lg font-semibold mb-3 flex items-center gap-2 text-green-500">
+                  <AlertTriangle className="h-4 w-4" /> Ecology & Seasonal Variables
+                </h2>
+                {wf.extended.ecological_features && (
+                  <div className="mb-4">
+                    <h3 className="text-sm font-medium text-foreground mb-1">Ecological Features</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {wf.extended.ecological_features}
+                    </p>
+                  </div>
+                )}
+                {wf.extended.seasonal_notes && (
+                  <div>
+                    <h3 className="text-sm font-medium text-foreground mb-1">Seasonal Notes</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {wf.extended.seasonal_notes}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
+
             <div className="rounded-xl border border-yellow-500/20 bg-yellow-500/5 p-6">
               <h2 className="text-lg font-semibold mb-3 flex items-center gap-2 text-yellow-400">
                 <AlertTriangle className="h-4 w-4" /> Tips & Advice
