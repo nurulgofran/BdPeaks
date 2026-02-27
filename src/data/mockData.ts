@@ -2875,20 +2875,37 @@ export const waterfalls: Waterfall[] = [
     slug: "sijuk-falls",
     lat: null,
     lng: null,
-    region: "Bandarban",
+    region: "Rangamati",
     region_tag: "CHT",
     description:
-      "Sijuk Falls is a recently documented waterfall in the Chittagong Hill Tracts. Exact coordinates are pending verification from field surveys.",
+      "Sijuk refers to a pair of beautiful waterfalls that converge to form the Sijuk canal (Shishuk) in the remote hills of Rangamati. The first arm-shaped cascade drops approximately 40-50 feet.",
     how_to_go:
-      "Access details are being compiled. Check back for updated route information.",
+      "Though located in Rangamati, it is primarily accessed via Khagrachari district. Access details require a local guide due to remote off-trail conditions.",
     tips:
-      "As a newly documented site, trail conditions are unknown. Always travel with a local guide and inform someone of your itinerary.",
+      "Very remote and can be extremely slippery; tragic accidents have occurred here. Always travel with an experienced local guide and take extreme caution on wet rocks.",
     contributor: "Ridwanul Khair",
     coordinates_pending: true,
     nearby_peak_slugs: [],
     images: [],
     trail_files: [],
-    hydrology: null,
+    hydrology: {
+      watershed: "Kasalong River / Kaptai Lake",
+      primary_source: "Sijuk Canal (Shishuk)",
+      primary_source_lat: null,
+      primary_source_lng: null,
+      stream_gradient_pct: null,
+      total_height_ft: "40-50",
+      largest_single_drop_ft: 50,
+      largest_single_drop_step: "First Cascade",
+      avg_width_ft: null,
+      avg_discharge_m3s: "Variable",
+      beisel_rating: null,
+      waterfall_type: "Converging Cascade",
+      steps: [{ step_number: 1, type: "Arm-shaped cascade" }],
+    },
+    extended: {
+      discovery_history: "A lesser-known site among mainstream tourists, primarily known to local indigenous communities who use the stream for collecting snails and daily necessities.",
+    }
   },
   {
     id: "w8",
@@ -2943,17 +2960,35 @@ export const waterfalls: Waterfall[] = [
     region: "Bandarban",
     region_tag: "CHT",
     description:
-      "Tinap Saitar (also known as Paindu Saitar) is considered one of the tallest waterfalls in Bangladesh, located in Roangchhari/Ruma Upazila, Bandarban. 'Tinap' means water and 'Saitar' means waterfall in the Bawm language. It requires a 40 km trek through dense forest.",
+      "Tinap Saitar (also known as Paindu Saitar) is recognized as the largest waterfall in Bangladesh in terms of water flow volume. Located in the Paindu union, the water cascades from a height of ~150 feet.",
     how_to_go:
-      "From Bandarban, take a local bus to Roangchhari. From Roangchhari bus stand, a 23 km trek with a guide through hilly terrain leads to the waterfall.",
+      "From Bandarban, take a local bus to Roangchhari. From Roangchhari bus stand, a grueling 40 km round-trip trek with a guide through hilly terrain and the Paindu canal leads to the waterfall.",
     tips:
-      "Extremely remote — carry all supplies for 2 days. A local Bawm guide is mandatory. Best visited November-March. The 40 km round trip requires overnight camping.",
+      "Extremely remote — carry all supplies for a multi-day trip. A local Bawm guide is mandatory and army permission is often required. Best visited July-September for maximum flow, but trails will be extremely slippery.",
     contributor: "",
     coordinates_pending: false,
     nearby_peak_slugs: [],
     images: [],
     trail_files: [],
-    hydrology: null,
+    hydrology: {
+      watershed: "Paindu Canal",
+      primary_source: "Roangchhari Hills",
+      primary_source_lat: null,
+      primary_source_lng: null,
+      stream_gradient_pct: null,
+      total_height_ft: "150",
+      largest_single_drop_ft: 150,
+      largest_single_drop_step: "Main Cascade",
+      avg_width_ft: null,
+      avg_discharge_m3s: "Highest in Bangladesh",
+      beisel_rating: null,
+      waterfall_type: "Cascade",
+      steps: [{ step_number: 1, type: "Cascade" }],
+    },
+    extended: {
+      etymology: "In the local Bawm language, 'Tinap' signifies 'runny nose' (referencing the constant, heavy flow of water) and 'Saitar' means 'spring' or 'waterfall'.",
+      ecological_features: "Noted for its consistently clear water that maintains a unique cold-to-hot temperature gradient throughout the year. Rainbows frequently form in its dense mist during sunny monsoon days.",
+    }
   },
   {
     id: "w10",
@@ -3874,6 +3909,127 @@ export const waterfalls: Waterfall[] = [
     trail_files: [],
     hydrology: null,
   },
+  {
+    id: "w49",
+    name_en: "Madhabkunda Waterfall",
+    name_bn: "মাধবকুন্ড জলপ্রপাত",
+    slug: "madhabkunda-waterfall",
+    lat: 24.6367,
+    lng: 92.2241,
+    region: "Sylhet",
+    region_tag: "Sylhet",
+    description:
+      "Madhabkunda is one of the most famous and highly visited waterfalls in Bangladesh. The water cascades down 200 feet from the rocky Patharia Hill, forming the Gangamara stream.",
+    how_to_go:
+      "Located in Barlekha Upazila of Moulvibazar District. Take a bus or train to Sylhet/Moulvibazar, then local transport to the Madhabkunda Eco Park.",
+    tips:
+      "Highly developed tourist spot with entry fees, paved paths, and an eco-park. Very crowded on weekends and holidays. Best flow during the monsoon.",
+    contributor: "",
+    coordinates_pending: false,
+    nearby_peak_slugs: [],
+    images: [],
+    trail_files: [],
+    hydrology: {
+      watershed: "Patharia Hill Catchment",
+      primary_source: "Gangamara Stream",
+      primary_source_lat: null,
+      primary_source_lng: null,
+      stream_gradient_pct: null,
+      total_height_ft: "182-200",
+      largest_single_drop_ft: 200,
+      largest_single_drop_step: "Main Fall",
+      avg_width_ft: null,
+      avg_discharge_m3s: "High",
+      beisel_rating: null,
+      waterfall_type: "Plunge",
+      steps: [{ step_number: 1, type: "Plunge" }],
+    },
+    extended: {
+      etymology: "Named after 'Madhav' (a name for Shiva). Legend says Raja Govardhan of Gour (1335 AD) met a meditating monk named Madhaveshwar here, who immersed himself in the spring.",
+      discovery_history: "Has been a pilgrimage and tourist site for centuries, deeply intertwined with local Hindu history. An eco-park was officially established here in 2001.",
+      ecological_features: "Surrounded by lush, protected green forests (eco-park) instead of the rugged, steep bamboo jungles characteristic of the CHT falls.",
+    }
+  },
+  {
+    id: "w50",
+    name_en: "Hum Hum Waterfall",
+    name_bn: "হাম হাম জলপ্রপাত",
+    slug: "hum-hum-waterfall",
+    lat: 24.2750,
+    lng: 91.9960,
+    region: "Sylhet",
+    region_tag: "Sylhet",
+    description:
+      "Hum Hum, also known as Cheetah Falls, is a spectacular 150-foot waterfall hidden deep inside the Rajkandi Reserve Forest. It offers one of the best dense-jungle treks in the Sylhet region.",
+    how_to_go:
+      "Travel to Sreemangal via train or bus. Hire a jeep to Kolabonpara (Tellaingbari) near the Champarai Tea Estate. From there, it's a muddy 2-3 hour trek through dense jungle and streams.",
+    tips:
+      "Infested with leeches during the monsoon. The trek involves wading through a muddy 'jhiri' (stream) for hours. A local guide from Kolabonpara is highly recommended.",
+    contributor: "",
+    coordinates_pending: false,
+    nearby_peak_slugs: [],
+    images: [],
+    trail_files: [],
+    hydrology: {
+      watershed: "Rajkandi Reserve Forest Basin",
+      primary_source: "Deep forest springs",
+      primary_source_lat: null,
+      primary_source_lng: null,
+      stream_gradient_pct: null,
+      total_height_ft: "135-160",
+      largest_single_drop_ft: 150,
+      largest_single_drop_step: "Main Cascade",
+      avg_width_ft: null,
+      avg_discharge_m3s: "Variable",
+      beisel_rating: null,
+      waterfall_type: "Tiered Cascade",
+      steps: [{ step_number: 1, type: "Cascade" }],
+    },
+    extended: {
+      etymology: "Debated origins: some say it comes from 'Hammam' (bathhouse), while others believe it mimics the 'a-m a-m' roaring sound of the water in the local Sylheti language.",
+      discovery_history: "Officially 'discovered' and documented for mainstream tourism in late 2009/2010 by a group of tourists with guide Shyamal Deva Barma, though local residents knew of it long before.",
+    }
+  },
+  {
+    id: "w51",
+    name_en: "Tlubong Waterfall",
+    name_bn: "ত্লুবং জলপ্রপাত (ডাবল ফলস)",
+    slug: "tlubong-waterfall",
+    lat: 21.8239,
+    lng: 92.5186,
+    region: "Bandarban",
+    region_tag: "CHT",
+    description:
+      "Often referred to as 'The Double Falls', Tlubong is a captivating natural landmark where two distinct streams (Pransha and Pankhiang) converge and cascade side-by-side into a single deep pool.",
+    how_to_go:
+      "Located deep within the Remakriprangsa Union forest between Sungsang Para and Thaikshang Para. Reaching it requires a challenging multi-day trek through dense hills and streams.",
+    tips:
+      "Army permission may be restricted due to the proximity to border and past security issues. Travel with an authorized local guide.",
+    contributor: "",
+    coordinates_pending: false,
+    nearby_peak_slugs: [],
+    images: [],
+    trail_files: [],
+    hydrology: {
+      watershed: "Origin of Remakri Canal",
+      primary_source: "Convergence of Pransha & Pankhiang streams",
+      primary_source_lat: null,
+      primary_source_lng: null,
+      stream_gradient_pct: null,
+      total_height_ft: "70",
+      largest_single_drop_ft: 70,
+      largest_single_drop_step: "Twin Drop",
+      avg_width_ft: 40,
+      avg_discharge_m3s: "High",
+      beisel_rating: null,
+      waterfall_type: "Segmented / Twin",
+      steps: [{ step_number: 1, type: "Twin Cascade" }],
+    },
+    extended: {
+      etymology: "Also known as Dual Jharna or Jora Jharna. The Bawn (Bom) people call it 'Tlabong', meaning 'basin or pit that holds water', referring to the deep pool at the base.",
+      discovery_history: "A site of somber historical significance. Local Bawn people recount that in the late 1980s/early 1990s, the area was used as a base by mountain insurgents from Mizoram.",
+    }
+  }
 ];
 
 export interface StreamEntry {
