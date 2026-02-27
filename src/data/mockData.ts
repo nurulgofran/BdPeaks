@@ -640,10 +640,10 @@ export const mountains: Mountain[] = [
     id: "23",
     name_en: "Kirs Taung",
     name_bn: "কির্স তং",
-    alt_name: "Temu Massif / Tindu Tong",
+    alt_name: "Kris Taung / Temu Massif / Tindu Tong",
     slug: "kirs-taung",
-    altitude_ft: 2978,
-    altitude_m: 908,
+    altitude_ft: 2949,
+    altitude_m: 899,
     height_source: "gps",
     region: "Bandarban",
     lat: 21.6589,
@@ -651,19 +651,27 @@ export const mountains: Mountain[] = [
     difficulty: 7,
     prominence: 0,
     range: "Mowdok Range",
-    description: "A massif (multi-summited mountain group). One of the major peaks of the border range. Known to trekkers as Tindu Tong.",
+    description: "A massif (multi-summited mountain group). One of the major peaks of the border range, forming the highest peak in the Chimbuk Range area. Known to trekkers as Tindu Tong. The name derives from the Marma words 'Kirs' (an almost extinct bird) and 'Tong' (mountain).",
     images: [],
     first_ascent_date: null,
     category: "peak",
+    extended: {
+      local_names: [
+        { name: "Kris Taung", note: "Marma language (Mountain of the Kirs bird)" },
+        { name: "Tindu Tong", note: "Commonly used by trekkers" },
+        { name: "Sungri Taung", note: "Often interchanged or confused in old mappings" }
+      ],
+      comments: "PeakVisor lists its elevation at 899 meters (2,949 feet), though earlier GPS tracks have marked peaks in the Temu massif up to 2,978 ft."
+    }
   },
   {
     id: "24",
     name_en: "Rungraong Taung",
     name_bn: "রুংরাং তং",
-    alt_name: "",
+    alt_name: "Rungrang Taung",
     slug: "rungraong-taung",
-    altitude_ft: 2795,
-    altitude_m: 852,
+    altitude_ft: 2772,
+    altitude_m: 845,
     height_source: "gearth",
     region: "Bandarban",
     lat: 21.6711,
@@ -671,10 +679,16 @@ export const mountains: Mountain[] = [
     difficulty: 6,
     prominence: 0,
     range: "Mowdok Range",
-    description: "Located in the Mowdok Range of Bandarban at 2,795 ft (852 m).",
+    description: "Located in the Mowdok Range of Bandarban. PeakVisor recognizes it at an elevation of 845 meters (2,772 feet), making it the 12th highest peak in the Bandarban region.",
     images: [],
     first_ascent_date: null,
     category: "peak",
+    extended: {
+      local_names: [
+        { name: "Rungrang Taung", note: "Alternative spelling" }
+      ],
+      comments: "While PeakVisor identifies it as the 12th highest peak topographically in the area, detailed mountaineering ascent records are sparse."
+    }
   },
   {
     id: "25",
@@ -712,10 +726,17 @@ export const mountains: Mountain[] = [
     difficulty: 6,
     prominence: 0,
     range: "Mowdok Range",
-    description: "Also called 'Egg Mountain' (Dim Pahar) for its rounded, egg-shaped summit. Located in the Mowdok Range of Bandarban.",
+    description: "Also called 'Egg Mountain' (Dim Pahar) for its rounded, egg-shaped summit. The famed Alikadam-Thanchi Regional Road—the highest drivable road in Bangladesh—passes through its slopes at roughly 2,500 ft. Located in the Mowdok Range of Bandarban.",
     images: [],
     first_ascent_date: null,
     category: "peak",
+    extended: {
+      local_names: [
+        { name: "Dim Pahar", note: "Egg Mountain in Bengali" },
+        { name: "Kro Tong", note: "Alternative local name" }
+      ],
+      comments: "The Alikadam-Thanchi Regional Road traversing this hill was constructed by the Bangladesh Army engineering department over a decade, significantly improving access to the remote region."
+    }
   },
   {
     id: "27",
