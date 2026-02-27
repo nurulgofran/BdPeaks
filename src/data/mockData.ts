@@ -1607,8 +1607,8 @@ export const mountains: Mountain[] = [
     name_bn: "মাইথাইজামা হাফং",
     alt_name: "",
     slug: "maithaijama-haphong",
-    altitude_ft: 3180,
-    altitude_m: 969,
+    altitude_ft: 3174,
+    altitude_m: 967,
     height_source: "gps",
     region: "Rangamati",
     lat: 22.01194,
@@ -1616,10 +1616,17 @@ export const mountains: Mountain[] = [
     difficulty: 8,
     prominence: 0,
     range: "Reng Tlang Range",
-    description: "Tripura language name meaning 'bad hilly place for vegetation'. The 6th highest peak of Bangladesh. GPS measured at 967 m (3,173 ft) by BD Explorer (Dec 2014, first ascent). Second highest of Reng Tlang range after Dumlong.",
+    description: "Tripura language name meaning 'bad hilly place for vegetation'. The 6th highest peak of Bangladesh. GPS measured at 967 m (3,174 ft) by BD Explorer (Dec 2014, first ascent). Second highest of Reng Tlang range after Dumlong.",
     images: [],
     first_ascent_date: "2014-12",
     category: "peak",
+    extended: {
+      local_names: [
+        { name: "Maithaijama Haphong", note: "Tripura language name." },
+      ],
+      first_ascent_details: "First officially recorded ascent took place in December 2014 by BD Explorer.",
+      political_location: "Bilaichori, Rangamati, near the Bangladesh-India border.",
+    }
   },
   {
     id: "63",
@@ -1676,8 +1683,8 @@ export const mountains: Mountain[] = [
     name_bn: "লাইস্রা হাফং",
     alt_name: "",
     slug: "laisra-haphong",
-    altitude_ft: 3020,
-    altitude_m: 921,
+    altitude_ft: 2912,
+    altitude_m: 888,
     height_source: "gps",
     region: "Rangamati",
     lat: 21.97018,
@@ -1685,10 +1692,14 @@ export const mountains: Mountain[] = [
     difficulty: 7,
     prominence: 0,
     range: "Reng Tlang Range",
-    description: "Located between Mukhra Thutai Haphong and Tinmukh pillar (tri-border point of Bangladesh, India, Myanmar).",
+    description: "Located between Mukhra Thutai Haphong and Tinmukh pillar (the tri-border meeting point of Bangladesh, India, and Myanmar).",
     images: [],
     first_ascent_date: null,
     category: "peak",
+    extended: {
+      comments: "A significant geographical marker peak due to its proximity to the international tri-border pillar in Belaichori.",
+      political_location: "Belaichori, Rangamati District",
+    }
   },
   {
     id: "66",

@@ -252,6 +252,16 @@ const PeakDetail = () => {
               </>
             )}
 
+            {/* First Ascent Details */}
+            {ext?.first_ascent_details && (
+              <>
+                <h2 className="text-lg font-semibold mt-8 mb-4 flex items-center gap-2">
+                  <Calendar className="h-4 w-4 text-primary" /> Ascent History
+                </h2>
+                <p className="text-sm text-muted-foreground leading-relaxed">{ext.first_ascent_details}</p>
+              </>
+            )}
+
             {/* Survey Name History */}
             {ext?.survey_name_note && (
               <>
