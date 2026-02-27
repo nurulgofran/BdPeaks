@@ -1066,8 +1066,8 @@ export const mountains: Mountain[] = [
     name_bn: "ক্যাপিটাল",
     alt_name: "Capital",
     slug: "kapital",
-    altitude_ft: 3097,
-    altitude_m: 944,
+    altitude_ft: 3094,
+    altitude_m: 943,
     height_source: "gps",
     region: "Bandarban",
     lat: 21.90056,
@@ -1075,10 +1075,16 @@ export const mountains: Mountain[] = [
     difficulty: 7,
     prominence: 0,
     range: "Politai Range",
-    description: "A distinctive flat-topped peak. Historically used as hideout by Mizo separatists who declared it their temporary capital. Name still used by locals. Elevation independently measured as 943 m (3,094 ft). Access via Ruma Bazar.",
+    description: "A distinctive flat-topped peak. Historically used as a hideout by Mizo separatists who temporarily declared it their 'capital'. The name stuck and is still used by locals today.",
     images: [],
     first_ascent_date: null,
     category: "peak",
+    extended: {
+      local_names: [
+        { name: "Capital", note: "Historically named by Mizo separatists." }
+      ],
+      first_ascent_details: "It lacks a highly publicized 'first ascent' history because the plateau was utilized historically as an encampment. Modern GPS mapping independently corroborated an elevation of 943 m (3,094 ft).",
+    }
   },
   {
     id: "43",
@@ -1154,8 +1160,8 @@ export const mountains: Mountain[] = [
     name_bn: "থিনদৌলতে ত্ল্যাং",
     alt_name: "Thingdawlte Tlang",
     slug: "thindawlte-tlang",
-    altitude_ft: 3133,
-    altitude_m: 955,
+    altitude_ft: 3149,
+    altitude_m: 960,
     height_source: "gps",
     region: "Bandarban",
     lat: 21.91028,
@@ -1163,10 +1169,16 @@ export const mountains: Mountain[] = [
     difficulty: 7,
     prominence: 213,
     range: "Lawmbok Row Range",
-    description: "Highest point of Lawmbok Row range. GPS measured at 960 m (3,149 ft) by BD Explorer (Dec 2012). Named after Thingdawlte Bawm village. Access via Ruma Bazar.",
+    description: "Considered the highest point of the Lawmbok Row range, and roughly the 7th highest peak in Bangladesh. Named after the nearby Thingdawlte Bawm village.",
     images: [],
-    first_ascent_date: null,
+    first_ascent_date: "2012-12",
     category: "peak",
+    extended: {
+      first_ascent_details: "First recorded ascent and measurement was in December 2012 by local explorer Fahim Hasan of BD Explorer, who recorded 3,149 ft. Shortly after, Zaqiul Deep of Travelers of Bangladesh also verified the altitude.",
+      local_names: [
+        { name: "Thingdawlte Tlang", note: "Named after the local Bawm settlement." }
+      ]
+    }
   },
   {
     id: "47",
@@ -1174,7 +1186,7 @@ export const mountains: Mountain[] = [
     name_bn: "ক্রেইকুন তং",
     alt_name: "Nyaram Tlang",
     slug: "kreikun-taung",
-    altitude_ft: 3085,
+    altitude_ft: 3083,
     altitude_m: 940,
     height_source: "gps",
     region: "Bandarban",
@@ -1183,10 +1195,17 @@ export const mountains: Mountain[] = [
     difficulty: 7,
     prominence: 0,
     range: "Lawmbok Row Range",
-    description: "Also known as 'Ngaramh Tlang' in Bawm language and 'Kreikung Taung' (Fish Mountain in Marma). Second highest of Lawmbok Row range. GPS measured at 940 m by BD Explorer (Dec 2012). Access via Ruma Bazar.",
+    description: "Second highest peak of the Lawmbok Row range. The name 'Kreikun Taung' means Fish Mountain in the local Marma language.",
     images: [],
-    first_ascent_date: null,
+    first_ascent_date: "2012-12",
     category: "peak",
+    extended: {
+      local_names: [
+        { name: "Ngaramh Tlang", note: "Bawm language name" },
+        { name: "Kreikung Taung", note: "Fish Mountain in Marma language" }
+      ],
+      first_ascent_details: "First recorded and measured ascent was in December 2012 by explorer Fahim Hasan from BD Explorer, measuring it at 3,083 feet with +/- 2m GPS accuracy."
+    }
   },
   {
     id: "48",
@@ -1939,8 +1958,8 @@ export const mountains: Mountain[] = [
     name_bn: "মদক মুয়াল",
     alt_name: "Pia Haphong",
     slug: "mowdok-mual",
-    altitude_ft: 3008,
-    altitude_m: 917,
+    altitude_ft: 3021,
+    altitude_m: 921,
     height_source: "gps",
     region: "Bandarban",
     lat: 21.64194,
@@ -1948,7 +1967,7 @@ export const mountains: Mountain[] = [
     difficulty: 7,
     prominence: 405,
     range: "Mowdok (Upper portion) / Sakudaung",
-    description: "The 6th highest peak of the Mowdok range. During the colonial period, the Survey of India, and later US/Russian military maps, incorrectly identified the peak Zow Tlang as 'Mowdok Mual'. However, local Tripura and Bawm people distinguish the two, referring to this peak — located further south from Zow Tlang — as the true Mowdok Mual. It is located on the border between Thanchi Upazilla and Chin State.",
+    description: "The 6th highest peak of the Mowdok range. During the colonial era, the Survey of India and later US/Russian maps incorrectly plastered the name 'Mowdok Mual' onto Zow Tlang. However, the exact peak actually known locally as Mowdok Mual is located further south.",
     images: [],
     first_ascent_date: null,
     category: "peak",
@@ -1966,7 +1985,7 @@ export const mountains: Mountain[] = [
       geological_location: "Sakudaung syncline, Kaladan Fault, Chittagong-Tripura folded belt",
       nearest_settlement: "Headman Para",
       drainage: "Two streams originated from the North and South ridges of Mowdok Mual confluence with Choto Mowdok Chara (which originates from Zow Tlang) and finally flow into the Sangu river.",
-      comments: "Measured Elevations: 3008 ft (GDOP <1.5 with 24 satellites), 3014 ft (Altimeter offline), 3021 ft (Examobile app). Previous British Military Survey: 2940 ft. SRTM: 2928 ft. Note on Key Col: US/Russian maps show two saddles between Mowdok Mual and Zow Tlang with the same elevation, but 30m DEM and physical measurements confirm the saddle closer to Mowdok Mual is the true key col."
+      comments: "Measured Elevations: 3008 ft (GDOP <1.5 with 24 satellites), 3014 ft (Altimeter offline), 3021 ft (Examobile app). Previous British Military Survey: 2940 ft. SRTM: 2928 ft. Note on Key Col: US/Russian maps show two saddles between Mowdok Mual and Zow Tlang with the same elevation, but physical measurements confirm the saddle closer to Mowdok Mual is the true key col."
     }
   },
   {
