@@ -1283,10 +1283,10 @@ export const mountains: Mountain[] = [
     id: "51",
     name_en: "Sippi Arsuang",
     name_bn: "সিপ্পি আরসুয়াং",
-    alt_name: "Ramiu Taung / Rakhamoin Taung / Rakhamoo Taung / Pyramid Hill",
+    alt_name: "Rametang / Rakhamoin Taung",
     slug: "sippi-arsuang",
-    altitude_ft: 3030,
-    altitude_m: 923,
+    altitude_ft: 3034,
+    altitude_m: 925,
     height_source: "gps",
     region: "Bandarban",
     lat: 22.18417,
@@ -1294,11 +1294,17 @@ export const mountains: Mountain[] = [
     difficulty: 6,
     prominence: 1415,
     range: "North Lombok Row / Politai Taung",
-    description: "Sippi Arsuang is the 17th highest and 5th most prominent mountain peak of Bangladesh. Also known as Ramiu Taung, Rakhamoin Taung, Rakhamoo Taung, and Pyramid Hill. Located in Roangchari, Bandarban & Bilaichari, Rangamati. Elevation: 3,025–3,035 ft. Nearest settlements: Devchara Para, Sippi Para.",
+    description: "Sippi Arsuang is visually striking due to its three distinct peaks visible from Sippi Para. The name 'Arsuang' translates to 'rooster crest' in the Pangkhoa language. It's a popular hiking destination.",
     images: [],
-    first_ascent_date: "2018",
+    first_ascent_date: null,
     category: "peak",
     extended: {
+      local_names: [
+        { name: "Sippi", note: "Bum language" },
+        { name: "Rametang", note: "Tanchangya language" },
+        { name: "Ramatang", note: "Marma language" },
+        { name: "Arsuang", note: "Pangkhoa language (rooster crest)" }
+      ],
       political_location: "Roangchari, Bandarban & Bilaichari, Rangamati",
       original_location: "22°11'03\"N 92°29'E",
       key_col_location: "22°10'16\"N 92°29'45\"E",
@@ -2609,6 +2615,33 @@ export const mountains: Mountain[] = [
       island_parent_location: "Ngasai Hung (ঙাসাই হুং)",
       drainage: "Source of the Boro Modok Jhiri.",
       comments: "Contains the most sub-peaks of any mountain in Bangladesh. SRTM mapping data significantly underestimates its true height compared to nearby Naprai."
+    }
+  },
+  {
+    id: "999", // newly added ID
+    name_en: "Aiyang Tlang",
+    name_bn: "আইয়াং ত্লাং",
+    alt_name: "Rinir Chura",
+    slug: "aiyang-tlang",
+    altitude_ft: 3298,
+    altitude_m: 1005,
+    height_source: "gps",
+    region: "Bandarban",
+    lat: 21.6883, // approximate based on Thanchi border
+    lng: 92.5188, // approximate based on Thanchi border
+    difficulty: 8,
+    prominence: 0,
+    range: "Thanchi Range",
+    description: "Initially discovered by Mr. Van Rausang Bawm about 30 years prior to its first official ascent. Aiyang Tlang is one of the highest peaks in Bangladesh, often cited as the 4th highest. The first formally recorded ascent by a Bangladeshi national was achieved on November 13, 2019, by Engineer Jyotirmoy Dhar.",
+    images: [],
+    first_ascent_date: "2019-11",
+    category: "peak",
+    extended: {
+      local_names: [
+        { name: "Aiyang Tlang", note: "Original Bawm name" },
+        { name: "Rinir Chura", note: "Named by Engr. Jyotirmoy after Dr. Rini Dhar" }
+      ],
+      first_ascent_details: "First officially recorded and measured by Engr. Jyotirmoy Dhar on November 13, 2019. He measured the elevation via GPS as 3,298 feet and dedicated the summit to Dr. Rini Dhar."
     }
   }
 ];
