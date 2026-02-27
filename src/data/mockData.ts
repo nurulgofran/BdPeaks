@@ -1071,10 +1071,10 @@ export const mountains: Mountain[] = [
     id: "41",
     name_en: "Lakhudong",
     name_bn: "লাখু ডং",
-    alt_name: "",
+    alt_name: "Lakhudaung",
     slug: "lakhudong",
     altitude_ft: 3065,
-    altitude_m: 934,
+    altitude_m: 934, // Re-evaluated from typical ~921m-934m ranges
     height_source: "gps",
     region: "Bandarban",
     lat: 21.87556,
@@ -1093,7 +1093,7 @@ export const mountains: Mountain[] = [
       geographic_isolation: "2.8 km",
       line_parent: "Kapital",
       island_parent_location: "Keokradong",
-      comments: "South peak located at 21°51'42\"N 92°32'05\"E with elevation of 3,015 ft.",
+      comments: "South peak located at 21°51'42\"N 92°32'05\"E with elevation of 3,015 ft. Specific records of a true 'first ascent' for Lakhudong are sparse online compared to its neighboring giants.",
     },
   },
   {
@@ -1111,13 +1111,13 @@ export const mountains: Mountain[] = [
     difficulty: 7,
     prominence: 0,
     range: "Politai Range",
-    description: "A distinctive flat-topped peak. Historically used as a hideout by Mizo separatists who temporarily declared it their 'capital'. The name stuck and is still used by locals today.",
+    description: "A distinctive flat-topped peak in Ruma Upazila. Historically used as a hideout by Mizo separatists who temporarily declared it their 'capital'. The name stuck and is still used by locals today.",
     images: [],
     first_ascent_date: null,
     category: "peak",
     extended: {
       local_names: [
-        { name: "Capital", note: "Historically named by Mizo separatists." }
+        { name: "Capital / Kapital Haphong", note: "Historically named by Mizo separatists." }
       ],
       first_ascent_details: "It lacks a highly publicized 'first ascent' history because the plateau was utilized historically as an encampment. Modern GPS mapping independently corroborated an elevation of 943 m (3,094 ft).",
     }
@@ -1137,15 +1137,15 @@ export const mountains: Mountain[] = [
     difficulty: 6,
     prominence: 1328,
     range: "Ruma Upazila",
-    description: "Once believed to be Bangladesh's highest peak, modern GPS data places Keokradong as approximately the 5th highest mountain in the country. It remains one of the most famous and popular trekking destinations, accessible from Boga Lake. The name originates from the Marma language (Keo='stone', Kra='hill', Dong='tallest'). Route: Bandarban → Ruma → Boga Lake → Keokradong.",
+    description: "Once believed to be Bangladesh's highest peak, modern GPS data (986m / 3,235ft) places Keokradong as approximately the 5th highest mountain in the country. It remains one of the most famous trekking destinations, accessible from Boga Lake. The name originates from the Marma language (Keo='stone', Kra='hill', Dong='tallest'). Route: Bandarban → Ruma → Boga Lake → Keokradong.",
     images: [],
     first_ascent_date: null,
     category: "peak",
     extended: {
       local_names: [
-        { name: "Keokradong", note: "From Marma language: 'Keo' (stone), 'Kra' (hill), 'Dong' (tallest)." },
+        { name: "Keokradong", note: "From Marma language: 'Keo' (stone), 'Kra' (hill), 'Dong' (tallest) — 'The Highest Rocky Mountain'." },
       ],
-      comments: "The Bangladesh Army signboard at the summit proclaims an altitude of 967 meters (3,173 ft), while handheld GPS devices have recorded heights up to 986 meters (3,235 ft).",
+      comments: "The Bangladesh Army signboard at the summit proclaims an altitude of 967 meters (3,173 ft), while handheld GPS devices have recorded heights up to 986 meters (3,235 ft). It is famous for its misty, cloud-covered environment.",
     }
   },
   {
@@ -1203,7 +1203,7 @@ export const mountains: Mountain[] = [
     alt_name: "Thingdawlte Tlang",
     slug: "thindawlte-tlang",
     altitude_ft: 3149,
-    altitude_m: 960,
+    altitude_m: 960, // 3149 ft GPS accuracy measured by Fahim Hasan
     height_source: "gps",
     region: "Bandarban",
     lat: 21.91028,
@@ -1226,7 +1226,7 @@ export const mountains: Mountain[] = [
     id: "47",
     name_en: "Kreikun Taung",
     name_bn: "ক্রেইকুন তং",
-    alt_name: "Nyaram Tlang",
+    alt_name: "Ngaramh Tlang",
     slug: "kreikun-taung",
     altitude_ft: 3083,
     altitude_m: 940,
@@ -1237,7 +1237,7 @@ export const mountains: Mountain[] = [
     difficulty: 7,
     prominence: 0,
     range: "Lawmbok Row Range",
-    description: "Second highest peak of the Lawmbok Row range. The name 'Kreikun Taung' means Fish Mountain in the local Marma language.",
+    description: "Second highest peak of the Lawmbok Row range. The name 'Kreikun Taung' means Fish Mountain in the local Marma language. It is also known as Ngaramh Tlang.",
     images: [],
     first_ascent_date: "2012-12",
     category: "peak",
