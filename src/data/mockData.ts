@@ -3609,6 +3609,28 @@ export const waterfalls: Waterfall[] = [
     trail_files: [],
     hydrology: null,
   },
+  {
+    id: "w48",
+    name_en: "Tuinum Waterfall",
+    name_bn: "তুইনুম ঝর্ণা",
+    slug: "tuinum-waterfall",
+    lat: 21.4485,
+    lng: 92.4653,
+    region: "Bandarban",
+    region_tag: "CHT",
+    description:
+      "Located in Ward 9 of Kurukpata Union (No. 4), Alikadam Upazila. Home to the Mro community who call it 'Tuinum O' — in the Mro language, 'Tui' means water, 'Num' means black, and 'O' means stream, so 'Tuinum O' translates to 'stream of black water'. Features two separate water streams falling side-by-side from a roughly 150-foot cliff, with two cave-like tunnels at the base. Also called 'Lomba Gario' because bamboo is cut from the top and rolled down one side.",
+    how_to_go:
+      "Located approximately 50 km from Alikadam sadar via the Matamuhuri river route. Requires boat travel followed by a trek through the Matamuhuri Reserve.",
+    tips:
+      "Extremely remote location in a reserve forest. Local Mro guide and permits required. Best during monsoon for maximum water flow.",
+    contributor: "",
+    coordinates_pending: false,
+    nearby_peak_slugs: [],
+    images: [],
+    trail_files: [],
+    hydrology: null,
+  },
 ];
 
 export interface StreamEntry {
