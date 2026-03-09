@@ -1,65 +1,72 @@
-# BdPeaks
+# BD Peaks 🇧🇩 — An Open Archive of Bangladesh's Mountains and Waterfalls!
 
-This project is a web application built using:
+For a long time, there has been a need for a centralized database containing survey details of all the mountains and waterfalls in Bangladesh. Half of our people still think Keokradong is the highest peak in the country, while the other half believes it to be Saka Haphong (Mowdok Mual) or Tahjingdong. This confusion exists primarily because we have never had a centralized, reliable archive. 
+
+Around 2012, *BanglaTrek* started a noble initiative to document these peaks, but unfortunately, the project was discontinued. Essentially, this project begins where they left off. This initiative exists entirely thanks to some extraordinary individuals who, out of pure passion, are surveying each mountain and publicly sharing their findings. Previously, these survey details were scattered across different social media posts, blogs, and Wikiloc trails; **BD Peaks** is simply bringing all of this valuable data together in one place.
+
+## The Database
+
+As of now, **100 peaks** and **51 waterfalls** have been fully documented. For those who love mountains or conduct geographical research, this will serve as a definitive, one-stop database. The archive includes comprehensive details such as:
+- Height
+- Location & Coordinates
+- Survey Name & Local Name
+- Prominence & Isolation
+- Mountain Range
+- Geographic Details & Topographic Analysis
+- Drainage systems
+- ...and much more!
+
+## Acknowledgements 🤝
+
+This extensive work would not have been possible alone. Many have helped with raw data, field knowledge, and direct surveys. 
+
+A special thanks goes to **Hasan Shihab** and the **Symphony of Horizon** team, who publish the vast majority of detailed survey reports. 
+
+Additionally, the contributions of the following individuals and groups are highly notable and greatly appreciated:
+- **BanglaTrek Archive**
+- **Nature Adventure Club**
+- **D-Way Expeditors**
+- **Sangsaptak Ovijatri (সংশপ্তক অভিযাত্রী)**
+- **BD Explorers**
+- **Pear Alam**
+- **Salehin Arshady**
+
+## Contributing and Corrections 📝
+
+If you have climbed any peak or know of any waterfall that is not currently on this list, or if you spot any incorrect information—**please let us know!** Your local knowledge and fresh field data will help make this archive richer, more accurate, and a better resource for everyone.
+
+---
+
+## Technical Overview
+
+This project is a modern web application built with:
 - **Frontend**: React, Vite, TypeScript, Tailwind CSS, Shadcn UI
 - **Backend**: Node.js, Express
 - **Database**: Prisma ORM with SQLite
 
-## Getting Started
+### Getting Started Locally
 
-### Prerequisites
-- Node.js (v18+)
-- npm or yarn or pnpm or bun
-
-### Installation
-
-1. Clone the repository:
+1. Clone the repository and install dependencies:
    ```bash
    git clone https://github.com/nurulgofran/BdPeaks.git
    cd BdPeaks
+   npm install        # For frontend
+   cd backend && npm install # For backend
    ```
 
-2. Install frontend dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Install backend dependencies:
-   ```bash
-   cd backend
-   npm install
-   ```
-
-4. Set up environment variables:
-   Copy `.env.example` to `.env` in both the root and `backend` directories as needed.
-
-5. Set up the database:
+2. Set up the database:
    ```bash
    cd backend
    npx prisma generate
    npx prisma db push
    ```
 
-### Running the App Locally
-
-1. Start the React Frontend:
+3. Run the application:
    ```bash
-   # In the root directory
+   # Terminal 1: Start React Frontend
    npm run dev
-   ```
 
-2. Start the Node.js Backend:
-   ```bash
-   # In the backend directory
+   # Terminal 2: Start Node Backend
+   cd backend
    npm run start
-   # or node server.js
    ```
-
-## Folder Structure
-
-- `/src` - React frontend code
-- `/backend` - Node.js/Express backend code and Prisma schema
-- `/public` - Static assets
-
-## License
-MIT License
