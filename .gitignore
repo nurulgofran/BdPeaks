@@ -71,3 +71,6 @@ Desktop.ini
 *.db-journal
 *.sqlite
 *.sqlite3
+
+# GitHub CI/CD and Templates
+.github
