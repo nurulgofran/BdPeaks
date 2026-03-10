@@ -74,3 +74,22 @@ Desktop.ini
 
 # GitHub CI/CD and Templates
 .github
+
+# Testing tools
+.testsprite/
+
+# AI assistant configs
+.claude/
+.agents/
+.agent/
+.gemini/
+
+# Docker
+docker-compose.override.yml
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+
