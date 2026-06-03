@@ -1,7 +1,13 @@
-export const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN as string;
+export const MAPTILER_KEY = import.meta.env.VITE_MAPTILER_KEY as string;
 
-if (!MAPBOX_TOKEN) {
+if (!MAPTILER_KEY) {
   throw new Error(
-    "Missing VITE_MAPBOX_TOKEN – copy .env.example to .env and add your Mapbox public token."
+    "Missing VITE_MAPTILER_KEY – copy .env.example to .env and add your MapTiler API key."
   );
 }
+
+/** MapTiler satellite+streets hybrid style */
+export const MAP_STYLE = `https://api.maptiler.com/maps/hybrid/style.json?key=${MAPTILER_KEY}`;
+
+/** MapTiler terrain DEM source URL */
+export const TERRAIN_SOURCE_URL = `https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=${MAPTILER_KEY}`;

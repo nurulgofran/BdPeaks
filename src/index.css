@@ -121,14 +121,14 @@
   background: hsl(220 20% 35%);
 }
 
-/* Mapbox popup polish */
-.mapboxgl-popup-content {
+/* MapLibre popup polish */
+.maplibregl-popup-content {
   border-radius: 8px !important;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
   padding: 8px 12px !important;
 }
 
-.mapboxgl-popup-tip {
+.maplibregl-popup-tip {
   border-top-color: white !important;
 }
 

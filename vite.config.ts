@@ -28,9 +28,9 @@ export default defineConfig(({ mode }) => ({
             "react-dom",
             "react-router-dom",
           ],
-          // Mapbox — heaviest dependency, only needed on Map page
+          // MapLibre — heaviest dependency, only needed on Map page
           "vendor-map": [
-            "mapbox-gl",
+            "maplibre-gl",
           ],
           // Animation library
           "vendor-motion": [

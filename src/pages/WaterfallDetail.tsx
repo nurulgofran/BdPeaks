@@ -4,19 +4,17 @@ import { ArrowLeft, Droplets, MapPin, AlertTriangle, Route, Utensils, Info, User
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { waterfalls, mountains } from "@/data/mockData";
-import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
-import { MAPBOX_TOKEN } from "@/lib/mapbox";
+import maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
+import { MAP_STYLE, TERRAIN_SOURCE_URL } from "@/lib/mapbox";
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/PageTransition";
-
-mapboxgl.accessToken = MAPBOX_TOKEN;
 
 const WaterfallDetail = () => {
   const { slug } = useParams();
   const wf = waterfalls.find((w) => w.slug === slug);
   const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
+  const map = useRef<maplibregl.Map | null>(null);
 
   const nearbyPeaks = wf
     ? mountains.filter((m) => wf.nearby_peak_slugs.includes(m.slug))
@@ -25,9 +23,9 @@ const WaterfallDetail = () => {
   useEffect(() => {
     if (!wf || wf.coordinates_pending || !mapContainer.current || map.current) return;
 
-    map.current = new mapboxgl.Map({
+    map.current = new maplibregl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/satellite-streets-v12",
+      style: MAP_STYLE,
       center: [wf.lng!, wf.lat!],
       zoom: 13,
       pitch: 50,
@@ -44,21 +42,21 @@ const WaterfallDetail = () => {
     const t3 = setTimeout(() => map.current?.resize(), 700);
 
     map.current.on("style.load", () => {
-      map.current!.addSource("mapbox-dem", {
+      map.current!.addSource("terrain-dem", {
         type: "raster-dem",
-        url: "mapbox://mapbox.mapbox-terrain-dem-v1",
+        url: TERRAIN_SOURCE_URL,
         tileSize: 512,
         maxzoom: 14,
       });
-      map.current!.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
+      map.current!.setTerrain({ source: "terrain-dem", exaggeration: 1.5 });
     });
 
-    map.current.addControl(new mapboxgl.NavigationControl(), "top-right");
+    map.current.addControl(new maplibregl.NavigationControl(), "top-right");
 
     const el = document.createElement("div");
     el.style.cssText =
       "width:16px;height:16px;background:hsl(200,80%,50%);border:2px solid white;border-radius:50%;box-shadow:0 0 10px hsl(200,80%,50%,0.6)";
-    new mapboxgl.Marker(el).setLngLat([wf.lng!, wf.lat!]).addTo(map.current);
+    new maplibregl.Marker({ element: el }).setLngLat([wf.lng!, wf.lat!]).addTo(map.current);
 
     return () => {
       ro.disconnect(); clearTimeout(t1); clearTimeout(t2); clearTimeout(t3);

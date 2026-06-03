@@ -4,27 +4,25 @@ import { ArrowLeft, Mountain, MapPin, TrendingUp, Calendar, Download, Droplets, 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { mountains, waterfalls } from "@/data/mockData";
-import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
-import { MAPBOX_TOKEN } from "@/lib/mapbox";
+import maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
+import { MAP_STYLE, TERRAIN_SOURCE_URL } from "@/lib/mapbox";
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/PageTransition";
 import { WeatherWidget } from "@/components/WeatherWidget";
-
-mapboxgl.accessToken = MAPBOX_TOKEN;
 
 const PeakDetail = () => {
   const { slug } = useParams();
   const peak = mountains.find((m) => m.slug === slug);
   const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
+  const map = useRef<maplibregl.Map | null>(null);
 
   useEffect(() => {
     if (!peak || !mapContainer.current || map.current || peak.lat === 0 || peak.lng === 0) return;
 
-    map.current = new mapboxgl.Map({
+    map.current = new maplibregl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/satellite-streets-v12",
+      style: MAP_STYLE,
       center: [peak.lng, peak.lat],
       zoom: 13,
       pitch: 60,
@@ -41,20 +39,20 @@ const PeakDetail = () => {
     const t3 = setTimeout(() => map.current?.resize(), 700);
 
     map.current.on("style.load", () => {
-      map.current!.addSource("mapbox-dem", {
+      map.current!.addSource("terrain-dem", {
         type: "raster-dem",
-        url: "mapbox://mapbox.mapbox-terrain-dem-v1",
+        url: TERRAIN_SOURCE_URL,
         tileSize: 512,
         maxzoom: 14,
       });
-      map.current!.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
+      map.current!.setTerrain({ source: "terrain-dem", exaggeration: 1.5 });
     });
 
-    map.current.addControl(new mapboxgl.NavigationControl(), "top-right");
+    map.current.addControl(new maplibregl.NavigationControl(), "top-right");
 
     const el = document.createElement("div");
     el.style.cssText = "width:16px;height:16px;background:hsl(160,60%,45%);border:2px solid white;border-radius:50%;box-shadow:0 0 10px hsl(160,60%,45%,0.6)";
-    new mapboxgl.Marker(el).setLngLat([peak.lng, peak.lat]).addTo(map.current);
+    new maplibregl.Marker({ element: el }).setLngLat([peak.lng, peak.lat]).addTo(map.current);
 
     return () => { ro.disconnect(); clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); map.current?.remove(); map.current = null; };
   }, [peak]);

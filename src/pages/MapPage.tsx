@@ -1,22 +1,20 @@
 import { useEffect, useRef } from "react";
 import { PageTransition } from "@/components/PageTransition";
-import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
-import { MAPBOX_TOKEN } from "@/lib/mapbox";
+import maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
+import { MAP_STYLE, TERRAIN_SOURCE_URL } from "@/lib/mapbox";
 import { mountains, waterfalls } from "@/data/mockData";
-
-mapboxgl.accessToken = MAPBOX_TOKEN;
 
 const MapPage = () => {
   const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
+  const map = useRef<maplibregl.Map | null>(null);
 
   useEffect(() => {
     if (!mapContainer.current || map.current) return;
 
-    map.current = new mapboxgl.Map({
+    map.current = new maplibregl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/satellite-streets-v12",
+      style: MAP_STYLE,
       center: [92.3, 21.9],
       zoom: 9,
       pitch: 60,
@@ -48,13 +46,13 @@ const MapPage = () => {
     map.current.dragRotate.enable();
 
     map.current.on("style.load", () => {
-      map.current!.addSource("mapbox-dem", {
+      map.current!.addSource("terrain-dem", {
         type: "raster-dem",
-        url: "mapbox://mapbox.mapbox-terrain-dem-v1",
+        url: TERRAIN_SOURCE_URL,
         tileSize: 512,
         maxzoom: 14,
       });
-      map.current!.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
+      map.current!.setTerrain({ source: "terrain-dem", exaggeration: 1.5 });
 
       // Build GeoJSON Features
       const peakFeatures = mountains
@@ -161,14 +159,14 @@ const MapPage = () => {
 
 
       // --- Shared Popup Logic ---
-      const popup = new mapboxgl.Popup({
+      const popup = new maplibregl.Popup({
         closeButton: false,
         closeOnClick: true,
         offset: 10,
         className: "peak-popup",
       });
 
-      const handlePointerEnter = (e: mapboxgl.MapMouseEvent) => {
+      const handlePointerEnter = (e: maplibregl.MapMouseEvent) => {
         map.current!.getCanvas().style.cursor = "pointer";
       };
 
@@ -176,7 +174,7 @@ const MapPage = () => {
         map.current!.getCanvas().style.cursor = "";
       };
 
-      const handleClick = (e: mapboxgl.MapMouseEvent) => {
+      const handleClick = (e: maplibregl.MapMouseEvent) => {
         const features = map.current!.queryRenderedFeatures(e.point, {
           layers: ["peaks-layer", "waterfalls-layer"],
         });
@@ -210,7 +208,7 @@ const MapPage = () => {
       });
     });
 
-    map.current.addControl(new mapboxgl.NavigationControl(), "top-right");
+    map.current.addControl(new maplibregl.NavigationControl(), "top-right");
 
     return () => { ro.disconnect(); clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); map.current?.remove(); map.current = null; };
   }, []);

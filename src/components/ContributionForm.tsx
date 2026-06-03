@@ -2,9 +2,9 @@ import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
-import { MAPBOX_TOKEN } from "@/lib/mapbox";
+import maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
+import { MAP_STYLE, TERRAIN_SOURCE_URL } from "@/lib/mapbox";
 import { MapPin } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -21,8 +21,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 
-// MAPBOX API KEY (Public token is fine for general usage)
-mapboxgl.accessToken = MAPBOX_TOKEN;
+
 
 const formSchema = z.object({
     contributorName: z.string().min(2, "Name must be at least 2 characters."),
@@ -47,8 +46,8 @@ export function ContributionForm() {
     const initialMountain = searchParams.get("mountain") || "";
 
     const mapContainer = useRef<HTMLDivElement>(null);
-    const map = useRef<mapboxgl.Map | null>(null);
-    const marker = useRef<mapboxgl.Marker | null>(null);
+    const map = useRef<maplibregl.Map | null>(null);
+    const marker = useRef<maplibregl.Marker | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const form = useForm<FormValues>({
@@ -68,9 +67,9 @@ export function ContributionForm() {
     useEffect(() => {
         if (!mapContainer.current) return;
 
-        map.current = new mapboxgl.Map({
+        map.current = new maplibregl.Map({
             container: mapContainer.current,
-            style: "mapbox://styles/mapbox/satellite-streets-v12",
+            style: MAP_STYLE,
             center: [92.4, 21.8], // Chittagong Hill Tracts roughly
             zoom: 9,
             pitch: 60,
@@ -79,13 +78,13 @@ export function ContributionForm() {
         });
 
         map.current.on("style.load", () => {
-            map.current!.addSource("mapbox-dem", {
+            map.current!.addSource("terrain-dem", {
                 type: "raster-dem",
-                url: "mapbox://mapbox.mapbox-terrain-dem-v1",
+                url: TERRAIN_SOURCE_URL,
                 tileSize: 512,
                 maxzoom: 14,
             });
-            map.current!.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
+            map.current!.setTerrain({ source: "terrain-dem", exaggeration: 1.5 });
         });
 
         // Add a slight delay then resize the map so it fits its container 
@@ -94,14 +93,14 @@ export function ContributionForm() {
             map.current?.resize();
         }, 300);
 
-        map.current.addControl(new mapboxgl.NavigationControl(), "top-right");
+        map.current.addControl(new maplibregl.NavigationControl(), "top-right");
 
         // Click to drop a pin
         map.current.on("click", (e) => {
             const { lng, lat } = e.lngLat;
 
             if (!marker.current) {
-                marker.current = new mapboxgl.Marker({ color: "#f59e0b" })
+                marker.current = new maplibregl.Marker({ color: "#f59e0b" })
                     .setLngLat([lng, lat])
                     .addTo(map.current!);
             } else {
