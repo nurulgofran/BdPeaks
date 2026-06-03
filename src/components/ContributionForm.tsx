@@ -5,7 +5,7 @@ import * as z from "zod";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { MAP_STYLE, TERRAIN_SOURCE_URL } from "@/lib/mapbox";
-import { MapPin } from "lucide-react";
+import { MapPin, ExternalLink } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -21,11 +21,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 
-
+const GITHUB_REPO = "nurulgofran/BdPeaks";
 
 const formSchema = z.object({
     contributorName: z.string().min(2, "Name must be at least 2 characters."),
-    email: z.string().email("Please enter a valid email address."),
     mountainName: z.string().min(2, "Mountain name is required."),
     latitude: z.string().refine((val) => !isNaN(Number(val)) && Number(val) !== 0, {
         message: "Valid latitude is required.",
@@ -48,13 +47,11 @@ export function ContributionForm() {
     const mapContainer = useRef<HTMLDivElement>(null);
     const map = useRef<maplibregl.Map | null>(null);
     const marker = useRef<maplibregl.Marker | null>(null);
-    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const form = useForm<FormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             contributorName: "",
-            email: "",
             mountainName: initialMountain,
             latitude: "",
             longitude: "",
@@ -116,41 +113,29 @@ export function ContributionForm() {
         };
     }, [form]);
 
-    async function onSubmit(values: FormValues) {
-        setIsSubmitting(true);
+    function onSubmit(values: FormValues) {
+        // Build a pre-filled GitHub Issue URL
+        const title = encodeURIComponent(`📍 Coordinate Contribution: ${values.mountainName}`);
+        const body = encodeURIComponent(
+            `## Contribution Details\n\n` +
+            `| Field | Value |\n` +
+            `|---|---|\n` +
+            `| **Contributor** | ${values.contributorName} |\n` +
+            `| **Peak / Waterfall** | ${values.mountainName} |\n` +
+            `| **Latitude** | ${values.latitude} |\n` +
+            `| **Longitude** | ${values.longitude} |\n` +
+            `| **Proof URL** | ${values.proofUrl || "N/A"} |\n\n` +
+            `### Notes\n${values.notes || "None"}\n\n` +
+            `---\n_Submitted via the BdPeaks contribution form._`
+        );
 
-        try {
-            // Determine API URL based on environment (local vs production)
-            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+        const issueUrl = `https://github.com/${GITHUB_REPO}/issues/new?title=${title}&body=${body}&labels=contribution`;
 
-            const response = await fetch(`${apiUrl}/api/contributions`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(values),
-            });
+        window.open(issueUrl, "_blank", "noopener");
 
-            if (!response.ok) {
-                throw new Error('Failed to submit contribution');
-            }
-
-            toast.success("Contribution Submitted!", {
-                description: "Thank you! Your submission is pending review.",
-            });
-
-            form.reset();
-            if (marker.current) marker.current.remove();
-            marker.current = null;
-
-        } catch (error) {
-            console.error("Submission error:", error);
-            toast.error("Submission failed", {
-                description: "There was an error communicating with the server.",
-            });
-        } finally {
-            setIsSubmitting(false);
-        }
+        toast.success("Redirecting to GitHub!", {
+            description: "A new issue has been prepared with your data. Submit it on GitHub to complete your contribution.",
+        });
     }
 
     return (
@@ -173,33 +158,18 @@ export function ContributionForm() {
                     />
                     <FormField
                         control={form.control}
-                        name="email"
+                        name="mountainName"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Email Address</FormLabel>
+                                <FormLabel>Mountain / Waterfall Name</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="john@example.com" {...field} />
+                                    <Input placeholder="e.g. Saka Haphong" {...field} />
                                 </FormControl>
-                                <FormDescription>So we can contact you if needed.</FormDescription>
                                 <FormMessage />
                             </FormItem>
                         )}
                     />
                 </div>
-
-                <FormField
-                    control={form.control}
-                    name="mountainName"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Mountain / Waterfall Name</FormLabel>
-                            <FormControl>
-                                <Input placeholder="e.g. Saka Haphong" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
 
                 <div className="space-y-2 border border-border/50 rounded-xl p-4 bg-muted/20">
                     <div className="flex items-center gap-2 mb-2 font-medium">
@@ -277,9 +247,14 @@ export function ContributionForm() {
                     )}
                 />
 
-                <Button type="submit" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? "Submitting..." : "Submit Contribution"}
+                <Button type="submit" className="w-full">
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    Submit via GitHub
                 </Button>
+
+                <p className="text-xs text-muted-foreground text-center">
+                    This will open a pre-filled GitHub Issue. You'll need a free GitHub account to submit.
+                </p>
             </form>
         </Form>
     );
