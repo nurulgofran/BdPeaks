@@ -330,19 +330,7 @@ const PeakDetail = () => {
         >
 
 
-          {peak.coordinates_pending ? (
-            <Button asChild className="bg-amber-500 hover:bg-amber-600 text-white">
-              <Link to={`/contribute?mountain=${encodeURIComponent(peak.name_en)}`}>
-                <MapPin className="h-4 w-4 mr-2" /> Provide Coordinates
-              </Link>
-            </Button>
-          ) : (
-            <Button variant="secondary" asChild>
-              <Link to={`/contribute?mountain=${encodeURIComponent(peak.name_en)}`}>
-                Suggest an Edit
-              </Link>
-            </Button>
-          )}
+
         </motion.div>
       </main>
     </PageTransition>

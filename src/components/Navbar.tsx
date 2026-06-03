@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { NavLink } from "@/components/NavLink";
-import { Mountain, Menu, X, Compass, Map, PlusCircle } from "lucide-react";
+import { Mountain, Menu, X, Compass, Map } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 
@@ -9,7 +9,7 @@ const navItems = [
   { to: "/", label: "Home", icon: Mountain },
   { to: "/explore", label: "Explore", icon: Compass },
   { to: "/map", label: "Map", icon: Map },
-  { to: "/contribute", label: "Contribute", icon: PlusCircle },
+
 ];
 
 export function Navbar() {

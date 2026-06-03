@@ -18,7 +18,7 @@ const PeakDetail = lazy(() => import("./pages/PeakDetail"));
 const WaterfallDetail = lazy(() => import("./pages/WaterfallDetail"));
 const MapPage = lazy(() => import("./pages/MapPage"));
 const RegionDetail = lazy(() => import("./pages/RegionDetail"));
-const Contribute = lazy(() => import("./pages/Contribute"));
+
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -46,7 +46,7 @@ function AnimatedRoutes() {
           <Route path="/waterfall/:slug" element={<WaterfallDetail />} />
           <Route path="/map" element={<MapPage />} />
           <Route path="/region/:slug" element={<RegionDetail />} />
-          <Route path="/contribute" element={<Contribute />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

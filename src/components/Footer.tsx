@@ -24,7 +24,7 @@ export function Footer() {
             <nav className="flex flex-col gap-2">
               <Link to="/explore" className="text-sm hover:text-primary transition-colors">All Peaks & Waterfalls</Link>
               <Link to="/map" className="text-sm hover:text-primary transition-colors">3D Terrain Map</Link>
-              <Link to="/contribute" className="text-sm hover:text-primary transition-colors">Contribute Data</Link>
+
             </nav>
           </div>
 
@@ -50,7 +50,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} BD Peaks Archive. Created & Maintained by <a href="https://www.nurulgofran.dev" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors font-medium">Nurul Gofran</a>.
           </p>
-          <p>Maps powered by Mapbox · Elevation data from SRTM & GPS surveys</p>
+          <p>Maps powered by MapTiler & MapLibre · Elevation data from SRTM & GPS surveys</p>
         </div>
       </div>
     </footer>
