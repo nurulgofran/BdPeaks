@@ -102,3 +102,7 @@ google-services.json
 GoogleService-Info.plist
 build/
 dazl.config.json
+
+# Database files
+backend/prisma/*.db
+backend/prisma/*.db-journal
