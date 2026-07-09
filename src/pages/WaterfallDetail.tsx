@@ -44,8 +44,9 @@ const WaterfallDetail = () => {
     map.current.on("style.load", () => {
       map.current!.addSource("terrain-dem", {
         type: "raster-dem",
-        url: TERRAIN_SOURCE_URL,
-        tileSize: 512,
+        tiles: [TERRAIN_SOURCE_URL],
+        encoding: "terrarium",
+        tileSize: 256,
         maxzoom: 14,
       });
       map.current!.setTerrain({ source: "terrain-dem", exaggeration: 1.5 });
