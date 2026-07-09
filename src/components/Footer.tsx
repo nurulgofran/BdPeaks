@@ -41,7 +41,7 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wider">Credits</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Built with data from independent GPS surveys. I deeply acknowledge the foundational work of the Banglatrek Archive, Nature Adventure Club, D-Way Expeditors, সংশপ্তক অভিযাত্রী, BD Explorers, Pear Alam, Salehin Arshady and all the mountain-loving people who continue to enrich this database.
+              Built with data from independent GPS surveys and made possible by monumental contributions from Hasan Shihab & the Symphony of Horizon team. I deeply acknowledge the foundational work of the Banglatrek Archive, Nature Adventure Club, D-Way Expeditors, সংশপ্তক অভিযাত্রী, BD Explorers, Pear Alam, Salehin Arshady and all the mountain-loving people who continue to enrich this database.
             </p>
           </div>
         </div>
