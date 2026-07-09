@@ -179,6 +179,21 @@ const RegionDetail = () => {
           </div>
         </div>
       </div>
+      
+      {/* Peaks & Waterfalls Link */}
+      <div className="mt-12 text-center border-t border-border/50 pt-8">
+        <h2 className="text-2xl font-bold mb-4">Explore {region.name}</h2>
+        <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+          Discover the mountains and waterfalls located in this region.
+        </p>
+        <div className="flex justify-center gap-4">
+          <Button asChild>
+            <Link to={`/explore`}>
+              <Mountain className="h-4 w-4 mr-2" /> View Peaks & Waterfalls
+            </Link>
+          </Button>
+        </div>
+      </div>
     </main>
     </PageTransition>
   );

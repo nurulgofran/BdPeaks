@@ -5,6 +5,8 @@ export function MountainSilhouette({ className }: { className?: string }) {
       className={className}
       preserveAspectRatio="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      role="img"
     >
       <path
         fill="hsl(220 26% 14%)"

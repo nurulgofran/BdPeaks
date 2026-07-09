@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
-import { ArrowLeft, Droplets, MapPin, AlertTriangle, Route, Utensils, Info, User, FileDown, File, Waves, Ruler, BarChart3 } from "lucide-react";
+import { ArrowLeft, Droplets, MapPin, AlertTriangle, Route, Utensils, Info, FileDown, File, Waves, Ruler, BarChart3 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { waterfalls, mountains } from "@/data/mockData";
@@ -108,10 +108,9 @@ const WaterfallDetail = () => {
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold">{wf.name_en}</h1>
           <p className="text-lg sm:text-xl text-muted-foreground mt-1">{wf.name_bn}</p>
-          {wf.contributor && (
+          {wf.alt_name && (
             <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-primary/20 bg-primary/5">
-              <User className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium">Contributed by <span className="text-primary">{wf.contributor}</span></span>
+              <span className="text-sm font-medium">Also known as <span className="text-primary">{wf.alt_name}</span></span>
             </div>
           )}
         </motion.div>

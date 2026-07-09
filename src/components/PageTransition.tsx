@@ -7,9 +7,10 @@ const variants = {
   exit: { opacity: 0, y: -8 },
 };
 
-export function PageTransition({ children }: { children: ReactNode }) {
+export function PageTransition({ children, transitionKey }: { children: ReactNode; transitionKey?: string | number }) {
   return (
     <motion.div
+      key={transitionKey}
       variants={variants}
       initial="initial"
       animate="animate"

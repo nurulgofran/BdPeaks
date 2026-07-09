@@ -2694,7 +2694,7 @@ export const waterfalls: Waterfall[] = [
     id: "w1",
     name_en: "Tlubong Waterfall (The Double Falls)",
     name_bn: "ত্লুবং জলপ্রপাত",
-    slug: "tlubong-waterfall",
+    slug: "tlubong-waterfall-double",
     lat: 21.92217,
     lng: 92.54852,
     region: "Bandarban",
@@ -3257,7 +3257,7 @@ export const waterfalls: Waterfall[] = [
       "The 484-stair climb can be exhausting but is highly rewarding. Can reduce to a trickle in the dry season, so visiting during the monsoon is essential.",
     contributor: "Reaz Uddin",
     coordinates_pending: false,
-    nearby_peak_slugs: ["chandranath"],
+    nearby_peak_slugs: [],
     images: [],
     trail_files: [],
     hydrology: {

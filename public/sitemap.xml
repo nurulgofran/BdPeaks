@@ -16,22 +16,32 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/contribute</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://bdpeaks.info/region/bandarban</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/slug: string;</loc>
+    <loc>https://bdpeaks.info/region/rangamati</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/region/khagrachari</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/region/chittagong</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/peak/paitang-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/paitang-tong</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://bdpeaks.info/peak/mai-tong</loc>
+    <loc>https://bdpeaks.info/peak/mai-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -76,7 +86,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/wali-tong</loc>
+    <loc>https://bdpeaks.info/peak/wali-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -101,7 +111,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/murifa-tong</loc>
+    <loc>https://bdpeaks.info/peak/murifa-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -121,7 +131,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/kapao-tong</loc>
+    <loc>https://bdpeaks.info/peak/kapao-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -136,12 +146,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/kirs-tong</loc>
+    <loc>https://bdpeaks.info/peak/kirs-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/rungraong-tong</loc>
+    <loc>https://bdpeaks.info/peak/rungraong-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -156,17 +166,17 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/thainkhiang-tong</loc>
+    <loc>https://bdpeaks.info/peak/thainkhiang-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/moin-tong</loc>
+    <loc>https://bdpeaks.info/peak/moin-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/sungri-tong</loc>
+    <loc>https://bdpeaks.info/peak/sungri-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -191,7 +201,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/kuaongsu-tong</loc>
+    <loc>https://bdpeaks.info/peak/kuaongsu-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -201,7 +211,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/pao-tong</loc>
+    <loc>https://bdpeaks.info/peak/pao-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -211,7 +221,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/do-tong</loc>
+    <loc>https://bdpeaks.info/peak/do-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -256,7 +266,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/kreikun-tong</loc>
+    <loc>https://bdpeaks.info/peak/kreikun-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -321,7 +331,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/ahlapa-tong</loc>
+    <loc>https://bdpeaks.info/peak/ahlapa-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -406,27 +416,27 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/madhukshiyang-tong</loc>
+    <loc>https://bdpeaks.info/peak/madhukshiyang-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/ri-chong-tong</loc>
+    <loc>https://bdpeaks.info/peak/ri-chong-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/madhugri-tong</loc>
+    <loc>https://bdpeaks.info/peak/madhugri-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/naprai-tong</loc>
+    <loc>https://bdpeaks.info/peak/naprai-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/tankhanai-tong</loc>
+    <loc>https://bdpeaks.info/peak/tankhanai-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -446,7 +456,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/rigrei-khiang-tong</loc>
+    <loc>https://bdpeaks.info/peak/rigrei-khiang-taung</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -516,7 +526,267 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://bdpeaks.info/peak/modhugri-tong</loc>
+    <loc>https://bdpeaks.info/peak/modhugri-taung</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/tlubong-waterfall-double</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/khoiya-chora-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/ri-sung-sung-falls</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/sohosro-dhara-2</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/nafakhum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/ateka-falls</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/sijuk-falls</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/jamrum-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/tinap-saitar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/amiakhum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/jadipai-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/madhabkunda-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/humhum-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/shailapropat</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/chingri-jhiri</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/patang-jhiri</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/baklai-falls</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/faipi-falls</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/sohostro-dhara</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/shuvolong-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/midingachhori-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/recchang-jhorna</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/hati-mutani-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/toiduchori-jharna</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/zingsiam-saitar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/rijuk-falls</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/tar-te-saitar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/tar-pi-saitar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/lung-pher-va-saitar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/saingong-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/damtua-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/langlok-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/komlok-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/velakhum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/satbhaikhum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/remakri-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/soilo-propat</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/duppani-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/shantidhara-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/mitinga-chhari-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/muppochora-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/risang-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/hajachori-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/sapchari-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/kasing-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/lomina-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/apu-jhorna</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/tuinum-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/madhabkunda-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/hum-hum-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/tlubong-waterfall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bdpeaks.info/waterfall/sangu-upper-basin</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

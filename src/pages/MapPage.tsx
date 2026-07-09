@@ -112,7 +112,7 @@ const MapPage = () => {
       // --- Peaks Layer ---
       map.current!.addSource("peaks-source", {
         type: "geojson",
-        data: { type: "FeatureCollection", features: peakFeatures as any },
+        data: { type: "FeatureCollection", features: peakFeatures as GeoJSON.Feature[] },
         cluster: false,
       });
 
@@ -136,7 +136,7 @@ const MapPage = () => {
       // --- Waterfalls Layer ---
       map.current!.addSource("waterfalls-source", {
         type: "geojson",
-        data: { type: "FeatureCollection", features: waterfallFeatures as any },
+        data: { type: "FeatureCollection", features: waterfallFeatures as GeoJSON.Feature[] },
         cluster: false,
       });
 
@@ -181,8 +181,8 @@ const MapPage = () => {
         if (!features.length) return;
 
         const feature = features[0];
-        const props = feature.properties as any;
-        const coordinates = (feature.geometry as any).coordinates.slice();
+        const props = feature.properties || {};
+        const coordinates = (feature.geometry as GeoJSON.Point).coordinates.slice();
 
         // Ensure proper rendering across the dateline
         while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
@@ -202,9 +202,9 @@ const MapPage = () => {
 
       // Bind events
       ["peaks-layer", "waterfalls-layer"].forEach((layer) => {
-        map.current!.on("mouseenter", layer as any, handlePointerEnter);
-        map.current!.on("mouseleave", layer as any, handlePointerLeave);
-        map.current!.on("click", layer as any, handleClick);
+        map.current!.on("mouseenter", layer, handlePointerEnter);
+        map.current!.on("mouseleave", layer, handlePointerLeave);
+        map.current!.on("click", layer, handleClick);
       });
     });
 

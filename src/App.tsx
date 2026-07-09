@@ -38,18 +38,16 @@ function AnimatedRoutes() {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
-      <Suspense fallback={<PageLoader />}>
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Index />} />
-          <Route path="/explore" element={<Explore />} />
-          <Route path="/peak/:slug" element={<PeakDetail />} />
-          <Route path="/waterfall/:slug" element={<WaterfallDetail />} />
-          <Route path="/map" element={<MapPage />} />
-          <Route path="/region/:slug" element={<RegionDetail />} />
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Index />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/peak/:slug" element={<PeakDetail />} />
+        <Route path="/waterfall/:slug" element={<WaterfallDetail />} />
+        <Route path="/map" element={<MapPage />} />
+        <Route path="/region/:slug" element={<RegionDetail />} />
 
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </AnimatePresence>
   );
 }
@@ -68,7 +66,9 @@ const App = () => (
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <ScrollToTop />
         <Navbar />
-        <AnimatedRoutes />
+        <Suspense fallback={<PageLoader />}>
+          <AnimatedRoutes />
+        </Suspense>
         <FooterWrapper />
       </BrowserRouter>
     </TooltipProvider>

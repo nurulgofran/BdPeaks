@@ -1,9 +1,7 @@
 export const MAPTILER_KEY = import.meta.env.VITE_MAPTILER_KEY as string;
 
 if (!MAPTILER_KEY) {
-  throw new Error(
-    "Missing VITE_MAPTILER_KEY – copy .env.example to .env and add your MapTiler API key."
-  );
+  console.warn("Missing VITE_MAPTILER_KEY – copy .env.example to .env and add your MapTiler API key.");
 }
 
 /** MapTiler satellite+streets hybrid style */

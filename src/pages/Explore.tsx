@@ -157,6 +157,7 @@ const Explore = () => {
                 size="icon"
                 className="h-9 w-9 rounded-none transition-colors duration-200"
                 onClick={() => setView("grid")}
+                aria-label="Grid View"
               >
                 <Grid3x3 className="h-4 w-4" />
               </Button>
@@ -165,6 +166,7 @@ const Explore = () => {
                 size="icon"
                 className="h-9 w-9 rounded-none transition-colors duration-200"
                 onClick={() => setView("list")}
+                aria-label="List View"
               >
                 <List className="h-4 w-4" />
               </Button>
