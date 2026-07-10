@@ -6,7 +6,7 @@ export function PeakCard({ peak }: { peak: Mountain }) {
   return (
     <Link
       to={`/peak/${peak.slug}`}
-      className="group relative flex flex-col rounded-xl border border-border/50 bg-card p-5 hover:border-primary/30 hover:bg-accent/30 transition-all duration-250 overflow-hidden"
+      className="group relative flex flex-col rounded-xl border border-border/50 bg-card p-5 hover:border-primary/40 glass-panel hover:shadow-emerald transition-all duration-300 hover:-translate-y-1 overflow-hidden"
     >
       {/* Header row */}
       <div className="flex items-start justify-between gap-3 relative z-10">

@@ -100,7 +100,7 @@ export function WeatherWidget({ lat, lng }: WeatherWidgetProps) {
     const { icon: WeatherIcon, text: weatherDesc } = getWeatherDetails(weather.weatherCode, weather.isDay);
 
     return (
-        <div className="overflow-hidden relative rounded-xl border border-border/50 bg-card p-5">
+        <div className="overflow-hidden relative rounded-xl border border-border/50 glass-panel p-5 hover:shadow-lg transition-shadow duration-300">
             {/* Decorative background element */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -mr-10 -mt-10" />
 

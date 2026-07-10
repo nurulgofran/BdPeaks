@@ -91,14 +91,27 @@
   }
 
   .bg-gradient-hero {
-    background: linear-gradient(180deg,
-        hsl(220 26% 7%) 0%,
-        hsl(220 26% 12%) 50%,
-        hsl(160 40% 10%) 100%);
+    background: linear-gradient(-45deg,
+        hsl(220 26% 7%),
+        hsl(220 26% 12%),
+        hsl(160 40% 10%),
+        hsl(220 26% 9%));
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .glass-panel {
+    @apply bg-background/60 backdrop-blur-xl border border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
   }
 
   .shadow-emerald {
-    box-shadow: 0 0 30px -5px hsl(160 60% 45% / 0.2);
+    box-shadow: 0 0 30px -5px hsl(160 60% 45% / 0.3);
   }
 }
 

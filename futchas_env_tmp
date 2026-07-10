@@ -1,0 +1,10 @@
+TENANCY_ID=ocid1.tenancy.oc1..aaaaaaaavsz3mbr56qb52vaazjmnv42kr7vpcaeen6wcuwnexu6ardlsycqa
+SUBNET_ID=ocid1.subnet.oc1.eu-frankfurt-1.aaaaaaaav3fwpsh2xlv7fgknyqe3jx2wrjfdjgknxvdlrnb34pb5jmltwhdq
+IMAGE_ID=ocid1.image.oc1.eu-frankfurt-1.aaaaaaaay35rggrgfzvsxzl54k7rcd3bb67u4x25ioihwt42upleppnvlvgq
+SHAPE="VM.Standard.A1.Flex"
+OCPUS=4
+MEMORY=24
+DISK_SIZE=200
+PATH_TO_PUBLIC_SSH_KEY="/root/.ssh/id_rsa.pub"
+DISPLAY_NAME="Oracle-Free-ARM"
+AVAILABILITY_DOMAIN="DTmi:EU-FRANKFURT-1-AD-1"

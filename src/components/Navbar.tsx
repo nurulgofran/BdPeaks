@@ -4,6 +4,7 @@ import { NavLink } from "@/components/NavLink";
 import { Mountain, Menu, Compass, Map } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import { motion } from "framer-motion";
 
 const navItems = [
   { to: "/", label: "Home", icon: Mountain },
@@ -16,13 +17,15 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full border-b border-border/20 glass-panel">
       <div className="container flex h-14 md:h-16 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
-          <Mountain className="h-7 w-7 text-primary transition-transform group-hover:scale-110" />
-          <span className="text-xl font-bold tracking-tight">
-            BD <span className="text-primary">Peaks</span>
+          <motion.div whileHover={{ scale: 1.1, rotate: 5 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+            <Mountain className="h-7 w-7 text-primary transition-colors group-hover:text-emerald-glow" />
+          </motion.div>
+          <span className="text-xl font-bold tracking-tight transition-colors group-hover:text-primary">
+            BD <span className="text-primary group-hover:text-foreground transition-colors">Peaks</span>
           </span>
         </Link>
 

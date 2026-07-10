@@ -1,0 +1,6 @@
+[DEFAULT]
+user=ocid1.user.oc1..aaaaaaaaioplz72djngijmf3jwqihrwkiidr4ce5wwx2fwv3tnei2z2sacca
+fingerprint=c5:d1:ec:70:09:cd:51:b6:a5:7b:09:18:84:c0:b7:33
+tenancy=ocid1.tenancy.oc1..aaaaaaaavsz3mbr56qb52vaazjmnv42kr7vpcaeen6wcuwnexu6ardlsycqa
+region=eu-frankfurt-1
+key_file=/root/.oci/oci_api_key.pem

@@ -46,6 +46,10 @@ const Index = () => {
       <main>
         {/* Hero */}
         <section className="relative min-h-[92vh] flex flex-col items-center justify-center bg-gradient-hero overflow-hidden">
+          {/* Glowing orbs */}
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[128px] animate-float mix-blend-screen pointer-events-none" />
+          <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-emerald-glow/10 rounded-full blur-[128px] animate-float mix-blend-screen pointer-events-none" style={{ animationDelay: '2s' }} />
+
           <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, hsl(160 60% 45%) 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
 
           <motion.div
@@ -105,25 +109,31 @@ const Index = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -4 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full mt-2 w-full rounded-xl border border-border bg-card shadow-xl overflow-hidden z-20"
+                    className="absolute top-full mt-2 w-full rounded-xl border border-white/10 glass-panel overflow-hidden z-20 shadow-2xl"
                   >
-                    {searchResults.map((r) => (
-                      <Link
+                    {searchResults.map((r, i) => (
+                      <motion.div
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.05 }}
                         key={`${r.type}-${r.slug}`}
-                        to={`/${r.type === "peak" ? "peak" : "waterfall"}/${r.slug}`}
-                        onClick={() => setShowResults(false)}
-                        className="flex items-center gap-3 px-4 py-3 hover:bg-muted/50 transition-colors border-b border-border/30 last:border-0"
                       >
-                        {r.type === "peak" ? (
-                          <Mountain className="h-4 w-4 text-primary shrink-0" />
-                        ) : (
-                          <Droplets className="h-4 w-4 text-blue-400 shrink-0" />
-                        )}
-                        <div className="text-left min-w-0">
-                          <p className="text-sm font-medium truncate">{r.name}</p>
-                          <p className="text-xs text-muted-foreground">{r.sub}</p>
-                        </div>
-                      </Link>
+                        <Link
+                          to={`/${r.type === "peak" ? "peak" : "waterfall"}/${r.slug}`}
+                          onClick={() => setShowResults(false)}
+                          className="flex items-center gap-3 px-4 py-3 hover:bg-muted/50 transition-colors border-b border-border/20 last:border-0"
+                        >
+                          {r.type === "peak" ? (
+                            <Mountain className="h-4 w-4 text-primary shrink-0" />
+                          ) : (
+                            <Droplets className="h-4 w-4 text-blue-400 shrink-0" />
+                          )}
+                          <div className="text-left min-w-0">
+                            <p className="text-sm font-medium truncate">{r.name}</p>
+                            <p className="text-xs text-muted-foreground">{r.sub}</p>
+                          </div>
+                        </Link>
+                      </motion.div>
                     ))}
                   </motion.div>
                 )}
