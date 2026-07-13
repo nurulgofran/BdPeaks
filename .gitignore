@@ -105,3 +105,6 @@ dazl.config.json
 # Database files
 backend/prisma/*.db
 backend/prisma/*.db-journal
+
+# Antigravity/Copilot local config - do not push to GitHub
+.github/
