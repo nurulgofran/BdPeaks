@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mountain, Droplets } from "lucide-react";
-import { mountains, waterfalls } from "@/data/mockData";
+import { mountains, waterfalls } from "@/data";
 
 export function Footer() {
   return (

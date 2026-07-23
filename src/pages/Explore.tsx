@@ -8,7 +8,8 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/s
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 import { PeakCard } from "@/components/PeakCard";
 import { WaterfallCard } from "@/components/WaterfallCard";
-import { mountains, waterfalls, forestRegions, regions, waterfallRegionTags, type Mountain, type Waterfall } from "@/data/mockData";
+import { mountains, waterfalls, forestRegions, regions, waterfallRegionTags } from "@/data";
+import type { Mountain, Waterfall } from "@/types";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/PageTransition";

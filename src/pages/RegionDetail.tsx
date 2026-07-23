@@ -6,7 +6,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { forestRegions } from "@/data/mockData";
+import { forestRegions } from "@/data";
 
 const RegionDetail = () => {
   const { slug } = useParams();

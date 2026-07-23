@@ -1,0 +1,62 @@
+export interface MountainExtended {
+  survey_name?: string;
+  survey_name_note?: string;
+  local_names?: { name: string; note: string }[];
+  google_earth_location?: string;
+  google_earth_location_note?: string;
+  original_location?: string;
+  original_location_note?: string;
+  political_location?: string;
+  geological_location?: string;
+  anthropological_location?: string[];
+  google_earth_elevation_ft?: number;
+  google_earth_elevation_note?: string;
+  earlier_survey_elevation_ft?: number;
+  earlier_survey_elevation_note?: string;
+  geoid_elevation_ft?: string;
+  geoid_elevation_note?: string;
+  key_col_location?: string;
+  key_col_distance?: string;
+  key_col_elevation?: string;
+  topographic_prominence?: string;
+  proportional_prominence?: string;
+  geographic_isolation?: string;
+  isolation_direction?: string;
+  line_parent?: string;
+  line_parent_note?: string;
+  prominence_parent?: string;
+  prominence_parent_note?: string;
+  island_parent_location?: string;
+  island_parent_note?: string;
+  nearest_settlement?: string;
+  drainage?: string;
+  comments?: string;
+  first_ascent_details?: string;
+  saddle_elevation?: string;
+  mount_code?: string;
+  hero_image?: string;
+  nearest_higher_neighbour?: string;
+}
+
+export interface Mountain {
+  id: string;
+  name_en: string;
+  name_bn: string;
+  alt_name: string;
+  slug: string;
+  altitude_ft: number;
+  altitude_m: number;
+  height_source: "gps" | "gearth";
+  region: "Bandarban" | "Rangamati" | "Khagrachari" | "Chittagong" | "Sylhet";
+  lat: number;
+  lng: number;
+  difficulty: number;
+  prominence: number;
+  range: string;
+  description: string;
+  images: string[];
+  first_ascent_date: string | null;
+  category: "peak" | "waterfall";
+  coordinates_pending?: boolean;
+  extended?: MountainExtended;
+}

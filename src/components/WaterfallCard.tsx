@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Droplets, MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import type { Waterfall } from "@/data/mockData";
+import type { Waterfall } from "@/types";
 
 export function WaterfallCard({ waterfall }: { waterfall: Waterfall }) {
   return (

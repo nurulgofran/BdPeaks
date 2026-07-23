@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, TrendingUp } from "lucide-react";
-import type { Mountain } from "@/data/mockData";
+import type { Mountain } from "@/types";
 
 export function PeakCard({ peak }: { peak: Mountain }) {
   return (

@@ -3,7 +3,7 @@ import { PageTransition } from "@/components/PageTransition";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { MAP_STYLE, TERRAIN_SOURCE_URL } from "@/lib/mapbox";
-import { mountains, waterfalls } from "@/data/mockData";
+import { mountains, waterfalls } from "@/data";
 
 const MapPage = () => {
   const mapContainer = useRef<HTMLDivElement>(null);

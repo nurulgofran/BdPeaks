@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { MountainSilhouette } from "@/components/MountainSilhouette";
 import { PeakCard } from "@/components/PeakCard";
-import { mountains, waterfalls } from "@/data/mockData";
+import { mountains, waterfalls } from "@/data";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageTransition } from "@/components/PageTransition";
 

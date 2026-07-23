@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { ArrowLeft, Mountain, MapPin, TrendingUp, Calendar, Download, Droplets, Globe, Layers, Navigation, Info } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { mountains, waterfalls } from "@/data/mockData";
+import { mountains, waterfalls } from "@/data";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { MAP_STYLE, TERRAIN_SOURCE_URL } from "@/lib/mapbox";

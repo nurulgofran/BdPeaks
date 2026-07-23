@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { ArrowLeft, Droplets, MapPin, AlertTriangle, Route, Utensils, Info, FileDown, File, Waves, Ruler, BarChart3 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { waterfalls, mountains } from "@/data/mockData";
+import { waterfalls, mountains } from "@/data";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { MAP_STYLE, TERRAIN_SOURCE_URL } from "@/lib/mapbox";
